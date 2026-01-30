@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d184r1mnpu2xj" path="res://scenes/character_spot_light.gd" id="3_8ra5a"]
 [ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://objects/Mic_Test_Expo.obj" id="5_5fr2l"]
 [ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_2sb77"]
+[ext_resource type="ArrayMesh" uid="uid://d1h3rh8gpiflx" path="res://objects/TOTENKOPF.obj" id="6_bq26l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bw3m6"]
 
@@ -130,5 +131,9 @@ mesh = ExtResource("5_5fr2l")
 [node name="MaskManager" type="Node" parent="." unique_id=1255905369 node_paths=PackedStringArray("shader_overlay_manager")]
 script = ExtResource("6_2sb77")
 shader_overlay_manager = NodePath("../Player/Camera3D/CanvasLayer/ColorRect")
+
+[node name="Totenkopf" type="MeshInstance3D" parent="." unique_id=295095495]
+transform = Transform3D(0.12915829, -0.0042951186, 0.07615571, -0.014445381, 0.14567451, 0.03271495, -0.074896395, -0.035503365, 0.12502016, -3.1373243, 0.23668951, -1.4256592)
+mesh = ExtResource("6_bq26l")
 
 [editable path="Player"]
