@@ -33,7 +33,6 @@ enum overlay_types{
 
 func _ready() -> void:
 	_screen_overlay_rect.color = active_overlay_color
-	current_overlay = overlay_types.DEPRESSION
 
 func _tween_to_newscale(new_color: Color, corner_effect_strengh: float, tween_time_sec: float):
 	get_tree().create_tween().tween_property(_screen_overlay_rect, "color", new_color, tween_time_sec)
