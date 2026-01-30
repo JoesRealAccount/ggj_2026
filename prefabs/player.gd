@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-signal player_death
-
 const SPEED = 5.0
 const JUMP_UP_VELOCITY = 8.0
 
