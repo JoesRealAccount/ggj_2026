@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bil2lm7vf2aiu"]
+
+[ext_resource type="Script" uid="uid://cktmuwq2qlmcw" path="res://prefabs/camera.gd" id="1_tmlye"]
+[ext_resource type="Shader" uid="uid://dvw31yv05xapa" path="res://shaders/grayscale.gdshader" id="2_gtx3x"]
+[ext_resource type="Script" uid="uid://dxw2fq2qsmx20" path="res://shaders/shader_manager.gd" id="3_b05li"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5pu3"]
+shader = ExtResource("2_gtx3x")
+shader_parameter/edge_intensity = 0.10000000149012
+
+[node name="Camera" type="Camera3D" unique_id=657267949]
+script = ExtResource("1_tmlye")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1563520118]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1257275756 node_paths=PackedStringArray("_screen_overlay_rect")]
+material = SubResource("ShaderMaterial_k5pu3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("3_b05li")
+_screen_overlay_rect = NodePath(".")

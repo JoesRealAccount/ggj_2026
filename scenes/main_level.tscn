@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://q72ak00asrxc" path="res://scenes/main_level.gd" id="1_bq26l"]
 [ext_resource type="PackedScene" uid="uid://dlmoo8dxmcxuu" path="res://prefabs/player.tscn" id="2_qmak7"]
 [ext_resource type="Script" uid="uid://d184r1mnpu2xj" path="res://scenes/character_spot_light.gd" id="3_8ra5a"]
+[ext_resource type="PackedScene" uid="uid://bil2lm7vf2aiu" path="res://prefabs/camera.tscn" id="3_u2c82"]
 [ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://objects/Mic_Test_Expo.obj" id="5_5fr2l"]
 [ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_2sb77"]
 [ext_resource type="ArrayMesh" uid="uid://d1h3rh8gpiflx" path="res://objects/TOTENKOPF.obj" id="6_bq26l"]
@@ -39,6 +40,10 @@ script = ExtResource("1_bq26l")
 [node name="Player" parent="." unique_id=449052630 instance=ExtResource("2_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
 max_jump_count = 1
+
+[node name="Camera" parent="." unique_id=657267949 node_paths=PackedStringArray("lookAtTarget") instance=ExtResource("3_u2c82")]
+lookAtTarget = NodePath("../Player")
+offset = Vector3(0, 2, 8)
 
 [node name="CharacterSpotLight" type="SpotLight3D" parent="." unique_id=1215779605 node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6.606348, 10.55814, 0)
@@ -130,10 +135,11 @@ mesh = ExtResource("5_5fr2l")
 
 [node name="MaskManager" type="Node" parent="." unique_id=1255905369 node_paths=PackedStringArray("shader_overlay_manager")]
 script = ExtResource("6_2sb77")
-shader_overlay_manager = NodePath("../Player/Camera3D/CanvasLayer/ColorRect")
+shader_overlay_manager = NodePath("../Camera/CanvasLayer/ColorRect")
 
 [node name="Totenkopf" type="MeshInstance3D" parent="." unique_id=295095495]
 transform = Transform3D(0.12915829, -0.0042951186, 0.07615571, -0.014445381, 0.14567451, 0.03271495, -0.074896395, -0.035503365, 0.12502016, -3.1373243, 0.23668951, -1.4256592)
 mesh = ExtResource("6_bq26l")
 
 [editable path="Player"]
+[editable path="Camera"]
