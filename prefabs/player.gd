@@ -2,14 +2,17 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 8.0
+const JUMP_UP_VELOCITY = 8.0
 
-var starting_position: Vector3
-var jump_direction: float = 0.0
+enum JumpDirection {NONE, LEFT, RIGHT}
 
+
+var spawn_position: Vector3
+var jump_direction: JumpDirection = JumpDirection.NONE
+var jump_x_velocity: float = 0.0
 
 func _ready() -> void:
-	starting_position = global_position
+	spawn_position = global_position
 
 
 func _physics_process(delta: float) -> void:
@@ -22,9 +25,12 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		jump_direction = input_dir
-
+		velocity.y = JUMP_UP_VELOCITY
+		jump_direction = JumpDirection.NONE
+		jump_x_velocity = 0.0
+		if not is_zero_approx(input_dir):
+			jump_direction = JumpDirection.LEFT if input_dir < 0 else JumpDirection.RIGHT
+			jump_x_velocity = input_dir * SPEED
 	if is_on_floor():
 		if input_dir:
 			velocity.x = input_dir * SPEED
@@ -32,19 +38,20 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:
 		# If no direction was set on jump, allow one mid-air choice.
-		if is_zero_approx(jump_direction) and not is_zero_approx(input_dir):
-			jump_direction = input_dir
+		if jump_direction == JumpDirection.NONE and not is_zero_approx(input_dir):
+			jump_direction = JumpDirection.LEFT if input_dir < 0 else JumpDirection.RIGHT
+			jump_x_velocity = input_dir * SPEED
 		var valid_input_dir := input_dir
-		if not is_zero_approx(jump_direction) and not is_zero_approx(input_dir):
-			if sign(input_dir) != sign(jump_direction):
+		if jump_direction != JumpDirection.NONE and not is_zero_approx(input_dir):
+			if (input_dir < 0 and jump_direction == JumpDirection.RIGHT) or (input_dir > 0 and jump_direction == JumpDirection.LEFT):
 				valid_input_dir = 0.0
 		# Only move while a valid direction key is pressed.
 		if is_zero_approx(valid_input_dir):
 			velocity.x = move_toward(velocity.x, 0, SPEED * delta)
 		else:
 			# Lock movement direction if in the air.
-			velocity.x = jump_direction * SPEED
-	
+			velocity.x = jump_x_velocity
+
 	# Lock Z-axis movement
 	velocity.z = 0
 
@@ -52,5 +59,5 @@ func _physics_process(delta: float) -> void:
 	
 	# Reset if fallen below -20 meters
 	if global_position.y < -20:
-		global_position = starting_position
+		global_position = spawn_position
 		velocity = Vector3.ZERO
