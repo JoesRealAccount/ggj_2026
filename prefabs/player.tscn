@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dlmoo8dxmcxuu"]
+
+[ext_resource type="Script" uid="uid://4hscqonf2d4q" path="res://prefabs/player.gd" id="1_qhqgy"]
+[ext_resource type="Shader" uid="uid://dvw31yv05xapa" path="res://shaders/grayscale.gdshader" id="2_dqkch"]
+[ext_resource type="Script" uid="uid://dxw2fq2qsmx20" path="res://shaders/shader_manager.gd" id="3_qlg0r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bw3m6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6614m"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhu08"]
+shader = ExtResource("2_dqkch")
+shader_parameter/edge_intensity = 0.10000000149012
+
+[node name="Player" type="CharacterBody3D" unique_id=449052630]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+script = ExtResource("1_qhqgy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=680144495]
+shape = SubResource("CapsuleShape3D_bw3m6")
+
+[node name="MeshInstance3D" type="CSGCylinder3D" parent="." unique_id=1450782178]
+material = SubResource("StandardMaterial3D_6614m")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1706298193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D" unique_id=1873372432]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/CanvasLayer" unique_id=120308719 node_paths=PackedStringArray("_screen_overlay_rect")]
+material = SubResource("ShaderMaterial_bhu08")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("3_qlg0r")
+_screen_overlay_rect = NodePath(".")

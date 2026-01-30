@@ -1,20 +1,9 @@
 [gd_scene format=3 uid="uid://cv53pwy2syyym"]
 
-[ext_resource type="Script" uid="uid://q72ak00asrxc" path="res://main_level.gd" id="1_6614m"]
-[ext_resource type="Script" uid="uid://4hscqonf2d4q" path="res://player.gd" id="1_bw3m6"]
-[ext_resource type="Shader" uid="uid://dvw31yv05xapa" path="res://shaders/grayscale.gdshader" id="2_6614m"]
-[ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://Mic_Test_Expo.obj" id="3_bhu08"]
-[ext_resource type="Script" uid="uid://dxw2fq2qsmx20" path="res://shaders/shader_manager.gd" id="4_05as6"]
-[ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_4mnpp"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bw3m6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6614m"]
-albedo_color = Color(0, 1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhu08"]
-shader = ExtResource("2_6614m")
-shader_parameter/edge_intensity = 0.10000000149012
+[ext_resource type="Script" uid="uid://q72ak00asrxc" path="res://scenes/main_level.gd" id="1_bq26l"]
+[ext_resource type="PackedScene" uid="uid://dlmoo8dxmcxuu" path="res://prefabs/player.tscn" id="2_qmak7"]
+[ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://objects/Mic_Test_Expo.obj" id="5_5fr2l"]
+[ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_2sb77"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bw3m6"]
 
@@ -43,35 +32,10 @@ data = PackedVector3Array(-1, -0.25, 0.5, -1, -0.25, -0.5, -1, 0.25, -0.5, 1, -0
 data = PackedVector3Array(-1, -0.25, 0.5, -1, -0.25, -0.5, -1, 0.25, -0.5, 1, -0.25, -0.5, -1, -0.25, -0.5, -1, -0.25, 0.5, -1, 0.25, -0.5, -1, -0.25, -0.5, 1, -0.25, -0.5, -1, 0.25, -0.5, -1, 0.25, 0.5, -1, -0.25, 0.5, -1, -0.25, 0.5, -1, 0.25, 0.5, 1, 0.25, 0.5, 1, 0.25, 0.5, -1, 0.25, 0.5, -1, 0.25, -0.5, -1, -0.25, 0.5, 1, -0.25, 0.5, 1, -0.25, -0.5, 1, 0.25, 0.5, 1, -0.25, 0.5, -1, -0.25, 0.5, 1, -0.25, -0.5, 1, -0.25, 0.5, 1, 0.25, 0.5, 1, -0.25, -0.5, 1, 0.25, -0.5, -1, 0.25, -0.5, -1, 0.25, -0.5, 1, 0.25, -0.5, 1, 0.25, 0.5, 1, 0.25, 0.5, 1, 0.25, -0.5, 1, -0.25, -0.5)
 
 [node name="World" type="Node3D" unique_id=1459611085]
-script = ExtResource("1_6614m")
+script = ExtResource("1_bq26l")
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=789084589]
+[node name="Player" parent="." unique_id=449052630 instance=ExtResource("2_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-script = ExtResource("1_bw3m6")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=332306645]
-shape = SubResource("CapsuleShape3D_bw3m6")
-
-[node name="MeshInstance3D" type="CSGCylinder3D" parent="Player" unique_id=1592912360]
-material = SubResource("StandardMaterial3D_6614m")
-
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=2103303532]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera3D" unique_id=272772197]
-
-[node name="ColorRect" type="ColorRect" parent="Player/Camera3D/CanvasLayer" unique_id=970701313 node_paths=PackedStringArray("_screen_overlay_rect")]
-material = SubResource("ShaderMaterial_bhu08")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0)
-script = ExtResource("4_05as6")
-_screen_overlay_rect = NodePath(".")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=979951912]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -151,8 +115,7 @@ shape = SubResource("ConcavePolygonShape3D_eqmdw")
 
 [node name="MicTestExpo" type="MeshInstance3D" parent="." unique_id=594581349]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 1.3)
-mesh = ExtResource("3_bhu08")
+mesh = ExtResource("5_5fr2l")
 
-[node name="MaskManager" type="Node" parent="." unique_id=1255905369 node_paths=PackedStringArray("shader_overlay_manager")]
-script = ExtResource("6_4mnpp")
-shader_overlay_manager = NodePath("../Player/Camera3D/CanvasLayer/ColorRect")
+[node name="MaskManager" type="Node" parent="." unique_id=1255905369]
+script = ExtResource("6_2sb77")
