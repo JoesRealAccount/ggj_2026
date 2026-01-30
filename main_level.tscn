@@ -35,7 +35,7 @@ data = PackedVector3Array(-1, -0.25, 0.5, -1, -0.25, -0.5, -1, 0.25, -0.5, 1, -0
 script = ExtResource("1_6614m")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=789084589]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.365058, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2174535, 0)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 script = ExtResource("1_bw3m6")
@@ -49,14 +49,13 @@ shape = SubResource("CapsuleShape3D_bw3m6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 10)
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=979951912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 physics_material_override = SubResource("PhysicsMaterial_bw3m6")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Floor" unique_id=826435802]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(20, 1, 1)
 
 [node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=11376495]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("ConcavePolygonShape3D_uhmka")
 
 [node name="Platform1" type="StaticBody3D" parent="." unique_id=809709939]
@@ -87,7 +86,7 @@ size = Vector3(3, 0.5, 1)
 shape = SubResource("ConcavePolygonShape3D_05as6")
 
 [node name="Platform4" type="StaticBody3D" parent="." unique_id=196942408]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5865993, 3.3613906, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5865993, 3.85187, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Platform4" unique_id=1810893554]
 size = Vector3(3, 0.5, 1)
@@ -96,7 +95,7 @@ size = Vector3(3, 0.5, 1)
 shape = SubResource("ConcavePolygonShape3D_5ymk8")
 
 [node name="Platform5" type="StaticBody3D" parent="." unique_id=351375189]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.1233377, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.707685, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Platform5" unique_id=52125670]
 size = Vector3(3, 0.5, 1)
@@ -105,7 +104,7 @@ size = Vector3(3, 0.5, 1)
 shape = SubResource("ConcavePolygonShape3D_4mnpp")
 
 [node name="Platform6" type="StaticBody3D" parent="." unique_id=1602373132]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5.3128843, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Platform6" unique_id=97610814]
 size = Vector3(2, 0.5, 1)
