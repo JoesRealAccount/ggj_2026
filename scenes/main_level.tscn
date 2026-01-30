@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_2sb77"]
 [ext_resource type="PackedScene" uid="uid://chg0eqr7v2cdp" path="res://prefabs/totenkopf.tscn" id="7_u2c82"]
 
+[sub_resource type="Environment" id="Environment_u2c82"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.06
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bw3m6"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uhmka"]
@@ -37,11 +41,23 @@ data = PackedVector3Array(-1, -0.25, 0.5, -1, -0.25, -0.5, -1, 0.25, -0.5, 1, -0
 [node name="World" type="Node3D" unique_id=1459611085]
 script = ExtResource("1_bq26l")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2124041233]
+environment = SubResource("Environment_u2c82")
+
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment" unique_id=330421816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+size = Vector3(42.259285, 31.16742, 9.22644)
+
+[node name="FogVolume2" type="FogVolume" parent="WorldEnvironment" unique_id=263002170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 3)
+size = Vector3(26.490479, 2, 40.606018)
+
 [node name="Player" parent="." unique_id=449052630 instance=ExtResource("2_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
 max_jump_count = 1
 
 [node name="Camera" parent="." unique_id=657267949 node_paths=PackedStringArray("lookAtTarget") instance=ExtResource("3_u2c82")]
+environment = null
 lookAtTarget = NodePath("../Player")
 offset = Vector3(0, 2, 8)
 
