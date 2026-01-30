@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cv53pwy2syyym"]
 
-[ext_resource type="Script" uid="uid://q72ak00asrxc" path="res://main_level.gd" id="1_6614m"]
+[ext_resource type="Script" path="res://main_level.gd" id="1_6614m"]
 [ext_resource type="Script" uid="uid://4hscqonf2d4q" path="res://player.gd" id="1_bw3m6"]
 [ext_resource type="Shader" uid="uid://dvw31yv05xapa" path="res://shaders/grayscale.gdshader" id="2_6614m"]
+[ext_resource type="Script" uid="uid://dxw2fq2qsmx20" path="res://shaders/shader_manager.gd" id="4_05as6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bw3m6"]
 
@@ -11,6 +12,7 @@ albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bhu08"]
 shader = ExtResource("2_6614m")
+shader_parameter/edge_intensity = 0.10000000149012
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bw3m6"]
 
@@ -58,13 +60,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 10)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera3D" unique_id=272772197]
 
-[node name="ColorRect" type="ColorRect" parent="Player/Camera3D/CanvasLayer" unique_id=970701313]
+[node name="ColorRect" type="ColorRect" parent="Player/Camera3D/CanvasLayer" unique_id=970701313 node_paths=PackedStringArray("_screen_overlay_rect")]
 material = SubResource("ShaderMaterial_bhu08")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_05as6")
+_screen_overlay_rect = NodePath(".")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=979951912]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
