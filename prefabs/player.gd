@@ -79,6 +79,6 @@ func _physics_process(delta: float) -> void:
 		_kill_player()
 
 func _kill_player():
-	player_death.emit()
+	SignalManager.player_death.emit()
 	global_position = spawn_position
 	velocity = Vector3.ZERO
