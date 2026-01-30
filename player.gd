@@ -4,6 +4,12 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+var starting_position: Vector3
+
+
+func _ready() -> void:
+	starting_position = global_position
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -25,3 +31,8 @@ func _physics_process(delta: float) -> void:
 	velocity.z = 0
 
 	move_and_slide()
+	
+	# Reset if fallen below -20 meters
+	if global_position.y < -20:
+		global_position = starting_position
+		velocity = Vector3.ZERO
