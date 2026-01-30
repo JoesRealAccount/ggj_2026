@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://lp7hcybwol1c"]
 
 [ext_resource type="Script" uid="uid://csy6kq4j2ybg7" path="res://main_screen.gd" id="1_tjn2e"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_0hkt3"]
+[ext_resource type="Texture2D" uid="uid://cl0lkq22468iu" path="res://Start.png" id="2_w0p2i"]
+[ext_resource type="Texture2D" uid="uid://c7is0blqjfph4" path="res://Exit.png" id="3_7a4el"]
 
 [node name="TitleScreen" type="Control" unique_id=1641681516]
 layout_mode = 3
@@ -28,15 +28,21 @@ layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="ButtonStart" type="Button" parent="MarginContainer/VBoxContainer" unique_id=898432812]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1323957951]
 layout_mode = 2
-text = "Start"
-icon = SubResource("ImageTexture_0hkt3")
+alignment = 1
 
-[node name="ButtonQuit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1131014016]
+[node name="ButtonStart" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1894593326]
 layout_mode = 2
-text = "Quit"
-icon = SubResource("ImageTexture_0hkt3")
+texture_normal = ExtResource("2_w0p2i")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=613564034]
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonQuit" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1735702469]
+layout_mode = 2
+texture_normal = ExtResource("3_7a4el")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/ButtonQuit" to="." method="_on_button_quit_pressed"]
