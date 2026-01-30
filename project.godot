@@ -24,6 +24,10 @@ window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+world_happiness=""
+
 [input]
 
 jump={
