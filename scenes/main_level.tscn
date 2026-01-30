@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://p0w1a0nj16ku" path="res://prefabs/character_spot_light.tscn" id="4_u2c82"]
 [ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://objects/Mic_Test_Expo.obj" id="5_5fr2l"]
 [ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_2sb77"]
-[ext_resource type="ArrayMesh" uid="uid://d1h3rh8gpiflx" path="res://objects/TOTENKOPF.obj" id="6_bq26l"]
+[ext_resource type="PackedScene" uid="uid://chg0eqr7v2cdp" path="res://prefabs/totenkopf.tscn" id="7_u2c82"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bw3m6"]
 
@@ -47,6 +47,10 @@ offset = Vector3(0, 2, 8)
 
 [node name="CharacterSpotLight" parent="." unique_id=215407691 node_paths=PackedStringArray("target") instance=ExtResource("4_u2c82")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6.606348, 10.55814, 0)
+light_energy = 3.994
+light_specular = 3.0
+spot_range = 26.92353
+spot_angle = 17.712234
 target = NodePath("../Player")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=979951912]
@@ -133,9 +137,8 @@ mesh = ExtResource("5_5fr2l")
 script = ExtResource("6_2sb77")
 shader_overlay_manager = NodePath("../Camera/CanvasLayer/ColorRect")
 
-[node name="Totenkopf" type="MeshInstance3D" parent="." unique_id=295095495]
-transform = Transform3D(0.12915829, -0.0042951186, 0.07615571, -0.014445381, 0.14567451, 0.03271495, -0.074896395, -0.035503365, 0.12502016, -3.1373243, 0.23668951, -1.4256592)
-mesh = ExtResource("6_bq26l")
+[node name="Totenkopf" parent="." unique_id=353993623 instance=ExtResource("7_u2c82")]
+transform = Transform3D(0.12850897, -0.03674884, 0.068080634, 0.01034595, 0.13897514, 0.055487588, -0.07667078, -0.042841945, 0.12159833, -3.4268987, 0.15765375, -1.4691439)
 
 [editable path="Player"]
 [editable path="Camera"]

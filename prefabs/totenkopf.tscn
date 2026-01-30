@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://chg0eqr7v2cdp"]
+
+[ext_resource type="ArrayMesh" uid="uid://d1h3rh8gpiflx" path="res://objects/TOTENKOPF.obj" id="1_tcn45"]
+[ext_resource type="Script" uid="uid://beda4h6m46p4h" path="res://prefabs/totenkopf.gd" id="2_76tuq"]
+
+[node name="Totenkopf" type="MeshInstance3D" unique_id=353993623]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+mesh = ExtResource("1_tcn45")
+script = ExtResource("2_76tuq")
+
+[node name="LightEyeLeft" type="OmniLight3D" parent="." unique_id=256095421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109, 2, 0.6)
+light_color = Color(0.77, 0.72148997, 0.35419998, 1)
+light_size = 0.2
+shadow_enabled = true
+
+[node name="LightEyeRight" type="OmniLight3D" parent="." unique_id=529630282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.109, 2, 0.6)
+light_color = Color(0.77, 0.72148997, 0.35419998, 1)
+light_size = 0.2
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=345795037]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 1.3976283, -3.7820177, 16.822565)
+visible = false
+size = Vector3(39.14743, 3.0483398, 34.64514)
