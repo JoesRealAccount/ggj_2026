@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://q72ak00asrxc" path="res://scenes/main_level.gd" id="1_bq26l"]
 [ext_resource type="PackedScene" uid="uid://dlmoo8dxmcxuu" path="res://prefabs/player.tscn" id="2_qmak7"]
-[ext_resource type="Script" uid="uid://d184r1mnpu2xj" path="res://scenes/character_spot_light.gd" id="3_8ra5a"]
 [ext_resource type="PackedScene" uid="uid://bil2lm7vf2aiu" path="res://prefabs/camera.tscn" id="3_u2c82"]
+[ext_resource type="PackedScene" uid="uid://p0w1a0nj16ku" path="res://prefabs/character_spot_light.tscn" id="4_u2c82"]
 [ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://objects/Mic_Test_Expo.obj" id="5_5fr2l"]
 [ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_2sb77"]
 [ext_resource type="ArrayMesh" uid="uid://d1h3rh8gpiflx" path="res://objects/TOTENKOPF.obj" id="6_bq26l"]
@@ -45,12 +45,8 @@ max_jump_count = 1
 lookAtTarget = NodePath("../Player")
 offset = Vector3(0, 2, 8)
 
-[node name="CharacterSpotLight" type="SpotLight3D" parent="." unique_id=1215779605 node_paths=PackedStringArray("target")]
+[node name="CharacterSpotLight" parent="." unique_id=215407691 node_paths=PackedStringArray("target") instance=ExtResource("4_u2c82")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6.606348, 10.55814, 0)
-shadow_enabled = true
-spot_range = 15.847955
-spot_angle = 21.528973
-script = ExtResource("3_8ra5a")
 target = NodePath("../Player")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=979951912]

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://p0w1a0nj16ku"]
+
+[ext_resource type="Script" uid="uid://d184r1mnpu2xj" path="res://prefabs/character_spot_light.gd" id="1_6n64h"]
+
+[node name="CharacterSpotLight" type="SpotLight3D" unique_id=215407691 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shadow_enabled = true
+spot_range = 15.847955
+spot_angle = 21.528973
+script = ExtResource("1_6n64h")
+target = NodePath("")
