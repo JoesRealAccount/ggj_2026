@@ -11,6 +11,9 @@ var spawn_position: Vector3
 var jump_direction: JumpDirection = JumpDirection.NONE
 var jump_x_velocity: float = 0.0
 
+@export_range(1, 3, 1, "prefer_slider") var max_jump_count: int = 2
+var current_jump_quota: int = 1
+
 func _ready() -> void:
 	spawn_position = global_position
 
@@ -24,14 +27,26 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_axis("move_left", "move_right")
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_UP_VELOCITY
-		jump_direction = JumpDirection.NONE
-		jump_x_velocity = 0.0
-		if not is_zero_approx(input_dir):
-			jump_direction = JumpDirection.LEFT if input_dir < 0 else JumpDirection.RIGHT
-			jump_x_velocity = input_dir * SPEED
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			current_jump_quota = 1
+			velocity.y = JUMP_UP_VELOCITY
+			jump_direction = JumpDirection.NONE
+			jump_x_velocity = 0.0
+			if not is_zero_approx(input_dir):
+				jump_direction = JumpDirection.LEFT if input_dir < 0 else JumpDirection.RIGHT
+				jump_x_velocity = input_dir * SPEED
+		elif current_jump_quota <= max_jump_count:
+			current_jump_quota += 1
+			velocity.y = JUMP_UP_VELOCITY
+			jump_direction = JumpDirection.NONE
+			jump_x_velocity = 0.0
+			if not is_zero_approx(input_dir):
+				jump_direction = JumpDirection.LEFT if input_dir < 0 else JumpDirection.RIGHT
+				jump_x_velocity = input_dir * SPEED
+	
 	if is_on_floor():
+		current_jump_quota = 1
 		if input_dir:
 			velocity.x = input_dir * SPEED
 		else:
