@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+signal player_death
 
 const SPEED = 5.0
 const JUMP_UP_VELOCITY = 8.0
@@ -75,4 +76,9 @@ func _physics_process(delta: float) -> void:
 	# Reset if fallen below -20 meters
 	if global_position.y < -20:
 		global_position = spawn_position
-		velocity = Vector3.ZERO
+		_kill_player()
+
+func _kill_player():
+	player_death.emit()
+	global_position = spawn_position
+	velocity = Vector3.ZERO

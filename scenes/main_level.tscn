@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://q72ak00asrxc" path="res://scenes/main_level.gd" id="1_bq26l"]
 [ext_resource type="PackedScene" uid="uid://dlmoo8dxmcxuu" path="res://prefabs/player.tscn" id="2_qmak7"]
-[ext_resource type="Script" uid="uid://d184r1mnpu2xj" path="res://scenes/character_spot_light.gd" id="3_8ra5a"]
+[ext_resource type="Script" path="res://scenes/character_spot_light.gd" id="3_8ra5a"]
 [ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://objects/Mic_Test_Expo.obj" id="5_5fr2l"]
 [ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_2sb77"]
 [ext_resource type="ArrayMesh" uid="uid://d1h3rh8gpiflx" path="res://objects/TOTENKOPF.obj" id="6_bq26l"]
