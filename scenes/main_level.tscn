@@ -126,5 +126,8 @@ shape = SubResource("ConcavePolygonShape3D_eqmdw")
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 1.3)
 mesh = ExtResource("5_5fr2l")
 
-[node name="MaskManager" type="Node" parent="." unique_id=1255905369]
+[node name="MaskManager" type="Node" parent="." unique_id=1255905369 node_paths=PackedStringArray("shader_overlay_manager")]
 script = ExtResource("6_2sb77")
+shader_overlay_manager = NodePath("../Player/Camera3D/CanvasLayer/ColorRect")
+
+[editable path="Player"]

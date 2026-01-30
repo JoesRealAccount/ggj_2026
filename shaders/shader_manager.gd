@@ -8,7 +8,6 @@ extends ColorRect
 
 @export var depression_overlay_color: Color = Color.BLACK
 
-var active_overlay_color = Color(0.0, 0.0, 1.0, 0.0)
 
 @export_group("Depressive Overlay Effect parameters")
 @export_range(0.0, 1.0) var min_corner_effect_strengh = 0.1
@@ -18,14 +17,20 @@ var active_overlay_color = Color(0.0, 0.0, 1.0, 0.0)
 @export var time_to_fully_apply_effect: float = 20.0
 
 
+var active_overlay_color = Color(0.0, 0.0, 1.0, 0.0)
+
 var current_overlay: overlay_types:
 	set(new_overlay):
+		_kill_all_current_tweens()
+		current_overlay = new_overlay
 		if new_overlay == overlay_types.DEPRESSION:
 			_set_overlay_strengh(min_corner_effect_strengh, min_grayscale_effect_strengh, 0)
-			_set_overlay_strengh(max_corner_effect_strengh, min_corner_effect_strengh, time_to_fully_apply_effect)
+			_set_overlay_strengh(max_corner_effect_strengh, max_grayscale_effect_strengh, time_to_fully_apply_effect)
 		else:
 			_set_overlay_strengh(0.0, 0.0, 0.0)
 		return new_overlay
+
+var _current_tweens:Array[Tween]
 
 enum overlay_types{
 	DEPRESSION,
@@ -36,9 +41,18 @@ func _ready() -> void:
 	_screen_overlay_rect.color = active_overlay_color
 	current_overlay = overlay_types.DEPRESSION
 
+func _kill_all_current_tweens():
+	for tween: Tween in _current_tweens:
+		tween.kill()
+	_current_tweens.clear()
+
 func _tween_to_newscale(new_color: Color, corner_effect_strengh: float, tween_time_sec: float):
-	get_tree().create_tween().tween_property(_screen_overlay_rect, "color", new_color, tween_time_sec)
-	get_tree().create_tween().tween_property(_screen_overlay_rect.material, "shader_parameter/edge_intensity", corner_effect_strengh, tween_time_sec)
+	var tween1: Tween = create_tween()
+	tween1.tween_property(_screen_overlay_rect, "color", new_color, tween_time_sec)
+	var tween2: Tween = create_tween()
+	tween2.tween_property(_screen_overlay_rect.material, "shader_parameter/edge_intensity", corner_effect_strengh, tween_time_sec)
+	_current_tweens.append(tween1)
+	_current_tweens.append(tween2)
 
 func _set_overlay_strengh(corner_strengh: float, grayscale_strengh: float, delay_time: float):
 	if current_overlay == overlay_types.DEPRESSION:
