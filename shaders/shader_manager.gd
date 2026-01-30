@@ -19,7 +19,7 @@ extends ColorRect
 
 var active_overlay_color = Color(0.0, 0.0, 1.0, 0.0)
 
-var current_overlay: overlay_types:
+var current_overlay: overlay_types = overlay_types.HAPPYNESS:
 	set(new_overlay):
 		_kill_all_current_tweens()
 		current_overlay = new_overlay
@@ -39,7 +39,6 @@ enum overlay_types{
 
 func _ready() -> void:
 	_screen_overlay_rect.color = active_overlay_color
-	current_overlay = overlay_types.DEPRESSION
 
 func _kill_all_current_tweens():
 	for tween: Tween in _current_tweens:
