@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cv53pwy2syyym"]
 
-[ext_resource type="Script" path="res://main_level.gd" id="1_6614m"]
+[ext_resource type="Script" uid="uid://q72ak00asrxc" path="res://main_level.gd" id="1_6614m"]
 [ext_resource type="Script" uid="uid://4hscqonf2d4q" path="res://player.gd" id="1_bw3m6"]
 [ext_resource type="Shader" uid="uid://dvw31yv05xapa" path="res://shaders/grayscale.gdshader" id="2_6614m"]
 [ext_resource type="Script" uid="uid://dxw2fq2qsmx20" path="res://shaders/shader_manager.gd" id="4_05as6"]
@@ -67,6 +67,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
 script = ExtResource("4_05as6")
 _screen_overlay_rect = NodePath(".")
 
