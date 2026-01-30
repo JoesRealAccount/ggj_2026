@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://q72ak00asrxc" path="res://main_level.gd" id="1_6614m"]
 [ext_resource type="Script" uid="uid://4hscqonf2d4q" path="res://player.gd" id="1_bw3m6"]
-[ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://Mic_Test_Expo.obj" id="3_bhu08"]
 [ext_resource type="Shader" uid="uid://dvw31yv05xapa" path="res://shaders/grayscale.gdshader" id="2_6614m"]
+[ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://Mic_Test_Expo.obj" id="3_bhu08"]
 [ext_resource type="Script" uid="uid://dxw2fq2qsmx20" path="res://shaders/shader_manager.gd" id="4_05as6"]
+[ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_4mnpp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bw3m6"]
 
@@ -151,3 +152,7 @@ shape = SubResource("ConcavePolygonShape3D_eqmdw")
 [node name="MicTestExpo" type="MeshInstance3D" parent="." unique_id=594581349]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 1.3)
 mesh = ExtResource("3_bhu08")
+
+[node name="MaskManager" type="Node" parent="." unique_id=1255905369 node_paths=PackedStringArray("shader_overlay_manager")]
+script = ExtResource("6_4mnpp")
+shader_overlay_manager = NodePath("../Player/Camera3D/CanvasLayer/ColorRect")

@@ -1,3 +1,4 @@
+class_name  ShaderOverlayManager
 extends ColorRect
 
 @export var _screen_overlay_rect: ColorRect
@@ -21,7 +22,7 @@ var current_overlay: overlay_types:
 	set(new_overlay):
 		if new_overlay == overlay_types.DEPRESSION:
 			_set_overlay_strengh(min_corner_effect_strengh, min_grayscale_effect_strengh, 0)
-			_set_overlay_strengh(max_corner_effect_strengh, max_grayscale_effect_strengh, time_to_fully_apply_effect) 
+			_set_overlay_strengh(max_corner_effect_strengh, min_corner_effect_strengh, time_to_fully_apply_effect)
 		else:
 			_set_overlay_strengh(0.0, 0.0, 0.0)
 		return new_overlay
@@ -33,6 +34,7 @@ enum overlay_types{
 
 func _ready() -> void:
 	_screen_overlay_rect.color = active_overlay_color
+	current_overlay = overlay_types.DEPRESSION
 
 func _tween_to_newscale(new_color: Color, corner_effect_strengh: float, tween_time_sec: float):
 	get_tree().create_tween().tween_property(_screen_overlay_rect, "color", new_color, tween_time_sec)
