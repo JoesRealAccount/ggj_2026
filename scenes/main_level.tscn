@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://ch2vhv0pognho" path="res://prefabs/seil.tscn" id="13_adxub"]
 [ext_resource type="Script" uid="uid://demyk6vjaey7r" path="res://prefabs/throw_spawning_system.gd" id="13_mwgft"]
 [ext_resource type="PackedScene" uid="uid://b0rucjakpgsht" path="res://prefabs/sessel.tscn" id="14_adxub"]
+[ext_resource type="Script" uid="uid://bh2ouunrqr3vn" path="res://world_visual_manager.gd" id="15_ff0s2"]
+[ext_resource type="PackedScene" uid="uid://dbyfolhbily16" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
 
 [sub_resource type="Environment" id="Environment_u2c82"]
 volumetric_fog_enabled = true
@@ -319,5 +321,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.999219, -8.4, 14.791992)
 [node name="Chair48" parent="SeatArea" unique_id=94804520 instance=ExtResource("14_adxub")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.999219, -8.4, 14.791992)
 
+[node name="WorldVisualManager" type="Node" parent="." unique_id=1046994124]
+script = ExtResource("15_ff0s2")
+
+[node name="ObjectDestroyer" parent="." unique_id=1577569449 instance=ExtResource("16_uk2yf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.455425, 0, 0)
+
+[node name="CollisionShape3D" parent="ObjectDestroyer" index="0" unique_id=1892322942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.638031, -4.129303)
+
 [editable path="Player"]
 [editable path="Camera"]
+[editable path="ObjectDestroyer"]
