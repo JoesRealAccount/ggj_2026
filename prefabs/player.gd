@@ -10,8 +10,17 @@ var spawn_position: Vector3
 var jump_direction: JumpDirection = JumpDirection.NONE
 var jump_x_velocity: float = 0.0
 
-@export_range(1, 3, 1, "prefer_slider") var max_jump_count: int = 2
+@export_range(1, 3, 1, "prefer_slider") var max_jump_count: int = 1
 var current_jump_quota: int = 1
+@export_range(1.0, 10.0) var teleport_distance: float = 5.0
+var teleport_available: bool = false
+var last_input_dir: float = 0.0
+var is_teleporting: bool = false
+var teleport_start_pos: float = 0.0
+var teleport_target_pos: float = 0.0
+var teleport_progress: float = 0.0
+var teleport_distance_traveled: float = 0.0
+@export_range(0.1, 2.0) var teleport_duration: float = 0.3 # 300ms
 var target_rotation_y: float = -90.0 * (PI / 180.0) # Start facing right
 const ROTATION_SPEED: float = 10.0 # Speed of rotation interpolation
 
@@ -22,6 +31,36 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	# Handle teleport animation
+	if is_teleporting:
+		teleport_progress += delta
+		var t = clamp(teleport_progress / teleport_duration, 0.0, 1.0)
+		# Use ease-out for smooth but fast feel
+		t = 1.0 - pow(1.0 - t, 3.0)
+		
+		var new_x = lerp(teleport_start_pos, teleport_target_pos, t)
+		var move_delta = new_x - global_position.x
+		
+		# Use test_move to check for collisions
+		var collision = move_and_collide(Vector3(move_delta, 0, 0), true)
+		
+		if collision:
+			# Hit something, stop teleporting
+			is_teleporting = false
+			teleport_available = false
+		elif teleport_distance_traveled + abs(move_delta) >= teleport_distance:
+			# Reached target distance
+			var remaining = teleport_distance - teleport_distance_traveled
+			global_position.x += sign(move_delta) * remaining
+			is_teleporting = false
+		else:
+			# Continue moving
+			global_position.x = new_x
+			teleport_distance_traveled += abs(move_delta)
+		
+		if teleport_progress >= teleport_duration:
+			is_teleporting = false
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -36,25 +75,60 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_UP_VELOCITY
 			jump_direction = JumpDirection.NONE
 			jump_x_velocity = 0.0
+			teleport_available = true
+			last_input_dir = 0.0
 			if not is_zero_approx(input_dir):
 				jump_direction = JumpDirection.LEFT if input_dir < 0 else JumpDirection.RIGHT
 				jump_x_velocity = input_dir * SPEED
+				last_input_dir = input_dir
 		elif current_jump_quota <= max_jump_count:
 			current_jump_quota += 1
 			velocity.y = JUMP_UP_VELOCITY
 			jump_direction = JumpDirection.NONE
 			jump_x_velocity = 0.0
+			teleport_available = true
+			last_input_dir = 0.0
 			if not is_zero_approx(input_dir):
 				jump_direction = JumpDirection.LEFT if input_dir < 0 else JumpDirection.RIGHT
 				jump_x_velocity = input_dir * SPEED
+				last_input_dir = input_dir
 	
 	if is_on_floor():
 		current_jump_quota = 1
+		teleport_available = false
+		last_input_dir = 0.0
+		is_teleporting = false
 		if input_dir:
 			velocity.x = input_dir * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:
+		# Handle air teleport
+		if teleport_available and not is_zero_approx(input_dir):
+			# Check if this is a second input (different from last or first input after no input)
+			var is_second_input = false
+			if is_zero_approx(last_input_dir):
+				# First input after being airborne with no input
+				if jump_direction != JumpDirection.NONE:
+					is_second_input = true
+			elif sign(input_dir) == sign(last_input_dir):
+				# Same direction pressed again
+				is_second_input = true
+			
+			if is_second_input:
+				# Start teleport animation
+				var teleport_dir = sign(input_dir)
+				is_teleporting = true
+				teleport_start_pos = global_position.x
+				teleport_target_pos = global_position.x + teleport_dir * teleport_distance
+				teleport_progress = 0.0
+				teleport_distance_traveled = 0.0
+				teleport_available = false
+		
+		# Track input for teleport detection
+		if not is_zero_approx(input_dir):
+			last_input_dir = input_dir
+		
 		# If no direction was set on jump, allow one mid-air choice.
 		if jump_direction == JumpDirection.NONE and not is_zero_approx(input_dir):
 			jump_direction = JumpDirection.LEFT if input_dir < 0 else JumpDirection.RIGHT

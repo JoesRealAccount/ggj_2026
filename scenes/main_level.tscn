@@ -16,8 +16,8 @@
 [ext_resource type="Script" uid="uid://demyk6vjaey7r" path="res://prefabs/throw_spawning_system.gd" id="13_mwgft"]
 [ext_resource type="PackedScene" uid="uid://b0rucjakpgsht" path="res://prefabs/sessel.tscn" id="14_adxub"]
 [ext_resource type="Script" uid="uid://bh2ouunrqr3vn" path="res://world_visual_manager.gd" id="15_ff0s2"]
-[ext_resource type="PackedScene" uid="uid://dbyfolhbily16" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
-[ext_resource type="Script" uid="uid://dkcjw6dsnc72s" path="res://scenes/enemy_spawner.gd" id="17_ondrs"]
+[ext_resource type="PackedScene" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
+[ext_resource type="Script" path="res://scenes/enemy_spawner.gd" id="17_ondrs"]
 [ext_resource type="PackedScene" uid="uid://bpkw4lglty4v3" path="res://prefabs/moving_obstacles/platform_2.tscn" id="19_6nivd"]
 
 [sub_resource type="Environment" id="Environment_u2c82"]
@@ -68,7 +68,6 @@ size = Vector3(44.67826, 2, 37.92166)
 
 [node name="Player" parent="." unique_id=449052630 instance=ExtResource("2_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35328162, 0)
-max_jump_count = 1
 
 [node name="Camera" parent="." unique_id=657267949 node_paths=PackedStringArray("lookAtTarget") instance=ExtResource("3_u2c82")]
 environment = null
@@ -347,7 +346,7 @@ happiness_obstacle_timer = NodePath("HappinessObstacle")
 happiness_platform_timer = NodePath("HappynessPlatform")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="ObstacleSpawner" unique_id=267598004]
-transform = Transform3D(0.5015005, 0.073943146, -0.8619917, 0, 0.99634093, 0.08546786, 0.86515737, -0.042862173, 0.49966547, 14.347708, 15.702793, -0.08273983)
+transform = Transform3D(0.5015004, 0.07394315, -0.86199176, 0, 0.99634093, 0.08546786, 0.8651574, -0.04286217, 0.4996654, 14.347708, 15.702793, -0.08273983)
 
 [node name="DepressionObstacle" type="Timer" parent="ObstacleSpawner" unique_id=1573706048]
 wait_time = 10.0
