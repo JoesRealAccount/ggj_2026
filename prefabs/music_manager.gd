@@ -14,7 +14,8 @@ func _on_mask_toggled(is_depression: bool):
 		AudioServer.remove_bus_effect(_music_bus_index, 0)
 	if is_depression:
 		for _audio_effect: AudioEffect in _audio_effect_collection.audio_effects:
-			AudioServer.add_bus_effect(_music_bus_index, _audio_effect, AudioServer.get_bus_effect_count(_music_bus_index))
+			if _audio_effect != null:
+				AudioServer.add_bus_effect(_music_bus_index, _audio_effect, AudioServer.get_bus_effect_count(_music_bus_index))
 		AudioServer.set_bus_bypass_effects(_music_bus_index, false)
 	else:
 		AudioServer.set_bus_bypass_effects(_music_bus_index, true)
