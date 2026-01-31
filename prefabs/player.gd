@@ -1,11 +1,21 @@
 extends CharacterBody3D
 
-var spawn_position: Vector3
 
 const SPEED = 5.0
+const ROTATION_SPEED: float = 10.0 # Speed of rotation interpolation
 
-const JUMP_UP_VELOCITY = 8.0
 enum JumpDirection {NONE, LEFT, RIGHT}
+
+@export_range(1, 10, 1, "prefer_slider") var _max_jump_count: int = 1
+@export var _jump_strengh = 8.0
+
+@export_range(1, 10, 1, "prefer_slider") var _max_airdash_count: int = 1
+@export var _dash_strengh: float = 20.0
+
+## The amount of time it takes the player to stop once they stoped actively moving in a direction
+@export var _velocity_decay_speed: float = 0.5
+
+var spawn_position: Vector3
 
 var jump_direction: JumpDirection = JumpDirection.NONE
 var jump_x_velocity: float = 0.0
@@ -18,15 +28,14 @@ var _dash_velocity: float = 0.0:
 var _dash_tween: Tween
 
 var input_dir: float = 0.0
-
-@export_range(1, 3, 1, "prefer_slider") var max_jump_count: int = 1
-@onready var _current_double_jumps: int = max_jump_count
-
 var last_input_dir: float = 0.0
-@export var _dash_strengh: float = 20.0
 
 var target_rotation_y: float = -90.0 * (PI / 180.0) # Start facing right
-const ROTATION_SPEED: float = 10.0 # Speed of rotation interpolation
+
+@onready var _current_double_jumps: int = _max_jump_count
+
+@onready var _current_air_dashes: int = _max_airdash_count
+
 
 @onready var model: Node3D = $Miwa
 
@@ -51,30 +60,43 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash"):
+		_handle_dash()
+	
+		
+
+func _handle_dash():
+	if is_on_floor():
+		_current_air_dashes = _max_airdash_count
+	if _current_air_dashes > 0:
 		_set_jump_dir_to_input_dir()
 		_dash_velocity = _dash_strengh
 		if (_dash_tween):
 			_dash_tween.stop()
 		_dash_tween = create_tween()
 		_dash_tween.tween_property(self, "_dash_velocity", 0, 0.3).set_ease(Tween.EASE_OUT)
+		_current_air_dashes -= 1
+
 		
 
 func _handle_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		_current_air_dashes = _max_airdash_count
+		_current_double_jumps = _max_jump_count
 
 func _handle_jump() -> void:
 	if not Input.is_action_just_pressed("jump"):
 		return
 	
 	if is_on_floor():
-		velocity.y = JUMP_UP_VELOCITY
+		velocity.y = _jump_strengh
 		sfx_jump.play()
-		_current_double_jumps = max_jump_count
+		_current_double_jumps = _max_jump_count
 		_set_jump_dir_to_input_dir()
 		
 	elif _current_double_jumps > 0:
-		velocity.y = JUMP_UP_VELOCITY
+		velocity.y = _jump_strengh
 		sfx_jump.play()
 		_current_double_jumps -= 1
 
@@ -98,7 +120,7 @@ func _handle_movement(delta: float) -> void:
 		if input_dir && _is_input_jump_direction(input_dir):
 			velocity.x = input_dir * (SPEED + _dash_velocity)
 		else:
-			velocity.x = move_toward(velocity.x, 0, 0.5 * delta)
+			velocity.x = move_toward(velocity.x, 0, _velocity_decay_speed * delta)
 	
 	# Lock Z-axis movement
 	velocity.z = 0
