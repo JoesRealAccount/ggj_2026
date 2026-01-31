@@ -12,4 +12,5 @@ var _minutes_elapsed: int:
 
 func _process(delta: float) -> void:
 	time_elapsed += delta
+	@warning_ignore("integer_division")
 	_minutes_elapsed = int(roundi(time_elapsed)/60)

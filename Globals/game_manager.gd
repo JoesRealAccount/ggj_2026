@@ -9,4 +9,4 @@ func _ready() -> void:
     SignalManager.game_started.connect(_on_game_started)
 
 func _on_game_started():
-    game_stopwatch = game_stopwatch.new()
+    game_stopwatch = Stopwatch.new()
