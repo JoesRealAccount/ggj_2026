@@ -19,6 +19,7 @@ var _world_one_hitbox_toggle = false:
 	set(new_value):
 		if _world_one_hitbox_toggle != new_value:
 			get_tree().set_group("world_depression", "disabled", !new_value)
+			get_tree().set_group("world_depression", "cast_shadow", new_value)
 		_world_one_hitbox_toggle = new_value
 		return new_value
 
@@ -33,6 +34,7 @@ var world_two_transparency: float:
 var _world_two_hitbox_toggle = true:
 	set(new_value):
 		get_tree().set_group("world_happiness", "disabled", !new_value)
+		get_tree().set_group("world_happiness", "cast_shadow", new_value)
 		_world_two_hitbox_toggle = _should_hitbox_by_transparency(_world_two_hitbox_toggle, new_value)
 		_world_two_hitbox_toggle = new_value
 		return new_value
