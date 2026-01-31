@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c02utqdtw0pb5"]
 
-[ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://objects/Mic_Test_Expo.obj" id="1_ct8jd"]
+[ext_resource type="ArrayMesh" uid="uid://dluk1rixt247e" path="res://objects/Mic/Mic_Test_Expo.obj" id="1_ct8jd"]
 
 [node name="Mic" type="Node3D" unique_id=1848665238]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0rucjakpgsht"]
 
-[ext_resource type="ArrayMesh" uid="uid://b4mxip4yg0qdi" path="res://objects/Sessel.obj" id="1_scrd4"]
+[ext_resource type="ArrayMesh" uid="uid://b8p3f1uvunkqd" path="res://objects/Sessel/Sessel.obj" id="1_scrd4"]
 
 [node name="Chair" type="Node3D" unique_id=1519617925]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chg0eqr7v2cdp"]
 
-[ext_resource type="ArrayMesh" uid="uid://d1h3rh8gpiflx" path="res://objects/TOTENKOPF.obj" id="1_tcn45"]
+[ext_resource type="ArrayMesh" uid="uid://b6ptjlharmw6o" path="res://objects/Totenkopf/TOTENKOPF.obj" id="1_tcn45"]
 [ext_resource type="Script" uid="uid://beda4h6m46p4h" path="res://prefabs/totenkopf.gd" id="2_76tuq"]
 
 [node name="Skull" type="Node3D" unique_id=987743094]

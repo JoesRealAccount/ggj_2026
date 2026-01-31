@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ch2vhv0pognho"]
 
-[ext_resource type="ArrayMesh" uid="uid://dal8n1da0mjc1" path="res://objects/Seil.obj" id="1_jhh8n"]
+[ext_resource type="ArrayMesh" uid="uid://bto8q5k686lc2" path="res://objects/Seil/Seil.obj" id="1_jhh8n"]
 
 [node name="Node3D" type="Node3D" unique_id=519347541]
 

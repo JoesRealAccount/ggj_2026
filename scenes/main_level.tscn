@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_2sb77"]
 [ext_resource type="PackedScene" uid="uid://chg0eqr7v2cdp" path="res://prefabs/totenkopf.tscn" id="7_u2c82"]
 [ext_resource type="PackedScene" uid="uid://biyis1uy6k365" path="res://prefabs/stage.tscn" id="8_adxub"]
-[ext_resource type="ArrayMesh" uid="uid://cewnaym4e2etl" path="res://objects/Stern.obj" id="11_adxub"]
-[ext_resource type="ArrayMesh" uid="uid://cidnfhaj2jlsn" path="res://objects/Wave.obj" id="12_ff0s2"]
+[ext_resource type="ArrayMesh" uid="uid://c375cirdmjx4g" path="res://objects/Stern/Stern.obj" id="9_adxub"]
+[ext_resource type="ArrayMesh" uid="uid://d0ou6kd0rbt1o" path="res://objects/Wave/Wave.obj" id="9_mwgft"]
 [ext_resource type="PackedScene" uid="uid://b2i52xf2k2gsb" path="res://prefabs/kerzen.tscn" id="12_fkrx8"]
 [ext_resource type="PackedScene" uid="uid://ch2vhv0pognho" path="res://prefabs/seil.tscn" id="13_adxub"]
 [ext_resource type="Script" uid="uid://demyk6vjaey7r" path="res://prefabs/throw_spawning_system.gd" id="13_mwgft"]
@@ -156,11 +156,11 @@ height = 34.0
 
 [node name="Star" type="MeshInstance3D" parent="." unique_id=2141038242]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.743027, 18.018335, 1.0499594)
-mesh = ExtResource("11_adxub")
+mesh = ExtResource("9_adxub")
 
 [node name="Wave" type="MeshInstance3D" parent="." unique_id=499421864]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.387253, -0.004072666, 1.4056797)
-mesh = ExtResource("12_ff0s2")
+mesh = ExtResource("9_mwgft")
 
 [node name="Candlelight" parent="." unique_id=75723294 instance=ExtResource("12_fkrx8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.003583, -0.003602028, -1.6138887)
