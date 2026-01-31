@@ -5,20 +5,45 @@ const WORLDS: Dictionary = {
 	"HAPPINESS": "world_two_transparency"
 }
 
+## The percentage of transparency till which thi hitbox will stay toggled of/on
+@export_range(0.0, 1.0) var hitbox_threshold: float = 0.8
+
 var world_one_transparency: float:
 	set(new_value):
 		get_tree().set_group("world_happiness", "transparency", new_value)
+		_world_one_hitbox_toggle = _should_hitbox_by_transparency(_world_one_hitbox_toggle, new_value)
+		world_one_transparency = new_value
 		return new_value
 
-var _world_one_hitbox_toggle = true:
+var _world_one_hitbox_toggle = false:
 	set(new_value):
-		get_tree().set_group("world_happiness", "disabled", new_value)
+		if _world_one_hitbox_toggle != new_value:
+			get_tree().set_group("world_happiness", "disabled", new_value)
+		_world_one_hitbox_toggle = new_value
 		return new_value
 
 var world_two_transparency: float:
 	set(new_value):
-		get_tree().set_group("world_depression", "transparency", new_value)
+		if _world_two_hitbox_toggle != new_value:
+			get_tree().set_group("world_depression", "transparency", new_value)
+		world_two_transparency = new_value
 		return new_value
+
+var _world_two_hitbox_toggle = true:
+	set(new_value):
+		get_tree().set_group("world_happiness", "disabled", new_value)
+		_world_two_hitbox_toggle = _should_hitbox_by_transparency(_world_two_hitbox_toggle, new_value)
+		_world_two_hitbox_toggle = new_value
+		return new_value
+
+## Returns if a certain hitbox should be enabled at the given amount of transparency
+func _should_hitbox_by_transparency(hitbox_toggle: bool, transparency: float) -> bool:
+	if hitbox_toggle && transparency > hitbox_threshold:
+		hitbox_toggle = false
+	elif !hitbox_toggle && transparency < hitbox_threshold:
+		hitbox_toggle = true
+	return hitbox_toggle
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

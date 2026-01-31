@@ -58,7 +58,7 @@ physics_material_override = SubResource("PhysicsMaterial_bw3m6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 size = Vector3(20, 1, 7)
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=11376495]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=11376495 groups=["world_happiness"]]
 shape = SubResource("ConcavePolygonShape3D_uhmka")
 
 [node name="Platform1" type="StaticBody3D" parent="." unique_id=809709939]
@@ -67,7 +67,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="Platform1" unique_id=364006944 groups=["world_happiness"]]
 size = Vector3(3, 0.5, 1)
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform1" unique_id=1241135878]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform1" unique_id=1241135878 groups=["world_happiness"]]
 shape = SubResource("ConcavePolygonShape3D_6614m")
 
 [node name="Platform2" type="StaticBody3D" parent="." unique_id=1760699012]
@@ -76,7 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="Platform2" unique_id=699655276 groups=["world_depression", "world_happiness"]]
 size = Vector3(3, 0.5, 1)
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform2" unique_id=1958487960]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform2" unique_id=1958487960 groups=["world_happiness"]]
 shape = SubResource("ConcavePolygonShape3D_bhu08")
 
 [node name="Platform3" type="StaticBody3D" parent="." unique_id=878966121]
@@ -85,7 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="Platform3" unique_id=607933470 groups=["world_happiness"]]
 size = Vector3(3, 0.5, 1)
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform3" unique_id=714602441]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform3" unique_id=714602441 groups=["world_happiness"]]
 shape = SubResource("ConcavePolygonShape3D_05as6")
 
 [node name="Platform4" type="StaticBody3D" parent="." unique_id=196942408]
@@ -94,7 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5865993, 3.85187, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="Platform4" unique_id=1810893554 groups=["world_happiness"]]
 size = Vector3(3, 0.5, 1)
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform4" unique_id=1519879665]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform4" unique_id=1519879665 groups=["world_happiness"]]
 shape = SubResource("ConcavePolygonShape3D_5ymk8")
 
 [node name="Platform5" type="StaticBody3D" parent="." unique_id=351375189]
@@ -103,7 +103,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.707685, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="Platform5" unique_id=52125670 groups=["world_happiness"]]
 size = Vector3(3, 0.5, 1)
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform5" unique_id=252812915]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform5" unique_id=252812915 groups=["world_happiness"]]
 shape = SubResource("ConcavePolygonShape3D_4mnpp")
 
 [node name="Platform6" type="StaticBody3D" parent="." unique_id=1602373132]
@@ -112,7 +112,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5.3128843, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="Platform6" unique_id=97610814 groups=["world_happiness"]]
 size = Vector3(2, 0.5, 1)
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform6" unique_id=1818412558]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform6" unique_id=1818412558 groups=["world_happiness"]]
 shape = SubResource("ConcavePolygonShape3D_ctebd")
 
 [node name="Platform7" type="StaticBody3D" parent="." unique_id=1934188769]
@@ -121,7 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.5, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="Platform7" unique_id=136784140 groups=["world_happiness"]]
 size = Vector3(2, 0.5, 1)
 
-[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform7" unique_id=317253792]
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform7" unique_id=317253792 groups=["world_happiness"]]
 shape = SubResource("ConcavePolygonShape3D_eqmdw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1263175272]
