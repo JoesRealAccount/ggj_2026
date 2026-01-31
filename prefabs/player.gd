@@ -26,6 +26,9 @@ const ROTATION_SPEED: float = 10.0 # Speed of rotation interpolation
 
 @onready var model: Node3D = $Miwa
 
+@onready var sfx_jump: AudioStreamPlayer3D = %sfx_jump
+@onready var sfx_death: AudioStreamPlayer3D = %sfx_death
+
 func _ready() -> void:
 	spawn_position = global_position
 	SignalManager.player_death.connect(_kill_player)
@@ -72,6 +75,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
+			sfx_jump.play()
 			current_jump_quota = 1
 			velocity.y = JUMP_UP_VELOCITY
 			jump_direction = JumpDirection.NONE
@@ -83,6 +87,7 @@ func _physics_process(delta: float) -> void:
 				jump_x_velocity = input_dir * SPEED
 				last_input_dir = input_dir
 		elif current_jump_quota <= max_jump_count:
+			sfx_jump.play()
 			current_jump_quota += 1
 			velocity.y = JUMP_UP_VELOCITY
 			jump_direction = JumpDirection.NONE
@@ -166,5 +171,6 @@ func _physics_process(delta: float) -> void:
 		SignalManager.player_death.emit()
 
 func _kill_player():
+	sfx_death.play()
 	global_position = spawn_position
 	velocity = Vector3.ZERO
