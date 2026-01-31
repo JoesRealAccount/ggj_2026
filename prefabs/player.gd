@@ -53,6 +53,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash"):
 		_set_jump_dir_to_input_dir()
 		_dash_velocity = _dash_strengh
+		if (_dash_tween):
+			_dash_tween.stop()
 		_dash_tween = create_tween()
 		_dash_tween.tween_property(self, "_dash_velocity", 0, 0.3).set_ease(Tween.EASE_OUT)
 		
