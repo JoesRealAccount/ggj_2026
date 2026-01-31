@@ -2,26 +2,27 @@
 
 [ext_resource type="ArrayMesh" uid="uid://b1rx2wcrkrky4" path="res://objects/Kerzen.obj" id="1_hggq6"]
 
-[node name="Kerzen" type="MeshInstance3D" unique_id=75723294]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+[node name="Node3D" type="Node3D" unique_id=844427908]
+
+[node name="Kerzen" type="MeshInstance3D" parent="." unique_id=75723294]
 mesh = ExtResource("1_hggq6")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=531653790]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9827733, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9647126, 0)
 light_color = Color(0.78, 0.62556, 0.26519996, 1)
 light_energy = 5.0
 light_size = 0.2
 shadow_enabled = true
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=433939477]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23082961, 0.9380295, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4697718, 1.8919363, 0)
 light_color = Color(0.78, 0.62556, 0.26519996, 1)
 light_energy = 5.0
 light_size = 0.2
 shadow_enabled = true
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=370151074]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23088497, 0.92590153, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45198053, 1.8600361, 0)
 light_color = Color(0.78, 0.62556, 0.26519996, 1)
 light_energy = 5.0
 light_size = 0.2

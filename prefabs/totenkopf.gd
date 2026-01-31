@@ -1,4 +1,4 @@
-extends MeshInstance3D
+extends Node3D
 
 ## Light pulsing speed in milliseconds. Higher is slower.
 @export_range(0.1, 1000.0) var pulse_speed: float = 800.0

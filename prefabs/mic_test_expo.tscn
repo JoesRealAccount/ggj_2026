@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c02utqdtw0pb5"]
+
+[ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://objects/Mic_Test_Expo.obj" id="1_ct8jd"]
+
+[node name="Mic" type="Node3D" unique_id=1848665238]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1928665018]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_ct8jd")

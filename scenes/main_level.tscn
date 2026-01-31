@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://dlmoo8dxmcxuu" path="res://prefabs/player.tscn" id="2_qmak7"]
 [ext_resource type="PackedScene" uid="uid://bil2lm7vf2aiu" path="res://prefabs/camera.tscn" id="3_u2c82"]
 [ext_resource type="PackedScene" uid="uid://p0w1a0nj16ku" path="res://prefabs/character_spot_light.tscn" id="4_u2c82"]
-[ext_resource type="ArrayMesh" uid="uid://c82yeckf02435" path="res://objects/Mic_Test_Expo.obj" id="5_5fr2l"]
+[ext_resource type="PackedScene" uid="uid://c02utqdtw0pb5" path="res://prefabs/mic_test_expo.tscn" id="5_mwgft"]
 [ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_2sb77"]
 [ext_resource type="PackedScene" uid="uid://chg0eqr7v2cdp" path="res://prefabs/totenkopf.tscn" id="7_u2c82"]
 [ext_resource type="ArrayMesh" uid="uid://nblj07fp0tp6" path="res://objects/Stage_Greybox.obj" id="8_k5pu3"]
-[ext_resource type="ArrayMesh" uid="uid://dal8n1da0mjc1" path="res://objects/Seil.obj" id="10_mwgft"]
 [ext_resource type="ArrayMesh" uid="uid://cewnaym4e2etl" path="res://objects/Stern.obj" id="11_adxub"]
 [ext_resource type="ArrayMesh" uid="uid://cidnfhaj2jlsn" path="res://objects/Wave.obj" id="12_ff0s2"]
 [ext_resource type="PackedScene" uid="uid://b2i52xf2k2gsb" path="res://prefabs/kerzen.tscn" id="12_fkrx8"]
+[ext_resource type="PackedScene" uid="uid://ch2vhv0pognho" path="res://prefabs/seil.tscn" id="13_adxub"]
 [ext_resource type="Script" uid="uid://demyk6vjaey7r" path="res://prefabs/throw_spawning_system.gd" id="13_mwgft"]
 
 [sub_resource type="Environment" id="Environment_u2c82"]
@@ -55,6 +55,8 @@ size = Vector3(42.259285, 37.663788, 9.22644)
 [node name="FogVolume2" type="FogVolume" parent="WorldEnvironment" unique_id=263002170]
 transform = Transform3D(1, 0, 0, 0, 0.90630776, -0.42261827, 0, 0.42261827, 0.90630776, 0, -2.6973705, 2.475)
 size = Vector3(44.67826, 2, 37.92166)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1263175272]
 
 [node name="Player" parent="." unique_id=449052630 instance=ExtResource("2_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
@@ -137,18 +139,15 @@ size = Vector3(2, 0.5, 1)
 [node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Platform7" unique_id=317253792]
 shape = SubResource("ConcavePolygonShape3D_eqmdw")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1263175272]
-
-[node name="MicTestExpo" type="MeshInstance3D" parent="." unique_id=594581349]
-transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 1.3)
-mesh = ExtResource("5_5fr2l")
+[node name="Mic" parent="." unique_id=1848665238 instance=ExtResource("5_mwgft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.235487)
 
 [node name="MaskManager" type="Node" parent="." unique_id=1255905369 node_paths=PackedStringArray("shader_overlay_manager")]
 script = ExtResource("6_2sb77")
 shader_overlay_manager = NodePath("../Camera/CanvasLayer/ColorRect")
 
-[node name="Totenkopf" parent="." unique_id=353993623 instance=ExtResource("7_u2c82")]
-transform = Transform3D(0.12850897, -0.03674884, 0.068080634, 0.01034595, 0.13897514, 0.055487588, -0.07667078, -0.042841945, 0.12159833, -3.4268987, 0.15765375, -1.4691439)
+[node name="Skull" parent="." unique_id=353993623 instance=ExtResource("7_u2c82")]
+transform = Transform3D(0.8567265, -0.24499224, 0.45387068, 0.06897299, 0.926501, 0.36991715, -0.5111385, -0.285613, 0.8106557, -3.4268987, 0.08484304, -1.4691439)
 
 [node name="Stage" type="MeshInstance3D" parent="." unique_id=1079150882]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, -6.2)
@@ -159,16 +158,12 @@ mesh = ExtResource("8_k5pu3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/StaticBody3D" unique_id=1883198018]
 shape = SubResource("ConcavePolygonShape3D_k5pu3")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=780992984]
+[node name="SpotLightRail" type="CSGCylinder3D" parent="." unique_id=780992984]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 16, 0)
 radius = 0.2
 height = 34.0
 
-[node name="Seil" type="MeshInstance3D" parent="." unique_id=129576052]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.8171406, 0.03174933, 1.206361)
-mesh = ExtResource("10_mwgft")
-
-[node name="Stern" type="MeshInstance3D" parent="." unique_id=2141038242]
+[node name="Star" type="MeshInstance3D" parent="." unique_id=2141038242]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.743027, 18.018335, 1.0499594)
 mesh = ExtResource("11_adxub")
 
@@ -176,12 +171,15 @@ mesh = ExtResource("11_adxub")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.387253, -0.004072666, 1.4056797)
 mesh = ExtResource("12_ff0s2")
 
-[node name="Kerzen" parent="." unique_id=75723294 instance=ExtResource("12_fkrx8")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.003583, -0.003602028, -1.6138887)
+[node name="Candlelight" parent="." unique_id=75723294 instance=ExtResource("12_fkrx8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.003583, -0.003602028, -1.6138887)
 
 [node name="ThrowSpawningSystem" type="Node3D" parent="." unique_id=995998750]
 script = ExtResource("13_mwgft")
 throwable_objects = Array[PackedScene]([ExtResource("12_fkrx8"), ExtResource("7_u2c82")])
+
+[node name="Rope" parent="." unique_id=727855068 instance=ExtResource("13_adxub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4547186, 0, 1.1439812)
 
 [editable path="Player"]
 [editable path="Camera"]
