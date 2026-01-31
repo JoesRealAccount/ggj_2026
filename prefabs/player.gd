@@ -16,6 +16,9 @@ var _dash_velocity: float = 0.0:
 		_dash_velocity = new_value
 		return new_value
 var _dash_tween: Tween
+
+var input_dir: float = 0.0
+
 @export_range(1, 3, 1, "prefer_slider") var max_jump_count: int = 1
 @onready var _current_double_jumps: int = max_jump_count
 
@@ -39,15 +42,16 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_handle_gravity(delta)
 	
-	var input_dir := Input.get_axis("move_left", "move_right")
+	input_dir = Input.get_axis("move_left", "move_right")
 	
-	_handle_jump(input_dir)
-	_handle_movement(input_dir, delta)
-	_handle_rotation(input_dir, delta)
+	_handle_jump()
+	_handle_movement(delta)
+	_handle_rotation(delta)
 	_check_fall()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash"):
+		_set_jump_dir_to_input_dir()
 		_dash_velocity = _dash_strengh
 		_dash_tween = create_tween()
 		_dash_tween.tween_property(self, "_dash_velocity", 0, 0.3).set_ease(Tween.EASE_OUT)
@@ -57,7 +61,7 @@ func _handle_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-func _handle_jump(input_dir: float) -> void:
+func _handle_jump() -> void:
 	if not Input.is_action_just_pressed("jump"):
 		return
 	
@@ -65,19 +69,23 @@ func _handle_jump(input_dir: float) -> void:
 		velocity.y = JUMP_UP_VELOCITY
 		sfx_jump.play()
 		_current_double_jumps = max_jump_count
-		if input_dir < 0:
-			jump_direction = JumpDirection.LEFT
-		else:
-			jump_direction = JumpDirection.RIGHT
+		_set_jump_dir_to_input_dir()
+		
 	elif _current_double_jumps > 0:
 		velocity.y = JUMP_UP_VELOCITY
 		sfx_jump.play()
 		_current_double_jumps -= 1
 
+func _set_jump_dir_to_input_dir():
+	if input_dir < 0:
+		jump_direction = JumpDirection.LEFT
+	else:
+		jump_direction = JumpDirection.RIGHT
 
 
 
-func _handle_movement(input_dir: float, delta: float) -> void:
+
+func _handle_movement(delta: float) -> void:
 	if is_on_floor():
 		jump_direction = JumpDirection.NONE
 		if input_dir:
@@ -113,7 +121,7 @@ func _is_input_jump_direction(input: float) -> bool:
 				jump_direction = JumpDirection.RIGHT
 			return true
 
-func _handle_rotation(input_dir: float, delta: float) -> void:
+func _handle_rotation(delta: float) -> void:
 	# Update target rotation based on movement direction
 	if not is_zero_approx(input_dir):
 		if input_dir < 0: # Moving left
