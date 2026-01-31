@@ -10,3 +10,4 @@ stream_0 = ExtResource("1_hunf7")
 stream = SubResource("AudioStreamPlaylist_hunf7")
 autoplay = true
 bus = &"Music"
+playback_type = 1
