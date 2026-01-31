@@ -56,10 +56,10 @@ func _toggle_worlds(is_depression: bool):
 	_kill_all_current_tweens()
 	match is_depression:
 		true:
-			_tween_transparency(WORLDS.HAPPINESS, 1.0, 2.0)
+			_tween_transparency(WORLDS.HAPPINESS, 0.9, 2.0)
 			_tween_transparency(WORLDS.DEPRESSION, 0.0, 0.0)
 		_:
-			_tween_transparency(WORLDS.DEPRESSION, 1.0, 2.0)
+			_tween_transparency(WORLDS.DEPRESSION, 0.9, 2.0)
 			_tween_transparency(WORLDS.HAPPINESS, 0.0, 0.0)
 
 func _kill_all_current_tweens():
