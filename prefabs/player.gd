@@ -9,6 +9,12 @@ enum JumpDirection {NONE, LEFT, RIGHT}
 
 var jump_direction: JumpDirection = JumpDirection.NONE
 var jump_x_velocity: float = 0.0
+var dash_velocity: float = 1.0:
+	set(new_value):
+		if new_value < 0:
+			new_value = 1.0
+		dash_velocity = new_value
+		return new_value
 @export_range(1, 3, 1, "prefer_slider") var max_jump_count: int = 1
 var current_jump_quota: int = 1
 
@@ -38,7 +44,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	_handle_teleport(delta)
 	_handle_gravity(delta)
 	
 	var input_dir := Input.get_axis("move_left", "move_right")
@@ -47,38 +52,6 @@ func _physics_process(delta: float) -> void:
 	_handle_movement(input_dir, delta)
 	_handle_rotation(input_dir, delta)
 	_check_fall()
-
-func _handle_teleport(delta: float) -> void:
-	if not is_teleporting:
-		return
-		
-	teleport_progress += delta
-	var t = clamp(teleport_progress / teleport_duration, 0.0, 1.0)
-	# Use ease-out for smooth but fast feel
-	t = 1.0 - pow(1.0 - t, 3.0)
-	
-	var new_x = lerp(teleport_start_pos, teleport_target_pos, t)
-	var move_delta = new_x - global_position.x
-	
-	# Use test_move to check for collisions
-	var collision = move_and_collide(Vector3(move_delta, 0, 0), true)
-	
-	if collision:
-		# Hit something, stop teleporting
-		is_teleporting = false
-		teleport_available = false
-	elif teleport_distance_traveled + abs(move_delta) >= teleport_distance:
-		# Reached target distance
-		var remaining = teleport_distance - teleport_distance_traveled
-		global_position.x += sign(move_delta) * remaining
-		is_teleporting = false
-	else:
-		# Continue moving
-		global_position.x = new_x
-		teleport_distance_traveled += abs(move_delta)
-	
-	if teleport_progress >= teleport_duration:
-		is_teleporting = false
 
 func _handle_gravity(delta: float) -> void:
 	if not is_on_floor():
@@ -129,6 +102,7 @@ func _handle_movement(input_dir: float, delta: float) -> void:
 	
 	# Lock Z-axis movement
 	velocity.z = 0
+	velocity *= dash_velocity
 	move_and_slide()
 
 func _handle_air_teleport(input_dir: float) -> void:
