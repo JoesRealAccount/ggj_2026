@@ -9,5 +9,7 @@ func _ready() -> void:
     SignalManager.game_started.connect(_on_game_started)
 
 func _on_game_started():
+    if game_stopwatch:
+        game_stopwatch.queue_free()
     game_stopwatch = Stopwatch.new()
     add_child(game_stopwatch)

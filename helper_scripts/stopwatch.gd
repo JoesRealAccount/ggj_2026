@@ -10,9 +10,13 @@ var _minutes_elapsed: int:
 			minute_changed.emit(new_value)
 			_minutes_elapsed = new_value
 
-func _pysics_process(delta: float) -> void:
-	time_elapsed += delta
-	print("seconds: ", time_elapsed)
+func _ready() -> void:
+	var timer: Timer = Timer.new()
+	add_child(timer)
+	timer.timeout.connect(_on_1_sec_passed)
+	timer.start(1)
+
+func _on_1_sec_passed() -> void:
+	time_elapsed += 1
 	@warning_ignore("integer_division")
 	_minutes_elapsed = int(roundi(time_elapsed)/60)
-	print("minutes: ", _minutes_elapsed)
