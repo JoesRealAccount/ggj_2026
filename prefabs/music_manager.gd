@@ -3,7 +3,7 @@ extends AudioStreamPlayer
 
 @onready var _music_bus_index: int = AudioServer.get_bus_index("Music")
 
-@onready var _audio_effect_collection: AudioEffectCollection = preload("uid://b3jfmrb7qvgnm")
+@onready var _audio_effect_collection: AudioEffectCollection = preload("res://music/DepressionEffects.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
