@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://lp7hcybwol1c"]
 
 [ext_resource type="Script" uid="uid://csy6kq4j2ybg7" path="res://scenes/main_screen.gd" id="1_aum10"]
-[ext_resource type="Texture2D" uid="uid://chxgpl8xtdksn" path="res://images/Unbenanntes_Projekt.png" id="2_il54y"]
-[ext_resource type="Texture2D" uid="uid://dcxpvla51ggap" path="res://images/Buttons/Start/start_neutral.png" id="2_lushf"]
-[ext_resource type="Texture2D" uid="uid://klcfhhd5lgyr" path="res://images/Buttons/Start/start_pressed.png" id="3_23dc1"]
-[ext_resource type="Texture2D" uid="uid://c13knr6coyrnn" path="res://images/Buttons/Exit/exit_neutral.png" id="3_w87pm"]
-[ext_resource type="Texture2D" uid="uid://dfe57plyglalw" path="res://images/Buttons/Start/start_hover.png" id="4_il54y"]
-[ext_resource type="Texture2D" uid="uid://dejiace6nulhj" path="res://images/Buttons/Exit/exit_pressed.png" id="6_4takm"]
-[ext_resource type="Texture2D" uid="uid://cbk6xdxvcd8ef" path="res://images/Buttons/Exit/exit_hover.png" id="7_pn685"]
+[ext_resource type="Texture2D" uid="uid://b1piksxmrj4mw" path="res://images/Splashscreen.png" id="2_il54y"]
+[ext_resource type="Texture2D" uid="uid://cb2litdsicsfo" path="res://images/Buttons/Start/start_neutral.png" id="2_lushf"]
+[ext_resource type="Texture2D" uid="uid://c5tlfqu3mntb0" path="res://images/Buttons/Start/start_pressed.png" id="3_23dc1"]
+[ext_resource type="Texture2D" uid="uid://doxwm1dj10y6e" path="res://images/Buttons/Exit/exit_neutral.png" id="3_w87pm"]
+[ext_resource type="Texture2D" uid="uid://cpk70fcxgfa2b" path="res://images/Buttons/Start/start_hover.png" id="4_il54y"]
+[ext_resource type="Texture2D" uid="uid://b0xa3b2t13oai" path="res://images/Buttons/Exit/exit_pressed.png" id="6_4takm"]
+[ext_resource type="Texture2D" uid="uid://cwobi33pibo4" path="res://images/Buttons/Exit/exit_hover.png" id="7_pn685"]
 
 [node name="TitleScreen" type="Control" unique_id=1641681516]
 layout_mode = 3
@@ -33,10 +33,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 66.0
-offset_top = -296.0
-offset_right = 438.0
-offset_bottom = -185.0
+offset_left = 18.0
+offset_top = -197.0
+offset_right = 390.0
+offset_bottom = -86.0
 grow_vertical = 0
 texture_normal = ExtResource("2_lushf")
 texture_pressed = ExtResource("3_23dc1")
@@ -47,10 +47,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 221.0
-offset_top = -173.0
-offset_right = 593.0
-offset_bottom = -62.0
+offset_left = 339.0
+offset_top = -130.0
+offset_right = 711.0
+offset_bottom = -19.0
 grow_vertical = 0
 texture_normal = ExtResource("3_w87pm")
 texture_pressed = ExtResource("6_4takm")
