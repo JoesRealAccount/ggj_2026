@@ -9,3 +9,4 @@ stream_0 = ExtResource("1_hunf7")
 [node name="MusicManager" type="AudioStreamPlayer" unique_id=1449416958]
 stream = SubResource("AudioStreamPlaylist_hunf7")
 autoplay = true
+bus = &"Music"
