@@ -16,8 +16,8 @@
 [ext_resource type="Script" uid="uid://demyk6vjaey7r" path="res://prefabs/throw_spawning_system.gd" id="13_mwgft"]
 [ext_resource type="PackedScene" uid="uid://b0rucjakpgsht" path="res://prefabs/sessel.tscn" id="14_adxub"]
 [ext_resource type="Script" uid="uid://bh2ouunrqr3vn" path="res://world_visual_manager.gd" id="15_ff0s2"]
-[ext_resource type="PackedScene" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
-[ext_resource type="Script" path="res://scenes/enemy_spawner.gd" id="17_ondrs"]
+[ext_resource type="PackedScene" uid="uid://dbyfolhbily16" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
+[ext_resource type="Script" uid="uid://dkcjw6dsnc72s" path="res://scenes/enemy_spawner.gd" id="17_ondrs"]
 [ext_resource type="PackedScene" uid="uid://bpkw4lglty4v3" path="res://prefabs/moving_obstacles/platform_2.tscn" id="19_6nivd"]
 [ext_resource type="PackedScene" uid="uid://bobk5axfwvte8" path="res://prefabs/kill_area.tscn" id="20_al56o"]
 [ext_resource type="Texture2D" uid="uid://cy55cxqlolk6w" path="res://images/tut_keyboard.png" id="21_1bmon"]
@@ -52,6 +52,9 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_siio1"]
+viewport_path = NodePath("Sprite3D/SubViewport")
 
 [node name="World" type="Node3D" unique_id=1459611085]
 script = ExtResource("1_bq26l")
@@ -356,7 +359,7 @@ happiness_obstacle_timer = NodePath("HappinessObstacle")
 happiness_platform_timer = NodePath("HappynessPlatform")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="ObstacleSpawner" unique_id=267598004]
-transform = Transform3D(0.5015004, 0.07394315, -0.86199176, 0, 0.99634093, 0.08546786, 0.8651574, -0.04286217, 0.4996654, 14.347708, 15.702793, -0.08273983)
+transform = Transform3D(0.5015005, 0.073943146, -0.8619917, 0, 0.99634093, 0.08546786, 0.86515737, -0.042862173, 0.49966547, 14.347708, 15.702793, -0.08273983)
 
 [node name="DepressionObstacle" type="Timer" parent="ObstacleSpawner" unique_id=1573706048]
 wait_time = 10.0
@@ -386,6 +389,65 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8565006, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.977597, 6.790897, -6.895859)
 texture = ExtResource("21_1bmon")
 script = ExtResource("22_siio1")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1481688035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.158748, 7.54275, -6.8812704)
+texture = SubResource("ViewportTexture_siio1")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=1856012911]
+
+[node name="Control" type="Control" parent="Sprite3D/SubViewport" unique_id=1241502556]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Sprite3D/SubViewport/Control" unique_id=1914773112]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite3D/SubViewport/Control/MarginContainer" unique_id=2083986224]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Sprite3D/SubViewport/Control/MarginContainer/VBoxContainer" unique_id=269741688]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite3D/SubViewport/Control/MarginContainer/VBoxContainer" unique_id=1391950642]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite3D/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=103442791]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 60
+text = "Act"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Sprite3D/SubViewport/Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1866139947]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 60
+text = "1"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Sprite3D/SubViewport/Control/MarginContainer/VBoxContainer" unique_id=278564875]
+layout_mode = 2
+size_flags_vertical = 3
 
 [editable path="Player"]
 [editable path="Camera"]
