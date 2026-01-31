@@ -1,19 +1,25 @@
 [gd_scene format=3 uid="uid://dlmoo8dxmcxuu"]
 
 [ext_resource type="Script" uid="uid://4hscqonf2d4q" path="res://prefabs/player.gd" id="1_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://b4udg4e47vk37" path="res://objects/Miwa/Miwa.fbx" id="2_r66lb"]
+[ext_resource type="ArrayMesh" uid="uid://dluk1rixt247e" path="res://objects/Mic/Mic_Test_Expo.obj" id="3_1txc5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bw3m6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6614m"]
-albedo_color = Color(0, 1, 1, 1)
+height = 1.7563477
 
 [node name="Player" type="CharacterBody3D" unique_id=449052630]
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 script = ExtResource("1_qhqgy")
 
+[node name="Miwa" parent="." unique_id=46573434 instance=ExtResource("2_r66lb")]
+transform = Transform3D(-3.4969112e-06, 0, -80, 0, 80, 0, 80, 0, -3.4969112e-06, 0.6708671, 0.055729687, -0.043569744)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=680144495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8560589, 0)
 shape = SubResource("CapsuleShape3D_bw3m6")
 
-[node name="MeshInstance3D" type="CSGCylinder3D" parent="." unique_id=1450782178]
-material = SubResource("StandardMaterial3D_6614m")
+[node name="MicTestExpo" type="MeshInstance3D" parent="." unique_id=743736490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12637514, 0, 1.8107636)
+visible = false
+mesh = ExtResource("3_1txc5")

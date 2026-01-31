@@ -57,13 +57,13 @@ size = Vector3(44.67826, 2, 37.92166)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1263175272]
 
 [node name="Player" parent="." unique_id=449052630 instance=ExtResource("2_qmak7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35328162, 0)
 max_jump_count = 1
 
 [node name="Camera" parent="." unique_id=657267949 node_paths=PackedStringArray("lookAtTarget") instance=ExtResource("3_u2c82")]
 environment = null
 lookAtTarget = NodePath("../Player")
-offset = Vector3(0, 4, 24)
+offset = Vector3(6, 4, 10)
 
 [node name="CharacterSpotLight" parent="." unique_id=215407691 node_paths=PackedStringArray("target") instance=ExtResource("4_u2c82")]
 transform = Transform3D(1, 0, 4.371139e-08, -4.371139e-08, 1.9106855e-15, 1, 0, -1, 1.9106855e-15, -13.3, 15.7, 0)
