@@ -8,10 +8,14 @@
 [ext_resource type="Script" uid="uid://7oqt3khexuu5" path="res://mask_manager.gd" id="6_2sb77"]
 [ext_resource type="PackedScene" uid="uid://chg0eqr7v2cdp" path="res://prefabs/totenkopf.tscn" id="7_u2c82"]
 [ext_resource type="ArrayMesh" uid="uid://nblj07fp0tp6" path="res://objects/Stage_Greybox.obj" id="8_k5pu3"]
+[ext_resource type="ArrayMesh" uid="uid://dal8n1da0mjc1" path="res://objects/Seil.obj" id="10_mwgft"]
+[ext_resource type="ArrayMesh" uid="uid://cewnaym4e2etl" path="res://objects/Stern.obj" id="11_adxub"]
+[ext_resource type="ArrayMesh" uid="uid://cidnfhaj2jlsn" path="res://objects/Wave.obj" id="12_ff0s2"]
+[ext_resource type="PackedScene" uid="uid://b2i52xf2k2gsb" path="res://prefabs/kerzen.tscn" id="12_fkrx8"]
 
 [sub_resource type="Environment" id="Environment_u2c82"]
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.038
+volumetric_fog_density = 0.02
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6614m"]
 data = PackedVector3Array(-1.5, -0.25, 0.5, -1.5, -0.25, -0.5, -1.5, 0.25, -0.5, 1.5, -0.25, -0.5, -1.5, -0.25, -0.5, -1.5, -0.25, 0.5, -1.5, 0.25, -0.5, -1.5, -0.25, -0.5, 1.5, -0.25, -0.5, -1.5, 0.25, -0.5, -1.5, 0.25, 0.5, -1.5, -0.25, 0.5, -1.5, -0.25, 0.5, -1.5, 0.25, 0.5, 1.5, 0.25, 0.5, 1.5, 0.25, 0.5, -1.5, 0.25, 0.5, -1.5, 0.25, -0.5, -1.5, -0.25, 0.5, 1.5, -0.25, 0.5, 1.5, -0.25, -0.5, 1.5, 0.25, 0.5, 1.5, -0.25, 0.5, -1.5, -0.25, 0.5, 1.5, -0.25, -0.5, 1.5, -0.25, 0.5, 1.5, 0.25, 0.5, 1.5, -0.25, -0.5, 1.5, 0.25, -0.5, -1.5, 0.25, -0.5, -1.5, 0.25, -0.5, 1.5, 0.25, -0.5, 1.5, 0.25, 0.5, 1.5, 0.25, 0.5, 1.5, 0.25, -0.5, 1.5, -0.25, -0.5)
@@ -44,11 +48,11 @@ script = ExtResource("1_bq26l")
 environment = SubResource("Environment_u2c82")
 
 [node name="FogVolume" type="FogVolume" parent="WorldEnvironment" unique_id=330421816]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2481842, -10.411692)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2481842, -11.315117)
 size = Vector3(42.259285, 37.663788, 9.22644)
 
 [node name="FogVolume2" type="FogVolume" parent="WorldEnvironment" unique_id=263002170]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, -2.580596, 2.475)
+transform = Transform3D(1, 0, 0, 0, 0.90630776, -0.42261827, 0, 0.42261827, 0.90630776, 0, -2.6973705, 2.475)
 size = Vector3(44.67826, 2, 37.92166)
 
 [node name="Player" parent="." unique_id=449052630 instance=ExtResource("2_qmak7")]
@@ -63,6 +67,7 @@ offset = Vector3(0, 5, 32)
 [node name="CharacterSpotLight" parent="." unique_id=215407691 node_paths=PackedStringArray("target") instance=ExtResource("4_u2c82")]
 transform = Transform3D(1, 0, 4.371139e-08, -4.371139e-08, 1.9106855e-15, 1, 0, -1, 1.9106855e-15, -13.3, 15.7, 0)
 light_energy = 16.0
+light_volumetric_fog_energy = 5.0
 light_specular = 3.0
 spot_range = 48.31421
 spot_angle = 11.063394
@@ -157,6 +162,21 @@ shape = SubResource("ConcavePolygonShape3D_k5pu3")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 16, 0)
 radius = 0.2
 height = 34.0
+
+[node name="Seil" type="MeshInstance3D" parent="." unique_id=129576052]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.8171406, 0.03174933, 1.206361)
+mesh = ExtResource("10_mwgft")
+
+[node name="Stern" type="MeshInstance3D" parent="." unique_id=2141038242]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.743027, 18.018335, 1.0499594)
+mesh = ExtResource("11_adxub")
+
+[node name="Wave" type="MeshInstance3D" parent="." unique_id=499421864]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.387253, -0.004072666, 1.4056797)
+mesh = ExtResource("12_ff0s2")
+
+[node name="Kerzen" parent="." unique_id=75723294 instance=ExtResource("12_fkrx8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.003583, -0.003602028, -1.6138887)
 
 [editable path="Player"]
 [editable path="Camera"]

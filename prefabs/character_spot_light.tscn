@@ -11,5 +11,5 @@ spot_angle = 21.528973
 script = ExtResource("1_6n64h")
 
 [node name="Lamp" type="MeshInstance3D" parent="." unique_id=437982959]
-transform = Transform3D(-0.99999994, 0, 8.742278e-08, 0, 0.99999994, 0, -8.742277e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 0, 0, 0)
 mesh = ExtResource("2_v7fsf")
