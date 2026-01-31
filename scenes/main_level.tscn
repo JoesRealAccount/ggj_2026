@@ -16,8 +16,8 @@
 [ext_resource type="Script" uid="uid://demyk6vjaey7r" path="res://prefabs/throw_spawning_system.gd" id="13_mwgft"]
 [ext_resource type="PackedScene" uid="uid://b0rucjakpgsht" path="res://prefabs/sessel.tscn" id="14_adxub"]
 [ext_resource type="Script" uid="uid://bh2ouunrqr3vn" path="res://world_visual_manager.gd" id="15_ff0s2"]
-[ext_resource type="PackedScene" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
-[ext_resource type="Script" path="res://scenes/enemy_spawner.gd" id="17_ondrs"]
+[ext_resource type="PackedScene" uid="uid://dbyfolhbily16" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
+[ext_resource type="Script" uid="uid://dkcjw6dsnc72s" path="res://scenes/enemy_spawner.gd" id="17_ondrs"]
 [ext_resource type="PackedScene" uid="uid://bpkw4lglty4v3" path="res://prefabs/moving_obstacles/platform_2.tscn" id="19_6nivd"]
 [ext_resource type="PackedScene" uid="uid://bobk5axfwvte8" path="res://prefabs/kill_area.tscn" id="20_al56o"]
 [ext_resource type="Texture2D" uid="uid://cy55cxqlolk6w" path="res://images/tut_keyboard.png" id="21_1bmon"]
@@ -52,6 +52,60 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
+
+[sub_resource type="Shader" id="Shader_siio1"]
+code = "// This shader is based on Minionsart's stylized fire
+// https://twitter.com/minionsart/status/1132593681452683264?s=20
+shader_type spatial;
+render_mode blend_mix;
+
+uniform sampler2D noise_texture;
+
+uniform sampler2D texture_mask;
+uniform float emission_intensity = 2.0;
+uniform float time_scale = 3.0;
+uniform vec2 texture_scale = vec2(1.0);
+uniform float edge_softness = 0.1;
+
+varying vec3 world_coord;
+varying float world_x_dot;
+
+
+void vertex() {
+	mat4 mat_world = mat4(normalize(CAMERA_MATRIX[0])*length(WORLD_MATRIX[0]),normalize(CAMERA_MATRIX[1])*length(WORLD_MATRIX[0]),normalize(CAMERA_MATRIX[2])*length(WORLD_MATRIX[2]),WORLD_MATRIX[3]);
+	mat_world = mat_world * mat4( vec4(cos(INSTANCE_CUSTOM.x),-sin(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(sin(INSTANCE_CUSTOM.x), cos(INSTANCE_CUSTOM.x), 0.0, 0.0),vec4(0.0, 0.0, 1.0, 0.0),vec4(0.0, 0.0, 0.0, 1.0));
+	MODELVIEW_MATRIX = INV_CAMERA_MATRIX * mat_world;
+	
+	world_coord = (mat_world * vec4(VERTEX, 1.0)).rgb;
+	vec4 world_normal = (mat_world * vec4(NORMAL, 0.0));
+	world_x_dot =  abs(dot(normalize(world_normal.rgb), vec3(1.0,0.0,0.0)));
+}
+
+
+void fragment() {
+	float mask = texture(texture_mask, UV).r;
+	
+	vec2 time_based_pan = vec2(0.2, 1.0) * (- TIME * time_scale);
+	float noise_xy = texture(noise_texture, world_coord.xy * texture_scale + time_based_pan).r;
+	float noise_zy = texture(noise_texture, world_coord.zy * texture_scale + time_based_pan + vec2(0.7, 0.3)).r;
+	
+	float noise = mix(noise_xy, noise_zy, clamp(world_x_dot, 0.0, 1.0));
+	
+	ALBEDO = COLOR.rgb;
+	EMISSION = ALBEDO * emission_intensity;
+	
+	float erosion_amount = (1.0 - COLOR.a);
+	float alpha = (noise * mask) - erosion_amount;
+	
+	alpha = clamp(alpha, 0.0, 1.0);
+	ALPHA = smoothstep(0.0, edge_softness, alpha);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndwfr"]
+render_priority = 0
+shader = SubResource("Shader_siio1")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ndwfr"]
 
 [node name="World" type="Node3D" unique_id=1459611085]
 script = ExtResource("1_bq26l")
@@ -350,7 +404,7 @@ happiness_obstacle_timer = NodePath("HappinessObstacle")
 happiness_platform_timer = NodePath("HappynessPlatform")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="ObstacleSpawner" unique_id=267598004]
-transform = Transform3D(0.5015004, 0.07394315, -0.86199176, 0, 0.99634093, 0.08546786, 0.8651574, -0.04286217, 0.4996654, 14.347708, 15.702793, -0.08273983)
+transform = Transform3D(0.5015005, 0.073943146, -0.8619917, 0, 0.99634093, 0.08546786, 0.86515737, -0.042862173, 0.49966547, 14.347708, 15.702793, -0.08273983)
 
 [node name="DepressionObstacle" type="Timer" parent="ObstacleSpawner" unique_id=1573706048]
 wait_time = 10.0
@@ -380,6 +434,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8565006, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.977597, 6.790897, -6.895859)
 texture = ExtResource("21_1bmon")
 script = ExtResource("22_siio1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=326999800]
+transform = Transform3D(2.0249999, 0, 0, 0, 2.025, 0, 0, 0, 2.025, 0, 1.381202, 0)
+material_override = SubResource("ShaderMaterial_ndwfr")
+mesh = SubResource("SphereMesh_ndwfr")
 
 [editable path="Player"]
 [editable path="Camera"]
