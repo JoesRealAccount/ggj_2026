@@ -9,25 +9,18 @@ enum JumpDirection {NONE, LEFT, RIGHT}
 
 var jump_direction: JumpDirection = JumpDirection.NONE
 var jump_x_velocity: float = 0.0
-var dash_velocity: float = 1.0:
+var _dash_velocity: float = 0.0:
 	set(new_value):
 		if new_value < 0:
 			new_value = 1.0
-		dash_velocity = new_value
+		_dash_velocity = new_value
 		return new_value
+var _dash_tween: Tween
 @export_range(1, 3, 1, "prefer_slider") var max_jump_count: int = 1
-var current_jump_quota: int = 1
+@onready var _current_double_jumps: int = max_jump_count
 
 var last_input_dir: float = 0.0
-
-@export_range(1.0, 10.0) var teleport_distance: float = 5.0
-var teleport_available: bool = false
-var is_teleporting: bool = false
-var teleport_start_pos: float = 0.0
-var teleport_target_pos: float = 0.0
-var teleport_progress: float = 0.0
-var teleport_distance_traveled: float = 0.0
-@export_range(0.1, 2.0) var teleport_duration: float = 0.3 # 300ms
+@export var _dash_strengh: float = 20.0
 
 var target_rotation_y: float = -90.0 * (PI / 180.0) # Start facing right
 const ROTATION_SPEED: float = 10.0 # Speed of rotation interpolation
@@ -53,6 +46,13 @@ func _physics_process(delta: float) -> void:
 	_handle_rotation(input_dir, delta)
 	_check_fall()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("dash"):
+		_dash_velocity = _dash_strengh
+		_dash_tween = create_tween()
+		_dash_tween.tween_property(self, "_dash_velocity", 0, 0.3).set_ease(Tween.EASE_OUT)
+		
+
 func _handle_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -62,94 +62,56 @@ func _handle_jump(input_dir: float) -> void:
 		return
 	
 	if is_on_floor():
-		sfx_jump.play()
-		current_jump_quota = 1
 		velocity.y = JUMP_UP_VELOCITY
-		jump_direction = JumpDirection.NONE
-		jump_x_velocity = 0.0
-		teleport_available = true
-		last_input_dir = 0.0
-		if not is_zero_approx(input_dir):
-			jump_direction = JumpDirection.LEFT if input_dir < 0 else JumpDirection.RIGHT
-			jump_x_velocity = input_dir * SPEED
-			last_input_dir = input_dir
-	elif current_jump_quota <= max_jump_count:
 		sfx_jump.play()
-		current_jump_quota += 1
+		_current_double_jumps = max_jump_count
+		if input_dir < 0:
+			jump_direction = JumpDirection.LEFT
+		else:
+			jump_direction = JumpDirection.RIGHT
+	elif _current_double_jumps > 0:
 		velocity.y = JUMP_UP_VELOCITY
-		jump_direction = JumpDirection.NONE
-		jump_x_velocity = 0.0
-		teleport_available = true
-		last_input_dir = 0.0
-		if not is_zero_approx(input_dir):
-			jump_direction = JumpDirection.LEFT if input_dir < 0 else JumpDirection.RIGHT
-			jump_x_velocity = input_dir * SPEED
-			last_input_dir = input_dir
+		sfx_jump.play()
+		_current_double_jumps -= 1
+
+
+
 
 func _handle_movement(input_dir: float, delta: float) -> void:
 	if is_on_floor():
-		current_jump_quota = 1
-		teleport_available = false
-		last_input_dir = 0.0
-		is_teleporting = false
+		jump_direction = JumpDirection.NONE
 		if input_dir:
-			velocity.x = input_dir * SPEED
+			velocity.x = input_dir * (SPEED + _dash_velocity)
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED * delta)
 	else:
-		_handle_air_teleport(input_dir)
-		_handle_air_movement(input_dir, delta)
+		if input_dir && _is_input_jump_direction(input_dir):
+			velocity.x = input_dir * (SPEED + _dash_velocity)
+		else:
+			velocity.x = move_toward(velocity.x, 0, 0.5 * delta)
 	
 	# Lock Z-axis movement
 	velocity.z = 0
-	velocity *= dash_velocity
 	move_and_slide()
 
-func _handle_air_teleport(input_dir: float) -> void:
-	if not teleport_available or is_zero_approx(input_dir):
-		return
-	
-	# Check if this is a second input
-	var is_second_input = false
-	if is_zero_approx(last_input_dir):
-		# First input after being airborne with no input
-		if jump_direction != JumpDirection.NONE:
-			is_second_input = true
-	elif sign(input_dir) == sign(last_input_dir):
-		# Same direction pressed again
-		is_second_input = true
-	
-	if is_second_input:
-		# Start teleport animation
-		var teleport_dir = sign(input_dir)
-		is_teleporting = true
-		teleport_start_pos = global_position.x
-		teleport_target_pos = global_position.x + teleport_dir * teleport_distance
-		teleport_progress = 0.0
-		teleport_distance_traveled = 0.0
-		teleport_available = false
-	
-	# Track input for teleport detection
-	if not is_zero_approx(input_dir):
-		last_input_dir = input_dir
-
-func _handle_air_movement(input_dir: float, delta: float) -> void:
-	# If no direction was set on jump, allow one mid-air choice
-	if jump_direction == JumpDirection.NONE and not is_zero_approx(input_dir):
-		jump_direction = JumpDirection.LEFT if input_dir < 0 else JumpDirection.RIGHT
-		jump_x_velocity = input_dir * SPEED
-	
-	var valid_input_dir := input_dir
-	if jump_direction != JumpDirection.NONE and not is_zero_approx(input_dir):
-		if (input_dir < 0 and jump_direction == JumpDirection.RIGHT) or (input_dir > 0 and jump_direction == JumpDirection.LEFT):
-			valid_input_dir = 0.0
-	
-	# Only move while a valid direction key is pressed
-	if is_zero_approx(valid_input_dir):
-		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
-	else:
-		# Lock movement direction if in the air
-		velocity.x = jump_x_velocity
+func _is_input_jump_direction(input: float) -> bool:
+	match jump_direction:
+		JumpDirection.LEFT:
+			if input < 0:
+				return true
+			else:
+				return false
+		JumpDirection.RIGHT:
+			if input > 0:
+				return true
+			else:
+				return false
+		_:
+			if input <0:
+				jump_direction = JumpDirection.LEFT
+			else:
+				jump_direction = JumpDirection.RIGHT
+			return true
 
 func _handle_rotation(input_dir: float, delta: float) -> void:
 	# Update target rotation based on movement direction
