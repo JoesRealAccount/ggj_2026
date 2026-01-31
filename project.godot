@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 SignalManager="*uid://srx3oocmg6yr"
-MusicManager="*uid://dufd1tbkrx3kk"
+MusicManager="*uid://codpfny3q3574"
 
 [display]
 
