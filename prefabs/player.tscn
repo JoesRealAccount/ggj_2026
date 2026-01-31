@@ -4,22 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://b4udg4e47vk37" path="res://objects/Miwa/Miwa.fbx" id="2_r66lb"]
 [ext_resource type="ArrayMesh" uid="uid://dluk1rixt247e" path="res://objects/Mic/Mic_Test_Expo.obj" id="3_1txc5"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bw3m6"]
-height = 1.7563477
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r66lb"]
+height = 2.098755
 
 [node name="Player" type="CharacterBody3D" unique_id=449052630]
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 script = ExtResource("1_qhqgy")
 
-[node name="Miwa" parent="." unique_id=46573434 instance=ExtResource("2_r66lb")]
-transform = Transform3D(-3.4969112e-06, 0, -80, 0, 80, 0, 80, 0, -3.4969112e-06, 0.6708671, 0.055729687, -0.043569744)
+[node name="Miwa" parent="." unique_id=596499842 instance=ExtResource("2_r66lb")]
+transform = Transform3D(-4.371139e-06, 0, -100, 0, 100, 0, 100, 0, -4.371139e-06, 0, 0.029285103, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=680144495]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8560589, 0)
-shape = SubResource("CapsuleShape3D_bw3m6")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90543634, 0)
+shape = SubResource("CylinderShape3D_r66lb")
 
 [node name="MicTestExpo" type="MeshInstance3D" parent="." unique_id=743736490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12637514, 0, 1.8107636)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0, 0)
 visible = false
 mesh = ExtResource("3_1txc5")
