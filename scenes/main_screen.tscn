@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://lp7hcybwol1c"]
 
 [ext_resource type="Script" uid="uid://csy6kq4j2ybg7" path="res://scenes/main_screen.gd" id="1_aum10"]
-[ext_resource type="Texture2D" uid="uid://cl0lkq22468iu" path="res://images/Start.png" id="2_lushf"]
-[ext_resource type="Texture2D" uid="uid://c7is0blqjfph4" path="res://images/Exit.png" id="3_w87pm"]
+[ext_resource type="Texture2D" uid="uid://dcxpvla51ggap" path="res://images/Buttons/Start/start_neutral.png" id="2_lushf"]
+[ext_resource type="Texture2D" uid="uid://klcfhhd5lgyr" path="res://images/Buttons/Start/start_pressed.png" id="3_23dc1"]
+[ext_resource type="Texture2D" uid="uid://c13knr6coyrnn" path="res://images/Buttons/Exit/exit_neutral.png" id="3_w87pm"]
+[ext_resource type="Texture2D" uid="uid://dfe57plyglalw" path="res://images/Buttons/Start/start_hover.png" id="4_il54y"]
+[ext_resource type="Texture2D" uid="uid://dejiace6nulhj" path="res://images/Buttons/Exit/exit_pressed.png" id="6_4takm"]
+[ext_resource type="Texture2D" uid="uid://cbk6xdxvcd8ef" path="res://images/Buttons/Exit/exit_hover.png" id="7_pn685"]
 
 [node name="TitleScreen" type="Control" unique_id=1641681516]
 layout_mode = 3
@@ -35,6 +39,8 @@ alignment = 1
 [node name="ButtonStart" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1894593326]
 layout_mode = 2
 texture_normal = ExtResource("2_lushf")
+texture_pressed = ExtResource("3_23dc1")
+texture_hover = ExtResource("4_il54y")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=613564034]
 layout_mode = 2
@@ -43,6 +49,8 @@ alignment = 1
 [node name="ButtonQuit" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1735702469]
 layout_mode = 2
 texture_normal = ExtResource("3_w87pm")
+texture_pressed = ExtResource("6_4takm")
+texture_hover = ExtResource("7_pn685")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/ButtonQuit" to="." method="_on_button_quit_pressed"]
