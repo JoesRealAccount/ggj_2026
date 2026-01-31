@@ -200,7 +200,6 @@ shader_overlay_manager = NodePath("../Camera/CanvasLayer/ColorRect")
 transform = Transform3D(0.8567265, -0.24499224, 0.45387068, 0.06897299, 0.926501, 0.36991715, -0.5111385, -0.285613, 0.8106557, -3.4268987, 0.08484304, -1.4691439)
 
 [node name="Stage" parent="." unique_id=1347910151 instance=ExtResource("8_adxub")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124355316, 0.06703758, -0.05227661)
 
 [node name="SpotLightRail" type="CSGCylinder3D" parent="." unique_id=780992984]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 16, 0)
