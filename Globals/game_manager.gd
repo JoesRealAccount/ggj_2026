@@ -10,3 +10,4 @@ func _ready() -> void:
 
 func _on_game_started():
     game_stopwatch = Stopwatch.new()
+    add_child(game_stopwatch)

@@ -198,3 +198,4 @@ func _kill_player():
 	sfx_death.play()
 	global_position = spawn_position
 	velocity = Vector3.ZERO
+	SignalManager.game_started.emit()
