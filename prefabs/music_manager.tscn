@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://codpfny3q3574"]
+[gd_scene format=3 uid="uid://dufd1tbkrx3kk"]
 
 [ext_resource type="AudioStream" uid="uid://iisvkodotvqu" path="res://music/ggj26.mp3" id="1_hunf7"]
+[ext_resource type="Script" uid="uid://chf57gmgn6id3" path="res://prefabs/music_manager.gd" id="2_be4bq"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_hunf7"]
 stream_count = 1
@@ -11,3 +12,4 @@ stream = SubResource("AudioStreamPlaylist_hunf7")
 autoplay = true
 bus = &"Music"
 playback_type = 1
+script = ExtResource("2_be4bq")
