@@ -3,13 +3,12 @@
 [ext_resource type="Script" uid="uid://cckhak0q44axx" path="res://music/audio_effect_collection.gd" id="1_pw687"]
 
 [sub_resource type="AudioEffectEQ" id="AudioEffectEQ_q77i2"]
-band_db/1000_hz = -33.2
-band_db/3200_hz = -26.3
-band_db/10000_hz = -11.5
+band_db/1000_hz = -27.9
+band_db/3200_hz = -21.9
+band_db/10000_hz = -8.6
 
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_xyr0b"]
-cutoff_hz = 2739.0
-db = 1
+cutoff_hz = 8282.0
 
 [resource]
 script = ExtResource("1_pw687")
