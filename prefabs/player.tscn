@@ -12,14 +12,14 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 script = ExtResource("1_qhqgy")
 
-[node name="Miwa" parent="." unique_id=596499842 instance=ExtResource("2_r66lb")]
-transform = Transform3D(-4.371139e-06, 0, -100, 0, 100, 0, 100, 0, -4.371139e-06, 0, 0.029285103, 0)
+[node name="Miwa" parent="." unique_id=308747170 instance=ExtResource("2_r66lb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=680144495]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90543634, 0)
 shape = SubResource("CylinderShape3D_r66lb")
 
-[node name="MicTestExpo" type="MeshInstance3D" parent="." unique_id=743736490]
+[node name="Debug Mic For Reference" type="MeshInstance3D" parent="." unique_id=743736490]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0, 0)
 visible = false
 mesh = ExtResource("3_1txc5")
