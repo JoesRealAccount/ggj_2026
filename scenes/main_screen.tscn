@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cpk70fcxgfa2b" path="res://images/Buttons/Start/start_hover.png" id="4_il54y"]
 [ext_resource type="Texture2D" uid="uid://b0xa3b2t13oai" path="res://images/Buttons/Exit/exit_pressed.png" id="6_4takm"]
 [ext_resource type="Texture2D" uid="uid://cwobi33pibo4" path="res://images/Buttons/Exit/exit_hover.png" id="7_pn685"]
+[ext_resource type="Texture2D" uid="uid://b7hrjd8ar4wc7" path="res://images/Buttons/Team/team_neutral.png" id="9_pn685"]
+[ext_resource type="Texture2D" uid="uid://b1tyj7sxmc1u1" path="res://images/Buttons/Team/team_hover.png" id="10_u38ol"]
 
 [node name="TitleScreen" type="Control" unique_id=1641681516]
 layout_mode = 3
@@ -58,5 +60,24 @@ texture_hover = ExtResource("7_pn685")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="ButtonCredits" type="TextureButton" parent="." unique_id=92431457]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.874
+anchor_top = 0.77300006
+anchor_right = 0.97200006
+anchor_bottom = 0.9480001
+offset_left = 0.15197754
+offset_top = 0.095947266
+offset_right = 0.25598145
+offset_bottom = -0.30407715
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("9_pn685")
+texture_hover = ExtResource("10_u38ol")
+ignore_texture_size = true
+stretch_mode = 4
+
 [connection signal="pressed" from="HBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="ButtonCredits" to="." method="_on_button_credits_pressed"]
