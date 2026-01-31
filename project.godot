@@ -13,7 +13,7 @@ config_version=5
 config/name="ggj_2026"
 run/main_scene="uid://lp7hcybwol1c"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="uid://bnr3hx16rskqf"
+config/icon="uid://6pequ6fiehpf"
 
 [audio]
 
