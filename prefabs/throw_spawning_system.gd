@@ -49,5 +49,5 @@ func spawn_random_object() -> void:
 	
 	# Separate tween for continuous rotation
 	var rotation_tween = create_tween()
-	rotation_tween.set_loops()
+	rotation_tween.set_loops(200)
 	rotation_tween.tween_property(instance, "rotation:z", instance.rotation.z + TAU, object_rotation_speed).from(instance.rotation.z)
