@@ -99,11 +99,11 @@ script = ExtResource("1_bq26l")
 environment = SubResource("Environment_u2c82")
 
 [node name="FogVolume" type="FogVolume" parent="WorldEnvironment" unique_id=330421816]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2481842, -11.315117)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2481842, -11.963218)
 size = Vector3(42.259285, 37.663788, 9.22644)
 
 [node name="FogVolume2" type="FogVolume" parent="WorldEnvironment" unique_id=263002170]
-transform = Transform3D(1, 0, 0, 0, 0.90630776, -0.42261827, 0, 0.42261827, 0.90630776, 0, -2.6973705, 2.475)
+transform = Transform3D(1, 0, 0, 0, 0.90630776, -0.42261827, 0, 0.42261827, 0.90630776, 0, -2.6973705, 0.3439417)
 size = Vector3(44.67826, 2, 37.92166)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1263175272]
