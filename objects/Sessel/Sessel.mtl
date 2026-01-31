@@ -1,6 +1,13 @@
-newmtl initialShadingGroup
-illum 4
-Kd 0.50 0.50 0.50
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 1.00
+#
+# Wavefront material file
+# Created with Marmoset Toolbag
+#
+
+newmtl Default
+map_Kd 
+Ka 0.200000 0.200000 0.200000
+Kd 1.000000 1.000000 1.000000
+Ks 0.200000 0.200000 0.200000
+illum 2
+Ns 20.000000
+Tr 1.000000

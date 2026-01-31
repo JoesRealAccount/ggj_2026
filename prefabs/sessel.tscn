@@ -1,9 +1,27 @@
 [gd_scene format=3 uid="uid://b0rucjakpgsht"]
 
 [ext_resource type="ArrayMesh" uid="uid://b8p3f1uvunkqd" path="res://objects/Sessel/Sessel.obj" id="1_scrd4"]
+[ext_resource type="Texture2D" uid="uid://wqq7latbfe7f" path="res://objects/Sessel/initialShadingGroup_Base_color.png" id="2_46oyr"]
+[ext_resource type="Texture2D" uid="uid://xqneuqqvv4y7" path="res://objects/Sessel/initialShadingGroup_Mixed_AO.png" id="3_ywdct"]
+[ext_resource type="Texture2D" uid="uid://csmu5xb30jh14" path="res://objects/Sessel/initialShadingGroup_Metallic.png" id="4_b4cyn"]
+[ext_resource type="Texture2D" uid="uid://dkmhxh1c1ngty" path="res://objects/Sessel/initialShadingGroup_Height.png" id="4_ywdct"]
+[ext_resource type="Texture2D" uid="uid://bv0dml8sbdd0x" path="res://objects/Sessel/initialShadingGroup_Normal_OpenGL.png" id="5_283t3"]
+[ext_resource type="Texture2D" uid="uid://d0xivrl4ibaji" path="res://objects/Sessel/initialShadingGroup_Roughness.png" id="6_w0gfr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4hgu"]
+albedo_texture = ExtResource("2_46oyr")
+metallic = 1.0
+metallic_texture = ExtResource("4_b4cyn")
+roughness_texture = ExtResource("6_w0gfr")
+normal_enabled = true
+normal_texture = ExtResource("5_283t3")
+ao_enabled = true
+ao_texture = ExtResource("3_ywdct")
+heightmap_texture = ExtResource("4_ywdct")
 
 [node name="Chair" type="Node3D" unique_id=1519617925]
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=955599492]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 mesh = ExtResource("1_scrd4")
+surface_material_override/0 = SubResource("StandardMaterial3D_g4hgu")

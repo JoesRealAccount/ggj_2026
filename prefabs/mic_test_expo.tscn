@@ -1,9 +1,25 @@
 [gd_scene format=3 uid="uid://c02utqdtw0pb5"]
 
 [ext_resource type="ArrayMesh" uid="uid://dluk1rixt247e" path="res://objects/Mic/Mic_Test_Expo.obj" id="1_ct8jd"]
+[ext_resource type="Texture2D" uid="uid://c5jhwvj1421hu" path="res://objects/Mic/Tex/initialShadingGroup_Base_color.png" id="2_ggg08"]
+[ext_resource type="Texture2D" uid="uid://cu77kd6wwqx4e" path="res://objects/Mic/Tex/initialShadingGroup_Mixed_AO.png" id="3_axekc"]
+[ext_resource type="Texture2D" uid="uid://bjp5ceelp7ap7" path="res://objects/Mic/Tex/initialShadingGroup_Metallic.png" id="4_ds3ju"]
+[ext_resource type="Texture2D" uid="uid://1lwr7wx3dqud" path="res://objects/Mic/Tex/initialShadingGroup_Normal_OpenGL.png" id="5_m68yv"]
+[ext_resource type="Texture2D" uid="uid://u6pbwpvqjwvp" path="res://objects/Mic/Tex/initialShadingGroup_Roughness.png" id="6_u75js"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w54n"]
+albedo_texture = ExtResource("2_ggg08")
+metallic = 1.0
+metallic_texture = ExtResource("4_ds3ju")
+roughness_texture = ExtResource("6_u75js")
+normal_enabled = true
+normal_texture = ExtResource("5_m68yv")
+ao_enabled = true
+ao_texture = ExtResource("3_axekc")
 
 [node name="Mic" type="Node3D" unique_id=1848665238]
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1928665018]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 mesh = ExtResource("1_ct8jd")
+surface_material_override/0 = SubResource("StandardMaterial3D_8w54n")

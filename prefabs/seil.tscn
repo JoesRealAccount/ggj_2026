@@ -1,8 +1,24 @@
 [gd_scene format=3 uid="uid://ch2vhv0pognho"]
 
 [ext_resource type="ArrayMesh" uid="uid://bto8q5k686lc2" path="res://objects/Seil/Seil.obj" id="1_jhh8n"]
+[ext_resource type="Texture2D" uid="uid://w52431i2quh0" path="res://objects/Seil/Tex/initialShadingGroup_Base_color.png" id="2_tgfdl"]
+[ext_resource type="Texture2D" uid="uid://bsago1k6o2qlm" path="res://objects/Seil/Tex/initialShadingGroup_Mixed_AO.png" id="3_aecnp"]
+[ext_resource type="Texture2D" uid="uid://cx4pe2clq7e5p" path="res://objects/Seil/Tex/initialShadingGroup_Metallic.png" id="4_elfe0"]
+[ext_resource type="Texture2D" uid="uid://ysyiqq81dbud" path="res://objects/Seil/Tex/initialShadingGroup_Normal_OpenGL.png" id="5_36bau"]
+[ext_resource type="Texture2D" uid="uid://g73e6honpddd" path="res://objects/Seil/Tex/initialShadingGroup_Roughness.png" id="6_56q78"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eke36"]
+albedo_texture = ExtResource("2_tgfdl")
+metallic = 1.0
+metallic_texture = ExtResource("4_elfe0")
+roughness_texture = ExtResource("6_56q78")
+normal_enabled = true
+normal_texture = ExtResource("5_36bau")
+ao_enabled = true
+ao_texture = ExtResource("3_aecnp")
 
 [node name="Node3D" type="Node3D" unique_id=519347541]
 
 [node name="Seil" type="MeshInstance3D" parent="." unique_id=727855068]
 mesh = ExtResource("1_jhh8n")
+surface_material_override/0 = SubResource("StandardMaterial3D_eke36")

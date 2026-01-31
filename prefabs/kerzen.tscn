@@ -1,11 +1,27 @@
 [gd_scene format=3 uid="uid://b2i52xf2k2gsb"]
 
 [ext_resource type="ArrayMesh" uid="uid://dnddd3vg7vgcg" path="res://objects/Kerzen/Kerzen.obj" id="1_rtqfu"]
+[ext_resource type="Texture2D" uid="uid://bi07hshj51q3r" path="res://objects/Kerzen/Tex/initialShadingGroup_Base_color.png" id="2_wtewo"]
+[ext_resource type="Texture2D" uid="uid://b3k8uaqahhre0" path="res://objects/Kerzen/Tex/initialShadingGroup_Mixed_AO.png" id="3_g44t4"]
+[ext_resource type="Texture2D" uid="uid://mvqme6bfvsnw" path="res://objects/Kerzen/Tex/initialShadingGroup_Metallic.png" id="4_k2vo2"]
+[ext_resource type="Texture2D" uid="uid://bvc7x0nxamoym" path="res://objects/Kerzen/Tex/initialShadingGroup_Normal_OpenGL.png" id="5_jo4ke"]
+[ext_resource type="Texture2D" uid="uid://b02bamf1vkhui" path="res://objects/Kerzen/Tex/initialShadingGroup_Roughness.png" id="6_5r3h6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujwdy"]
+albedo_texture = ExtResource("2_wtewo")
+metallic = 1.0
+metallic_texture = ExtResource("4_k2vo2")
+roughness_texture = ExtResource("6_5r3h6")
+normal_enabled = true
+normal_texture = ExtResource("5_jo4ke")
+ao_enabled = true
+ao_texture = ExtResource("3_g44t4")
 
 [node name="Node3D" type="Node3D" unique_id=844427908]
 
 [node name="Kerzen" type="MeshInstance3D" parent="." unique_id=75723294]
 mesh = ExtResource("1_rtqfu")
+surface_material_override/0 = SubResource("StandardMaterial3D_ujwdy")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=531653790]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9647126, 0)

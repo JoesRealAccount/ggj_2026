@@ -12,12 +12,17 @@
 [ext_resource type="ArrayMesh" uid="uid://c375cirdmjx4g" path="res://objects/Stern/Stern.obj" id="9_adxub"]
 [ext_resource type="ArrayMesh" uid="uid://d0ou6kd0rbt1o" path="res://objects/Wave/Wave.obj" id="9_mwgft"]
 [ext_resource type="PackedScene" uid="uid://b2i52xf2k2gsb" path="res://prefabs/kerzen.tscn" id="12_fkrx8"]
+[ext_resource type="Texture2D" uid="uid://1ocgtb8rebr2" path="res://objects/Wave/Tex/initialShadingGroup_Base_color.png" id="12_rcrbw"]
 [ext_resource type="PackedScene" uid="uid://ch2vhv0pognho" path="res://prefabs/seil.tscn" id="13_adxub"]
+[ext_resource type="Texture2D" uid="uid://qbt0kj84eqql" path="res://objects/Wave/Tex/initialShadingGroup_Mixed_AO.png" id="13_c88u2"]
 [ext_resource type="Script" uid="uid://demyk6vjaey7r" path="res://prefabs/throw_spawning_system.gd" id="13_mwgft"]
 [ext_resource type="PackedScene" uid="uid://b0rucjakpgsht" path="res://prefabs/sessel.tscn" id="14_adxub"]
+[ext_resource type="Texture2D" uid="uid://bpr6saf2g4i5a" path="res://objects/Wave/Tex/initialShadingGroup_Metallic.png" id="14_gr2jy"]
+[ext_resource type="Texture2D" uid="uid://dstrc1d3n08v4" path="res://objects/Wave/Tex/initialShadingGroup_Normal_OpenGL.png" id="15_3iae7"]
 [ext_resource type="Script" uid="uid://bh2ouunrqr3vn" path="res://world_visual_manager.gd" id="15_ff0s2"]
-[ext_resource type="PackedScene" uid="uid://dbyfolhbily16" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
-[ext_resource type="Script" uid="uid://dkcjw6dsnc72s" path="res://scenes/enemy_spawner.gd" id="17_ondrs"]
+[ext_resource type="Texture2D" uid="uid://cyh0h3sk2m1u0" path="res://objects/Wave/Tex/initialShadingGroup_Roughness.png" id="16_cycrt"]
+[ext_resource type="PackedScene" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
+[ext_resource type="Script" path="res://scenes/enemy_spawner.gd" id="17_ondrs"]
 [ext_resource type="PackedScene" uid="uid://bpkw4lglty4v3" path="res://prefabs/moving_obstacles/platform_happiness_1.tscn" id="19_6nivd"]
 [ext_resource type="PackedScene" uid="uid://bobk5axfwvte8" path="res://prefabs/kill_area.tscn" id="20_al56o"]
 [ext_resource type="Texture2D" uid="uid://cy55cxqlolk6w" path="res://images/tut_keyboard.png" id="21_1bmon"]
@@ -47,6 +52,16 @@ data = PackedVector3Array(-1, -0.25, 0.5, -1, -0.25, -0.5, -1, 0.25, -0.5, 1, -0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_eqmdw"]
 data = PackedVector3Array(-1, -0.25, 0.5, -1, -0.25, -0.5, -1, 0.25, -0.5, 1, -0.25, -0.5, -1, -0.25, -0.5, -1, -0.25, 0.5, -1, 0.25, -0.5, -1, -0.25, -0.5, 1, -0.25, -0.5, -1, 0.25, -0.5, -1, 0.25, 0.5, -1, -0.25, 0.5, -1, -0.25, 0.5, -1, 0.25, 0.5, 1, 0.25, 0.5, 1, 0.25, 0.5, -1, 0.25, 0.5, -1, 0.25, -0.5, -1, -0.25, 0.5, 1, -0.25, 0.5, 1, -0.25, -0.5, 1, 0.25, 0.5, 1, -0.25, 0.5, -1, -0.25, 0.5, 1, -0.25, -0.5, 1, -0.25, 0.5, 1, 0.25, 0.5, 1, -0.25, -0.5, 1, 0.25, -0.5, -1, 0.25, -0.5, -1, 0.25, -0.5, 1, 0.25, -0.5, 1, 0.25, 0.5, 1, 0.25, 0.5, 1, 0.25, -0.5, 1, -0.25, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfmml"]
+albedo_texture = ExtResource("12_rcrbw")
+metallic = 1.0
+metallic_texture = ExtResource("14_gr2jy")
+roughness_texture = ExtResource("16_cycrt")
+normal_enabled = true
+normal_texture = ExtResource("15_3iae7")
+ao_enabled = true
+ao_texture = ExtResource("13_c88u2")
 
 [sub_resource type="Curve3D" id="Curve3D_uk2yf"]
 closed = true
@@ -184,6 +199,7 @@ mesh = ExtResource("9_adxub")
 [node name="Wave" type="MeshInstance3D" parent="." unique_id=499421864]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.387253, -0.004072666, 1.4056797)
 mesh = ExtResource("9_mwgft")
+surface_material_override/0 = SubResource("StandardMaterial3D_pfmml")
 
 [node name="Candlelight" parent="." unique_id=75723294 instance=ExtResource("12_fkrx8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.003583, -0.003602028, -1.6138887)
@@ -365,7 +381,7 @@ happiness_obstacle_timer = NodePath("HappinessObstacle")
 happiness_platform_timer = NodePath("HappynessPlatform")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="ObstacleSpawner" unique_id=267598004]
-transform = Transform3D(0.5015005, 0.073943146, -0.8619917, 0, 0.99634093, 0.08546786, 0.86515737, -0.042862173, 0.49966547, 14.347708, 15.702793, -0.08273983)
+transform = Transform3D(0.5015004, 0.07394315, -0.86199176, 0, 0.99634093, 0.08546786, 0.8651574, -0.04286217, 0.4996654, 14.347708, 15.702793, -0.08273983)
 
 [node name="DepressionObstacle" type="Timer" parent="ObstacleSpawner" unique_id=1573706048]
 wait_time = 10.0

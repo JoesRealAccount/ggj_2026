@@ -2,6 +2,21 @@
 
 [ext_resource type="Script" uid="uid://d184r1mnpu2xj" path="res://prefabs/character_spot_light.gd" id="1_6n64h"]
 [ext_resource type="ArrayMesh" uid="uid://bx1uhommnus4w" path="res://objects/Lamp/Lamp.obj" id="2_v7fsf"]
+[ext_resource type="Texture2D" uid="uid://ba6c3nxhk7qya" path="res://objects/Lamp/Tex/initialShadingGroup_Base_color.png" id="3_rsh4n"]
+[ext_resource type="Texture2D" uid="uid://y4lgo0hbpgs1" path="res://objects/Lamp/Tex/initialShadingGroup_Mixed_AO.png" id="4_1sk6a"]
+[ext_resource type="Texture2D" uid="uid://8tteldnpuhfm" path="res://objects/Lamp/Tex/initialShadingGroup_Metallic.png" id="5_l704l"]
+[ext_resource type="Texture2D" uid="uid://7wncaufgr5l4" path="res://objects/Lamp/Tex/initialShadingGroup_Normal_OpenGL.png" id="6_si0b4"]
+[ext_resource type="Texture2D" uid="uid://byd15e3iwj7ls" path="res://objects/Lamp/Tex/initialShadingGroup_Roughness.png" id="7_3c4ug"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vlmru"]
+albedo_texture = ExtResource("3_rsh4n")
+metallic = 1.0
+metallic_texture = ExtResource("5_l704l")
+roughness_texture = ExtResource("7_3c4ug")
+normal_enabled = true
+normal_texture = ExtResource("6_si0b4")
+ao_enabled = true
+ao_texture = ExtResource("4_1sk6a")
 
 [node name="CharacterSpotLight" type="SpotLight3D" unique_id=215407691]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
@@ -13,3 +28,4 @@ script = ExtResource("1_6n64h")
 [node name="Lamp" type="MeshInstance3D" parent="." unique_id=437982959]
 transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 0, 0, 0)
 mesh = ExtResource("2_v7fsf")
+surface_material_override/0 = SubResource("StandardMaterial3D_vlmru")
