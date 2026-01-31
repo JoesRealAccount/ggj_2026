@@ -12,6 +12,10 @@ var jump_x_velocity: float = 0.0
 
 @export_range(1, 3, 1, "prefer_slider") var max_jump_count: int = 2
 var current_jump_quota: int = 1
+var target_rotation_y: float = -90.0 * (PI / 180.0) # Start facing right
+const ROTATION_SPEED: float = 10.0 # Speed of rotation interpolation
+
+@onready var model: Node3D = $Miwa
 
 func _ready() -> void:
 	spawn_position = global_position
@@ -70,6 +74,16 @@ func _physics_process(delta: float) -> void:
 	velocity.z = 0
 
 	move_and_slide()
+	
+	# Update target rotation based on movement direction
+	if not is_zero_approx(input_dir):
+		if input_dir < 0: # Moving left
+			target_rotation_y = 90.0 * (PI / 180.0)
+		else: # Moving right
+			target_rotation_y = -90.0 * (PI / 180.0)
+	
+	# Smoothly interpolate model rotation
+	model.rotation.y = lerp_angle(model.rotation.y, target_rotation_y, ROTATION_SPEED * delta)
 	
 	# Reset if fallen below -20 meters
 	if global_position.y < -20:
