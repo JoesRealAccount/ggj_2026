@@ -39,6 +39,14 @@ enum overlay_types{
 
 func _ready() -> void:
 	_screen_overlay_rect.color = active_overlay_color
+	SignalManager.world_toggled_is_depression.connect(_on_worlds_toggled)
+
+func _on_worlds_toggled(is_depression: bool):
+	match is_depression:
+		true:
+			current_overlay = overlay_types.DEPRESSION
+		_:
+			current_overlay = overlay_types.HAPPYNESS
 
 func _kill_all_current_tweens():
 	for tween: Tween in _current_tweens:

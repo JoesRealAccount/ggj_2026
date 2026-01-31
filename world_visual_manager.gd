@@ -10,7 +10,7 @@ const WORLDS: Dictionary = {
 
 var world_one_transparency: float:
 	set(new_value):
-		get_tree().set_group("world_happiness", "transparency", new_value)
+		get_tree().set_group("world_depression", "transparency", new_value)
 		_world_one_hitbox_toggle = _should_hitbox_by_transparency(_world_one_hitbox_toggle, new_value)
 		world_one_transparency = new_value
 		return new_value
@@ -18,20 +18,21 @@ var world_one_transparency: float:
 var _world_one_hitbox_toggle = false:
 	set(new_value):
 		if _world_one_hitbox_toggle != new_value:
-			get_tree().set_group("world_happiness", "disabled", new_value)
+			get_tree().set_group("world_depression", "disabled", !new_value)
 		_world_one_hitbox_toggle = new_value
 		return new_value
 
 var world_two_transparency: float:
 	set(new_value):
-		if _world_two_hitbox_toggle != new_value:
-			get_tree().set_group("world_depression", "transparency", new_value)
+		get_tree().set_group("world_happiness", "transparency", new_value)
+		_world_two_hitbox_toggle = _should_hitbox_by_transparency(_world_two_hitbox_toggle, new_value)
 		world_two_transparency = new_value
 		return new_value
 
+
 var _world_two_hitbox_toggle = true:
 	set(new_value):
-		get_tree().set_group("world_happiness", "disabled", new_value)
+		get_tree().set_group("world_happiness", "disabled", !new_value)
 		_world_two_hitbox_toggle = _should_hitbox_by_transparency(_world_two_hitbox_toggle, new_value)
 		_world_two_hitbox_toggle = new_value
 		return new_value
@@ -47,7 +48,17 @@ func _should_hitbox_by_transparency(hitbox_toggle: bool, transparency: float) ->
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_tween_transparency(WORLDS.DEPRESSION, 1.0, 10)
+	SignalManager.world_toggled_is_depression.connect(_toggle_worlds)
+
+func _toggle_worlds(is_depression: bool):
+	_kill_all_current_tweens()
+	match is_depression:
+		true:
+			_tween_transparency(WORLDS.HAPPINESS, 1.0, 2.0)
+			_tween_transparency(WORLDS.DEPRESSION, 0.0, 0.0)
+		_:
+			_tween_transparency(WORLDS.DEPRESSION, 1.0, 2.0)
+			_tween_transparency(WORLDS.HAPPINESS, 0.0, 0.0)
 
 func _kill_all_current_tweens():
 	for tween: Tween in _current_tweens:
