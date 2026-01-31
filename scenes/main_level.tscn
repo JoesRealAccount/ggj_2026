@@ -423,7 +423,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.625, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8565006, 0)
 
 [node name="ControlTutSprite" type="Sprite3D" parent="." unique_id=469808681]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.977597, 6.790897, -6.895859)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.977597, 6.790897, -6.831813)
 texture = ExtResource("21_1bmon")
 script = ExtResource("22_siio1")
 
