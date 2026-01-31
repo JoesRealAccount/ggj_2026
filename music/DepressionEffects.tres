@@ -2,21 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cckhak0q44axx" path="res://music/audio_effect_collection.gd" id="1_pw687"]
 
-[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_q77i2"]
-room_size = 0.45
-damping = 0.17
-wet = 0.39
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_q77i2"]
+band_db/1000_hz = -33.2
+band_db/3200_hz = -26.3
+band_db/10000_hz = -11.5
 
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_xyr0b"]
-cutoff_hz = 3000.0
+cutoff_hz = 2739.0
 db = 1
-
-[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_es881"]
-band_db/1000_hz = -13.0
-band_db/3200_hz = -22.0
-band_db/10000_hz = -33.0
 
 [resource]
 script = ExtResource("1_pw687")
-_audio_effects = Array[AudioEffect]([SubResource("AudioEffectReverb_q77i2"), SubResource("AudioEffectLowPassFilter_xyr0b"), SubResource("AudioEffectEQ_es881")])
+audio_effects = Array[AudioEffect]([SubResource("AudioEffectEQ_q77i2"), SubResource("AudioEffectLowPassFilter_xyr0b"), null])
 metadata/_custom_type_script = "uid://cckhak0q44axx"
