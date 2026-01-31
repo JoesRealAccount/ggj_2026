@@ -12,6 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cewnaym4e2etl" path="res://objects/Stern.obj" id="11_adxub"]
 [ext_resource type="ArrayMesh" uid="uid://cidnfhaj2jlsn" path="res://objects/Wave.obj" id="12_ff0s2"]
 [ext_resource type="PackedScene" uid="uid://b2i52xf2k2gsb" path="res://prefabs/kerzen.tscn" id="12_fkrx8"]
+[ext_resource type="Script" uid="uid://demyk6vjaey7r" path="res://prefabs/throw_spawning_system.gd" id="13_mwgft"]
 
 [sub_resource type="Environment" id="Environment_u2c82"]
 volumetric_fog_enabled = true
@@ -177,6 +178,10 @@ mesh = ExtResource("12_ff0s2")
 
 [node name="Kerzen" parent="." unique_id=75723294 instance=ExtResource("12_fkrx8")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.003583, -0.003602028, -1.6138887)
+
+[node name="ThrowSpawningSystem" type="Node3D" parent="." unique_id=995998750]
+script = ExtResource("13_mwgft")
+throwable_objects = Array[PackedScene]([ExtResource("12_fkrx8"), ExtResource("7_u2c82")])
 
 [editable path="Player"]
 [editable path="Camera"]
