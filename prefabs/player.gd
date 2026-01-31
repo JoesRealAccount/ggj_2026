@@ -28,6 +28,7 @@ const ROTATION_SPEED: float = 10.0 # Speed of rotation interpolation
 
 func _ready() -> void:
 	spawn_position = global_position
+	SignalManager.player_death.connect(_kill_player)
 
 
 func _physics_process(delta: float) -> void:
@@ -162,9 +163,8 @@ func _physics_process(delta: float) -> void:
 	# Reset if fallen below -20 meters
 	if global_position.y < -20:
 		global_position = spawn_position
-		_kill_player()
+		SignalManager.player_death.emit()
 
 func _kill_player():
-	SignalManager.player_death.emit()
 	global_position = spawn_position
 	velocity = Vector3.ZERO

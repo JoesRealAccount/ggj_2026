@@ -33,6 +33,7 @@ window/stretch/aspect="expand"
 
 world_happiness=""
 world_depression=""
+player=""
 
 [input]
 

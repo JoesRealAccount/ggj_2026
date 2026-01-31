@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
 [ext_resource type="Script" path="res://scenes/enemy_spawner.gd" id="17_ondrs"]
 [ext_resource type="PackedScene" uid="uid://bpkw4lglty4v3" path="res://prefabs/moving_obstacles/platform_2.tscn" id="19_6nivd"]
+[ext_resource type="PackedScene" uid="uid://bobk5axfwvte8" path="res://prefabs/kill_area.tscn" id="20_al56o"]
 
 [sub_resource type="Environment" id="Environment_u2c82"]
 volumetric_fog_enabled = true
@@ -66,7 +67,8 @@ size = Vector3(44.67826, 2, 37.92166)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1263175272]
 
-[node name="Player" parent="." unique_id=449052630 instance=ExtResource("2_qmak7")]
+[node name="Player" parent="." unique_id=449052630 groups=["player"] instance=ExtResource("2_qmak7")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35328162, 0)
 
 [node name="Camera" parent="." unique_id=657267949 node_paths=PackedStringArray("lookAtTarget") instance=ExtResource("3_u2c82")]
@@ -360,6 +362,20 @@ wait_time = 10.0
 [node name="HappynessPlatform" type="Timer" parent="ObstacleSpawner" unique_id=1528940609]
 wait_time = 5.0
 
+[node name="KillArea" parent="." unique_id=1327564447 instance=ExtResource("20_al56o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.256102, 4.6926575, 0)
+
+[node name="CollisionShape3D" parent="KillArea/Area3D" parent_id_path=PackedInt32Array(1327564447, 1035778135) index="0" unique_id=320487373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8042145, 0)
+
+[node name="KillArea2" parent="." unique_id=753760917 instance=ExtResource("20_al56o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.625, 0, 0)
+
+[node name="CollisionShape3D" parent="KillArea2/Area3D" parent_id_path=PackedInt32Array(753760917, 1035778135) index="0" unique_id=320487373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.8565006, 0)
+
 [editable path="Player"]
 [editable path="Camera"]
 [editable path="ObjectDestroyer"]
+[editable path="KillArea"]
+[editable path="KillArea2"]
