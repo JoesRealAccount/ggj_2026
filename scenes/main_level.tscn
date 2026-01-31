@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bobk5axfwvte8" path="res://prefabs/kill_area.tscn" id="20_al56o"]
 [ext_resource type="Texture2D" uid="uid://cy55cxqlolk6w" path="res://images/tut_keyboard.png" id="21_1bmon"]
 [ext_resource type="Script" uid="uid://bj0c8kucyinh5" path="res://prefabs/control_tut_sprite.gd" id="22_siio1"]
-[ext_resource type="Script" uid="uid://cop7ws1tf001w" path="res://helper_scripts/act_display.gd" id="23_ndwfr"]
+[ext_resource type="Script" path="res://helper_scripts/act_display.gd" id="23_ndwfr"]
 
 [sub_resource type="Environment" id="Environment_u2c82"]
 volumetric_fog_enabled = true

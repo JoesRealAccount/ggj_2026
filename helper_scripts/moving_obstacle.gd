@@ -1,4 +1,4 @@
-extends Node3D
+extends AnimatableBody3D
 
 @export var min_speed: float = 3.0
 @export var max_speed: float = 5.0
@@ -25,5 +25,3 @@ func _ready() -> void:
 		
 func _physics_process(delta: float) -> void:
 	position.x -= _speed * delta
-
-
