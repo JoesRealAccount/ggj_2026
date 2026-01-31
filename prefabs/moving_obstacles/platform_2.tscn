@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bpkw4lglty4v3"]
+
+[ext_resource type="Script" uid="uid://c1ms8u1jsnwqu" path="res://helper_scripts/moving_obstacle.gd" id="1_l3iwv"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6614m"]
+data = PackedVector3Array(-1.5, -0.25, 0.5, -1.5, -0.25, -0.5, -1.5, 0.25, -0.5, 1.5, -0.25, -0.5, -1.5, -0.25, -0.5, -1.5, -0.25, 0.5, -1.5, 0.25, -0.5, -1.5, -0.25, -0.5, 1.5, -0.25, -0.5, -1.5, 0.25, -0.5, -1.5, 0.25, 0.5, -1.5, -0.25, 0.5, -1.5, -0.25, 0.5, -1.5, 0.25, 0.5, 1.5, 0.25, 0.5, 1.5, 0.25, 0.5, -1.5, 0.25, 0.5, -1.5, 0.25, -0.5, -1.5, -0.25, 0.5, 1.5, -0.25, 0.5, 1.5, -0.25, -0.5, 1.5, 0.25, 0.5, 1.5, -0.25, 0.5, -1.5, -0.25, 0.5, 1.5, -0.25, -0.5, 1.5, -0.25, 0.5, 1.5, 0.25, 0.5, 1.5, -0.25, -0.5, 1.5, 0.25, -0.5, -1.5, 0.25, -0.5, -1.5, 0.25, -0.5, 1.5, 0.25, -0.5, 1.5, 0.25, 0.5, 1.5, 0.25, 0.5, 1.5, 0.25, -0.5, 1.5, -0.25, -0.5)
+
+[node name="Platform2" type="StaticBody3D" unique_id=563211546]
+script = ExtResource("1_l3iwv")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1188542516 groups=["world_happiness"]]
+size = Vector3(3, 0.5, 1)
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="." unique_id=1716607869 groups=["world_happiness"]]
+shape = SubResource("ConcavePolygonShape3D_6614m")
