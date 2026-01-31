@@ -12,6 +12,7 @@ var world_one_transparency: float:
 	set(new_value):
 		get_tree().set_group("world_depression", "transparency", new_value)
 		_world_one_hitbox_toggle = _should_hitbox_by_transparency(_world_one_hitbox_toggle, new_value)
+		GameManager.depression_transparency = new_value
 		world_one_transparency = new_value
 		return new_value
 
@@ -27,6 +28,7 @@ var world_two_transparency: float:
 	set(new_value):
 		get_tree().set_group("world_happiness", "transparency", new_value)
 		_world_two_hitbox_toggle = _should_hitbox_by_transparency(_world_two_hitbox_toggle, new_value)
+		GameManager.depression_transparency = new_value
 		world_two_transparency = new_value
 		return new_value
 
