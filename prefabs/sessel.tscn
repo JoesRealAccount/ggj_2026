@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b0rucjakpgsht"]
+
+[ext_resource type="ArrayMesh" uid="uid://b4mxip4yg0qdi" path="res://objects/Sessel.obj" id="1_scrd4"]
+
+[node name="Chair" type="Node3D" unique_id=1519617925]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=955599492]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_scrd4")
