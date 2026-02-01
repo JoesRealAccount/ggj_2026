@@ -54,6 +54,7 @@ var target_rotation_y: float = -90.0 * (PI / 180.0) # Start facing right
 @onready var _animation_player: AnimationPlayer = $Miwa/AnimationPlayer
 
 func _ready() -> void:
+	_animation_player.speed_scale = 3
 	spawn_position = global_position
 	SignalManager.player_death.connect(_kill_player)
 	SignalManager.game_started.emit()
@@ -130,11 +131,11 @@ func _handle_movement(delta: float) -> void:
 		jump_direction = JumpDirection.NONE
 		if input_dir:
 			velocity.x = input_dir * (SPEED + _dash_velocity)
-			if _animation_player.current_animation != "Walkcycle":
+			if _animation_player.current_animation != "Walkcycle" && _animation_player.current_animation != "Jump":
 				_animation_player.play("Walkcycle")
 		else:
 			_apply_velocity_decay(delta, _velocity_decay_speed*_floor_velocity_decay_multiplier)
-			if is_zero_approx(velocity.x):
+			if is_zero_approx(velocity.x) && _animation_player.current_animation != "Jump":
 				_animation_player.play("Idle")
 	else:
 		if input_dir && _is_input_jump_direction(input_dir):
@@ -194,8 +195,10 @@ func _check_fall() -> void:
 func _kill_player():
 	_is_dead = true
 	sfx_death.play()
+	_animation_player.speed_scale = 1.0
 	_animation_player.play("Death")
 	await get_tree().create_timer(_animation_player.current_animation_length).timeout
+	_animation_player.speed_scale = 3.0
 	global_position = spawn_position
 	velocity = Vector3.ZERO
 	_is_dead = false
