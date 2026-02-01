@@ -23,23 +23,21 @@ normal_texture = ExtResource("7_rgaf6")
 ao_enabled = true
 ao_texture = ExtResource("5_gtn13")
 
-[node name="Skull" type="Node3D" unique_id=970364287]
-script = ExtResource("1_yckp2")
-
-[node name="Area3D" type="AnimatableBody3D" parent="." unique_id=1421351057 groups=["world_depression"]]
-collision_layer = 0
+[node name="Skull" type="AnimatableBody3D" unique_id=319298801]
 script = ExtResource("2_satvg")
-kills = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1640907326 groups=["world_depression"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1640907326 groups=["world_depression"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5005469e-05, 0.026939496, 0.009422496)
 shape = SubResource("CapsuleShape3D_brnmk")
 
-[node name="Mesh" type="MeshInstance3D" parent="Area3D" unique_id=353993623 groups=["world_depression"]]
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=353993623 groups=["world_depression"]]
 mesh = ExtResource("3_y5d0k")
 surface_material_override/0 = SubResource("StandardMaterial3D_76tuq")
 
-[node name="LightEyeLeft" type="OmniLight3D" parent="." unique_id=256095421]
+[node name="Node3D" type="Node3D" parent="." unique_id=1649123828]
+script = ExtResource("1_yckp2")
+
+[node name="LightEyeLeft" type="OmniLight3D" parent="Node3D" unique_id=256095421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06297075, 0.033038303, 0.06920871)
 light_color = Color(0.77, 0.72148997, 0.35419998, 1)
 light_energy = 5.0
@@ -47,7 +45,7 @@ light_size = 0.3
 shadow_enabled = true
 omni_range = 10.0
 
-[node name="LightEyeRight" type="OmniLight3D" parent="." unique_id=529630282]
+[node name="LightEyeRight" type="OmniLight3D" parent="Node3D" unique_id=529630282]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06262186, 0.04147616, 0.09673509)
 light_color = Color(0.77, 0.72148997, 0.35419998, 1)
 light_energy = 5.0
@@ -55,7 +53,7 @@ light_size = 0.2
 shadow_enabled = true
 omni_range = 10.0
 
-[node name="light debug box" type="CSGBox3D" parent="." unique_id=345795037]
+[node name="light debug box" type="CSGBox3D" parent="Node3D" unique_id=345795037]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.74777365, -0.29426372, 0.15563402)
 visible = false
 size = Vector3(8.1105, 0.24499512, 3.9611359)
