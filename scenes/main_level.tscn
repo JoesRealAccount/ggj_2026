@@ -387,7 +387,7 @@ texture = ExtResource("21_1bmon")
 script = ExtResource("22_siio1")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1481688035]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.158748, 7.54275, -6.8812704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.158748, 6.818151, -6.8812704)
 texture = SubResource("ViewportTexture_siio1")
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=1856012911]
