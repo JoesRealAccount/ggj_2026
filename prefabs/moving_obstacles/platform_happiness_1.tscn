@@ -24,6 +24,7 @@ data = PackedVector3Array(0, 0.044299997, 0.8376, 0, 0.044299997, 0.6742, 1.1804
 [node name="PlatformHappiness1" type="AnimatableBody3D" unique_id=1670920863 groups=["world_happiness"]]
 collision_layer = 2
 script = ExtResource("1_l3iwv")
+is_rotating = false
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=294754299 groups=["world_happiness"]]
 mesh = ExtResource("2_jmwb8")

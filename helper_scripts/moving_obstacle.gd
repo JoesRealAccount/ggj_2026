@@ -11,15 +11,17 @@ extends AnimatableBody3D
 @export var _random_offset_strengh: float = 0.5
 
 @export_group("rotation parameters")
+@export var is_rotating: bool = true
 @export var rotation_speed: float = 1.0
 @export var random_rotation_speed: bool = true
 
 @onready var _speed: float = randf_range(3.0, 5.0)
+@onready var _rotation_speed: float = rotation_speed if not random_rotation_speed else randf_range(0.5, 2.0)
 var _time: float
 var _old_sine_pos: float
+var _geometry_object: GeometryInstance3D
 
 func _ready() -> void:
-	var _geometry_object: GeometryInstance3D
 	var _hitbox_object: CollisionShape3D
 	for child in get_children():
 		if child is GeometryInstance3D:
@@ -39,6 +41,10 @@ func _ready() -> void:
 			_hitbox_object.disabled = true
 		
 		
+func _process(delta: float) -> void:
+	if is_rotating and _geometry_object:
+		_geometry_object.rotate_z((_rotation_speed / 3.0) * delta)
+
 func _physics_process(delta: float) -> void:
 	_time += delta
 	var _current_sine_pos = (sin(_time*_frequency)-0.5)*_amplitude
@@ -50,7 +56,6 @@ func _physics_process(delta: float) -> void:
 		if collider.is_in_group("player") and kills:
 			SignalManager.player_death.emit()
 			queue_free()
-
 
 	if position.x < -50.0:
 		queue_free()

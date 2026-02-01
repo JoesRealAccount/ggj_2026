@@ -24,6 +24,7 @@ data = PackedVector3Array(0, 0.044299997, 0.8376, 0, 0.044299997, 0.6742, 1.1804
 [node name="PlatformDepression1" type="AnimatableBody3D" unique_id=1762669318 groups=["world_depression"]]
 collision_layer = 2
 script = ExtResource("1_hhepe")
+is_rotating = false
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1348900973 groups=["world_depression"]]
 transparency = 0.9
