@@ -5,6 +5,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.gamestart_finished.connect(_on_game_reset)
 	if GameManager.game_stopwatch == null:
 		await get_tree().create_timer(0.1).timeout
 		_ready()
@@ -12,4 +13,11 @@ func _ready() -> void:
 		GameManager.game_stopwatch.minute_changed.connect(_on_minute_changed)
 
 func _on_minute_changed(minute: int):
+	if minute >= 3:
+		SignalManager.game_won.emit()
 	_minute_display.text = str(minute+1)
+
+func _on_game_reset():
+	_minute_display.text = "1"
+	GameManager.game_stopwatch.minute_changed.connect(_on_minute_changed)
+	

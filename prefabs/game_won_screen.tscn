@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://66pyfchkgmo2"]
+
+[ext_resource type="Script" uid="uid://bos0tytaukaos" path="res://helper_scripts/game_won_screen.gd" id="1_tkm6j"]
+[ext_resource type="FontFile" uid="uid://clwp7i0is6ff6" path="res://fonts/Limelight-Regular.ttf" id="2_p56il"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfmml"]
+bg_color = Color(0, 0, 0, 0.47058824)
+
+[node name="GameWonScreen" type="CanvasLayer"]
+process_mode = 3
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tkm6j")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pfmml")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.9843137, 0.9607843, 0.90588236, 1)
+theme_override_fonts/normal_font = ExtResource("2_p56il")
+theme_override_font_sizes/normal_font_size = 60
+text = "Presentation Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinutesPassed" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.9843137, 0.9607843, 0.90588236, 1)
+theme_override_fonts/normal_font = ExtResource("2_p56il")
+theme_override_font_sizes/normal_font_size = 60
+text = "Time passed: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActsCompleted" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.9843137, 0.9607843, 0.90588236, 1)
+theme_override_fonts/normal_font = ExtResource("2_p56il")
+theme_override_font_sizes/normal_font_size = 60
+text = "Acts completed: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.9843137, 0.9607843, 0.90588236, 1)
+theme_override_fonts/font = ExtResource("2_p56il")
+theme_override_font_sizes/font_size = 60
+text = "Give an encore?"
+
+[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/ContinueButton" to="Control" method="_on_continue_button_pressed"]
