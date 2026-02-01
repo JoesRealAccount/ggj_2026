@@ -2,9 +2,25 @@
 
 [ext_resource type="Script" uid="uid://bos0tytaukaos" path="res://helper_scripts/game_won_screen.gd" id="1_tkm6j"]
 [ext_resource type="FontFile" uid="uid://clwp7i0is6ff6" path="res://fonts/Limelight-Regular.ttf" id="2_p56il"]
+[ext_resource type="Texture2D" uid="uid://075rvtixrv0o" path="res://images/End_Screen.png" id="2_y7sb3"]
+[ext_resource type="Texture2D" uid="uid://cwbotrv1jg748" path="res://images/Buttons/Encore Button/encore_neutral.png" id="4_f2wb0"]
+[ext_resource type="Texture2D" uid="uid://b8j7y336e76kr" path="res://images/Buttons/Encore Button/encore_pressed.png" id="5_84mff"]
+[ext_resource type="Texture2D" uid="uid://bgbjybvvwjrtk" path="res://images/Buttons/Encore Button/encore_hover.png" id="6_wx68g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfmml"]
 bg_color = Color(0, 0, 0, 0.47058824)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_byvs2"]
+texture = ExtResource("2_y7sb3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f2wb0"]
+texture = ExtResource("4_f2wb0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u4xkp"]
+texture = ExtResource("5_84mff")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0b16l"]
+texture = ExtResource("6_wx68g")
 
 [node name="GameWonScreen" type="CanvasLayer" unique_id=36316206]
 process_mode = 3
@@ -29,49 +45,76 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pfmml")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer" unique_id=1874239059]
+[node name="Panel" type="Panel" parent="Control/PanelContainer" unique_id=116032797]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_byvs2")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer" unique_id=1142044768]
-layout_mode = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1142044768]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.32700002
+anchor_bottom = 0.569
+offset_right = 775.29596
+offset_bottom = -209.712
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.9843137, 0.9607843, 0.90588236, 1)
 theme_override_fonts/normal_font = ExtResource("2_p56il")
 theme_override_font_sizes/normal_font_size = 60
-text = "Presentation Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MinutesPassed" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer" unique_id=965767575]
+[node name="MinutesPassed" type="RichTextLabel" parent="Control" unique_id=965767575]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17600001
+anchor_top = 0.45100003
+anchor_right = 0.32700002
+anchor_bottom = 0.569
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.9843137, 0.9607843, 0.90588236, 1)
 theme_override_fonts/normal_font = ExtResource("2_p56il")
 theme_override_font_sizes/normal_font_size = 60
-text = "Time passed: "
+text = "1"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ActsCompleted" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer" unique_id=693953670]
+[node name="ActsCompleted" type="RichTextLabel" parent="Control" unique_id=693953670]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17500001
+anchor_top = 0.763
+anchor_right = 0.32700002
+anchor_bottom = 0.897
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.9843137, 0.9607843, 0.90588236, 1)
 theme_override_fonts/normal_font = ExtResource("2_p56il")
 theme_override_font_sizes/normal_font_size = 60
-text = "Acts completed: "
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="Control/PanelContainer/VBoxContainer" unique_id=53237866]
+[node name="ContinueButton" type="Button" parent="Control" unique_id=53237866]
 unique_name_in_owner = true
 process_mode = 3
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.395
+anchor_top = 0.69600004
+anchor_right = 0.98800004
+anchor_bottom = 0.91400003
+offset_left = -0.040008545
+offset_top = -0.008026123
+offset_right = -0.17602539
+offset_bottom = -0.2720337
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.9843137, 0.9607843, 0.90588236, 1)
 theme_override_fonts/font = ExtResource("2_p56il")
 theme_override_font_sizes/font_size = 60
-text = "Give an encore?"
+theme_override_styles/normal = SubResource("StyleBoxTexture_f2wb0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u4xkp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0b16l")
 
-[connection signal="pressed" from="Control/PanelContainer/VBoxContainer/ContinueButton" to="Control" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Control/ContinueButton" to="Control" method="_on_continue_button_pressed"]

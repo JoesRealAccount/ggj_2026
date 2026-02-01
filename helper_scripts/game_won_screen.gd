@@ -13,8 +13,8 @@ func _on_game_won():
 	show()
 	_continue_button.grab_focus()
 	get_tree().paused = true
-	_minutes_passed_text_label.text = "Seconds passed: " + str(int(GameManager.game_completion_time))
-	_acts_completed_text_label.text = "Acts completed: " + str(int(GameManager.game_completion_time/60))
+	_minutes_passed_text_label.text = str(int(GameManager.game_completion_time))
+	_acts_completed_text_label.text = str(int(GameManager.game_completion_time/60))
 
 func _on_continue_button_pressed():
 	get_tree().paused = false
