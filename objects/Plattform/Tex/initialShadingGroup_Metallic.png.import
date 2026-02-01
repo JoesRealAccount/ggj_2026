@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5sljq41hnr1v"
 path.s3tc="res://.godot/imported/initialShadingGroup_Metallic.png-f30e2ae2612e371dcf94f3284f798301.s3tc.ctex"
-path.etc2="res://.godot/imported/initialShadingGroup_Metallic.png-f30e2ae2612e371dcf94f3284f798301.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Plattform/Tex/initialShadingGroup_Metallic.png"
-dest_files=["res://.godot/imported/initialShadingGroup_Metallic.png-f30e2ae2612e371dcf94f3284f798301.s3tc.ctex", "res://.godot/imported/initialShadingGroup_Metallic.png-f30e2ae2612e371dcf94f3284f798301.etc2.ctex"]
+dest_files=["res://.godot/imported/initialShadingGroup_Metallic.png-f30e2ae2612e371dcf94f3284f798301.s3tc.ctex"]
 
 [params]
 

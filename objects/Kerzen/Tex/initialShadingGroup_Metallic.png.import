@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://mvqme6bfvsnw"
 path.s3tc="res://.godot/imported/initialShadingGroup_Metallic.png-48957428990e6fecc980c68aec322f74.s3tc.ctex"
-path.etc2="res://.godot/imported/initialShadingGroup_Metallic.png-48957428990e6fecc980c68aec322f74.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Kerzen/Tex/initialShadingGroup_Metallic.png"
-dest_files=["res://.godot/imported/initialShadingGroup_Metallic.png-48957428990e6fecc980c68aec322f74.s3tc.ctex", "res://.godot/imported/initialShadingGroup_Metallic.png-48957428990e6fecc980c68aec322f74.etc2.ctex"]
+dest_files=["res://.godot/imported/initialShadingGroup_Metallic.png-48957428990e6fecc980c68aec322f74.s3tc.ctex"]
 
 [params]
 

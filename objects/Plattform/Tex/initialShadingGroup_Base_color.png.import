@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b58g8lce4p0jw"
 path.s3tc="res://.godot/imported/initialShadingGroup_Base_color.png-967e862c71f76e2919463fbc027e68a8.s3tc.ctex"
-path.etc2="res://.godot/imported/initialShadingGroup_Base_color.png-967e862c71f76e2919463fbc027e68a8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Plattform/Tex/initialShadingGroup_Base_color.png"
-dest_files=["res://.godot/imported/initialShadingGroup_Base_color.png-967e862c71f76e2919463fbc027e68a8.s3tc.ctex", "res://.godot/imported/initialShadingGroup_Base_color.png-967e862c71f76e2919463fbc027e68a8.etc2.ctex"]
+dest_files=["res://.godot/imported/initialShadingGroup_Base_color.png-967e862c71f76e2919463fbc027e68a8.s3tc.ctex"]
 
 [params]
 

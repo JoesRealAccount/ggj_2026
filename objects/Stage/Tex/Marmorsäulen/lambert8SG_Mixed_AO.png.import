@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cufelrebhpa1g"
 path.s3tc="res://.godot/imported/lambert8SG_Mixed_AO.png-9b89b080bd432bcd1725066c622ec234.s3tc.ctex"
-path.etc2="res://.godot/imported/lambert8SG_Mixed_AO.png-9b89b080bd432bcd1725066c622ec234.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Marmorsäulen/lambert8SG_Mixed_AO.png"
-dest_files=["res://.godot/imported/lambert8SG_Mixed_AO.png-9b89b080bd432bcd1725066c622ec234.s3tc.ctex", "res://.godot/imported/lambert8SG_Mixed_AO.png-9b89b080bd432bcd1725066c622ec234.etc2.ctex"]
+dest_files=["res://.godot/imported/lambert8SG_Mixed_AO.png-9b89b080bd432bcd1725066c622ec234.s3tc.ctex"]
 
 [params]
 

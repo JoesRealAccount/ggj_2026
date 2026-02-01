@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8ya2tbye2xvo"
 path.s3tc="res://.godot/imported/initialShadingGroup_Mixed_AO.png-3ebd0d814525a5ea6139a5e306f30aa6.s3tc.ctex"
-path.etc2="res://.godot/imported/initialShadingGroup_Mixed_AO.png-3ebd0d814525a5ea6139a5e306f30aa6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Ornament mit Balken/initialShadingGroup_Mixed_AO.png"
-dest_files=["res://.godot/imported/initialShadingGroup_Mixed_AO.png-3ebd0d814525a5ea6139a5e306f30aa6.s3tc.ctex", "res://.godot/imported/initialShadingGroup_Mixed_AO.png-3ebd0d814525a5ea6139a5e306f30aa6.etc2.ctex"]
+dest_files=["res://.godot/imported/initialShadingGroup_Mixed_AO.png-3ebd0d814525a5ea6139a5e306f30aa6.s3tc.ctex"]
 
 [params]
 

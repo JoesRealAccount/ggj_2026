@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2nmhdc05y53i"
 path.s3tc="res://.godot/imported/lambert3SG_Roughness.png-62ad66db69c437461a4e9083aff00c38.s3tc.ctex"
-path.etc2="res://.godot/imported/lambert3SG_Roughness.png-62ad66db69c437461a4e9083aff00c38.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Bühnenbox/lambert3SG_Roughness.png"
-dest_files=["res://.godot/imported/lambert3SG_Roughness.png-62ad66db69c437461a4e9083aff00c38.s3tc.ctex", "res://.godot/imported/lambert3SG_Roughness.png-62ad66db69c437461a4e9083aff00c38.etc2.ctex"]
+dest_files=["res://.godot/imported/lambert3SG_Roughness.png-62ad66db69c437461a4e9083aff00c38.s3tc.ctex"]
 
 [params]
 

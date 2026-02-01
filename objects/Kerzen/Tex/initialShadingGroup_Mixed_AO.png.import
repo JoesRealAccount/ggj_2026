@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3k8uaqahhre0"
 path.s3tc="res://.godot/imported/initialShadingGroup_Mixed_AO.png-293436a3887251e650100a42e67f917c.s3tc.ctex"
-path.etc2="res://.godot/imported/initialShadingGroup_Mixed_AO.png-293436a3887251e650100a42e67f917c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Kerzen/Tex/initialShadingGroup_Mixed_AO.png"
-dest_files=["res://.godot/imported/initialShadingGroup_Mixed_AO.png-293436a3887251e650100a42e67f917c.s3tc.ctex", "res://.godot/imported/initialShadingGroup_Mixed_AO.png-293436a3887251e650100a42e67f917c.etc2.ctex"]
+dest_files=["res://.godot/imported/initialShadingGroup_Mixed_AO.png-293436a3887251e650100a42e67f917c.s3tc.ctex"]
 
 [params]
 

@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b02bamf1vkhui"
 path.s3tc="res://.godot/imported/initialShadingGroup_Roughness.png-4a77be03698871d1ece1eb9f0136fa3f.s3tc.ctex"
-path.etc2="res://.godot/imported/initialShadingGroup_Roughness.png-4a77be03698871d1ece1eb9f0136fa3f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Kerzen/Tex/initialShadingGroup_Roughness.png"
-dest_files=["res://.godot/imported/initialShadingGroup_Roughness.png-4a77be03698871d1ece1eb9f0136fa3f.s3tc.ctex", "res://.godot/imported/initialShadingGroup_Roughness.png-4a77be03698871d1ece1eb9f0136fa3f.etc2.ctex"]
+dest_files=["res://.godot/imported/initialShadingGroup_Roughness.png-4a77be03698871d1ece1eb9f0136fa3f.s3tc.ctex"]
 
 [params]
 

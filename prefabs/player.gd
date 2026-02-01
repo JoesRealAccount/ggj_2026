@@ -60,20 +60,22 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if _is_dead:
+		return
 	_handle_gravity(delta)
-	
+
 	input_dir = Input.get_axis("move_left", "move_right")
-	
+
 	_handle_jump()
 	_handle_movement(delta)
 	_handle_rotation(delta)
 	_check_fall()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("dash"):
+	if event.is_action_pressed("dash") && !_is_dead:
 		_handle_dash()
-	
-		
+
+
 
 func _handle_dash():
 	_animation_player.play("Dash")
@@ -88,7 +90,7 @@ func _handle_dash():
 		_dash_tween.tween_property(self, "_dash_velocity", 0, 0.3).set_ease(Tween.EASE_OUT)
 		_current_air_dashes -= 1
 
-		
+
 
 func _handle_gravity(delta: float) -> void:
 	if not is_on_floor():
@@ -100,14 +102,14 @@ func _handle_gravity(delta: float) -> void:
 func _handle_jump() -> void:
 	if not Input.is_action_just_pressed("jump"):
 		return
-	
+
 	if is_on_floor():
 		velocity.y = _jump_strengh
 		sfx_jump.play()
 		_current_double_jumps = _max_jump_count
 		_set_jump_dir_to_input_dir()
 		_animation_player.play("Jump")
-		
+
 	elif _current_double_jumps > 0:
 		velocity.y = _jump_strengh
 		sfx_jump.play()
@@ -128,7 +130,8 @@ func _handle_movement(delta: float) -> void:
 		jump_direction = JumpDirection.NONE
 		if input_dir:
 			velocity.x = input_dir * (SPEED + _dash_velocity)
-			_animation_player.play("Walkcycle")
+			if _animation_player.current_animation != "Walkcycle":
+				_animation_player.play("Walkcycle")
 		else:
 			_apply_velocity_decay(delta, _velocity_decay_speed*_floor_velocity_decay_multiplier)
 			if is_zero_approx(velocity.x):
@@ -140,7 +143,7 @@ func _handle_movement(delta: float) -> void:
 			_apply_velocity_decay(delta, _velocity_decay_speed)
 			if _dash_velocity != 0:
 				velocity.x = _last_input_dir * _dash_velocity
-	
+
 	# Lock Z-axis movement
 	velocity.z = 0
 	move_and_slide()
@@ -178,7 +181,7 @@ func _handle_rotation(delta: float) -> void:
 			target_rotation_y = 90.0 * (PI / 180.0)
 		else: # Moving right
 			target_rotation_y = -90.0 * (PI / 180.0)
-	
+
 	# Smoothly interpolate model rotation
 	model.rotation.y = lerp_angle(model.rotation.y, target_rotation_y, ROTATION_SPEED * delta)
 
@@ -189,9 +192,11 @@ func _check_fall() -> void:
 		SignalManager.player_death.emit()
 
 func _kill_player():
+	_is_dead = true
 	sfx_death.play()
 	_animation_player.play("Death")
 	await get_tree().create_timer(_animation_player.current_animation_length).timeout
 	global_position = spawn_position
 	velocity = Vector3.ZERO
+	_is_dead = false
 	SignalManager.game_started.emit()

@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfali7pee77q1"
 path.s3tc="res://.godot/imported/lambert5SG_Metallic.png-9ee9d2c57162f49660f578558e79f23f.s3tc.ctex"
-path.etc2="res://.godot/imported/lambert5SG_Metallic.png-9ee9d2c57162f49660f578558e79f23f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Ornamentbalken/lambert5SG_Metallic.png"
-dest_files=["res://.godot/imported/lambert5SG_Metallic.png-9ee9d2c57162f49660f578558e79f23f.s3tc.ctex", "res://.godot/imported/lambert5SG_Metallic.png-9ee9d2c57162f49660f578558e79f23f.etc2.ctex"]
+dest_files=["res://.godot/imported/lambert5SG_Metallic.png-9ee9d2c57162f49660f578558e79f23f.s3tc.ctex"]
 
 [params]
 

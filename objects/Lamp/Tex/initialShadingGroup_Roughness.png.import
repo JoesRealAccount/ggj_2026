@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://byd15e3iwj7ls"
 path.s3tc="res://.godot/imported/initialShadingGroup_Roughness.png-b61b2910207698b9d6b8825553d6e9e8.s3tc.ctex"
-path.etc2="res://.godot/imported/initialShadingGroup_Roughness.png-b61b2910207698b9d6b8825553d6e9e8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Lamp/Tex/initialShadingGroup_Roughness.png"
-dest_files=["res://.godot/imported/initialShadingGroup_Roughness.png-b61b2910207698b9d6b8825553d6e9e8.s3tc.ctex", "res://.godot/imported/initialShadingGroup_Roughness.png-b61b2910207698b9d6b8825553d6e9e8.etc2.ctex"]
+dest_files=["res://.godot/imported/initialShadingGroup_Roughness.png-b61b2910207698b9d6b8825553d6e9e8.s3tc.ctex"]
 
 [params]
 
