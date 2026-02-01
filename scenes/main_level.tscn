@@ -27,8 +27,8 @@
 [ext_resource type="Script" uid="uid://bh2ouunrqr3vn" path="res://world_visual_manager.gd" id="15_ff0s2"]
 [ext_resource type="Texture2D" uid="uid://c8qgtv30tgcmi" path="res://objects/Stern/Tex/initialShadingGroup_Roughness.png" id="15_yl4j0"]
 [ext_resource type="Texture2D" uid="uid://cyh0h3sk2m1u0" path="res://objects/Wave/Tex/initialShadingGroup_Roughness.png" id="16_cycrt"]
-[ext_resource type="PackedScene" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
-[ext_resource type="Script" path="res://scenes/enemy_spawner.gd" id="17_ondrs"]
+[ext_resource type="PackedScene" uid="uid://dbyfolhbily16" path="res://prefabs/object_destroyer.tscn" id="16_uk2yf"]
+[ext_resource type="Script" uid="uid://dkcjw6dsnc72s" path="res://scenes/enemy_spawner.gd" id="17_ondrs"]
 [ext_resource type="PackedScene" uid="uid://bpkw4lglty4v3" path="res://prefabs/moving_obstacles/platform_happiness_1.tscn" id="19_6nivd"]
 [ext_resource type="PackedScene" uid="uid://bobk5axfwvte8" path="res://prefabs/kill_area.tscn" id="20_al56o"]
 [ext_resource type="Texture2D" uid="uid://cy55cxqlolk6w" path="res://images/tut_keyboard.png" id="21_1bmon"]
@@ -359,7 +359,7 @@ happiness_obstacle_timer = NodePath("HappinessObstacle")
 happiness_platform_timer = NodePath("HappynessPlatform")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="ObstacleSpawner" unique_id=267598004]
-transform = Transform3D(0.5015004, 0.07394315, -0.86199176, 0, 0.99634093, 0.08546786, 0.8651574, -0.04286217, 0.4996654, 14.347708, 15.702793, -0.08273983)
+transform = Transform3D(0.5015005, 0.073943146, -0.8619917, 0, 0.99634093, 0.08546786, 0.86515737, -0.042862173, 0.49966547, 14.347708, 15.702793, -0.08273983)
 
 [node name="DepressionObstacle" type="Timer" parent="ObstacleSpawner" unique_id=1573706048]
 wait_time = 10.0
