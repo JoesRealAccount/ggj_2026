@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlmoo8dxmcxuu"]
 
 [ext_resource type="Script" uid="uid://4hscqonf2d4q" path="res://prefabs/player.gd" id="1_qhqgy"]
-[ext_resource type="PackedScene" uid="uid://b4udg4e47vk37" path="res://objects/Miwa/Miwa.fbx" id="2_r66lb"]
+[ext_resource type="PackedScene" uid="uid://bv6hbglkxxnkm" path="res://prefabs/Anim4.fbx" id="2_rgeog"]
 [ext_resource type="ArrayMesh" uid="uid://dluk1rixt247e" path="res://objects/Mic/Mic_Test_Expo.obj" id="3_1txc5"]
 [ext_resource type="AudioStream" uid="uid://cnfqxta3ol8wt" path="res://sfx/jump_1.mp3" id="4_ht1c8"]
 [ext_resource type="AudioStream" uid="uid://cep3kmvs243b5" path="res://sfx/jump_2.mp3" id="5_g2jcq"]
@@ -36,12 +36,12 @@ script = ExtResource("1_qhqgy")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1434096020]
 
-[node name="Miwa" parent="." unique_id=308747170 instance=ExtResource("2_r66lb")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=680144495]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90543634, 0)
 shape = SubResource("CylinderShape3D_r66lb")
+
+[node name="Miwa" parent="." unique_id=1941478512 instance=ExtResource("2_rgeog")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="Debug Mic For Reference" type="MeshInstance3D" parent="." unique_id=743736490]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0, 0)

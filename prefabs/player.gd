@@ -28,6 +28,8 @@ var _dash_velocity: float = 0.0:
 		return new_value
 var _dash_tween: Tween
 
+var _is_dead: bool = false
+
 var input_dir: float = 0.0:
 	set(new_value):
 		if new_value != 0:
@@ -48,6 +50,8 @@ var target_rotation_y: float = -90.0 * (PI / 180.0) # Start facing right
 
 @onready var sfx_jump: AudioStreamPlayer3D = %sfx_jump
 @onready var sfx_death: AudioStreamPlayer3D = %sfx_death
+
+@onready var _animation_player: AnimationPlayer = $Miwa/AnimationPlayer
 
 func _ready() -> void:
 	spawn_position = global_position
@@ -72,6 +76,7 @@ func _input(event: InputEvent) -> void:
 		
 
 func _handle_dash():
+	_animation_player.play("Dash")
 	if is_on_floor():
 		_current_air_dashes = _max_airdash_count
 	if _current_air_dashes > 0:
@@ -101,11 +106,13 @@ func _handle_jump() -> void:
 		sfx_jump.play()
 		_current_double_jumps = _max_jump_count
 		_set_jump_dir_to_input_dir()
+		_animation_player.play("Jump")
 		
 	elif _current_double_jumps > 0:
 		velocity.y = _jump_strengh
 		sfx_jump.play()
 		_current_double_jumps -= 1
+		_animation_player.play("Jump")
 
 func _set_jump_dir_to_input_dir():
 	if input_dir < 0:
@@ -121,8 +128,11 @@ func _handle_movement(delta: float) -> void:
 		jump_direction = JumpDirection.NONE
 		if input_dir:
 			velocity.x = input_dir * (SPEED + _dash_velocity)
+			_animation_player.play("Walkcycle")
 		else:
 			_apply_velocity_decay(delta, _velocity_decay_speed*_floor_velocity_decay_multiplier)
+			if is_zero_approx(velocity.x):
+				_animation_player.play("Idle")
 	else:
 		if input_dir && _is_input_jump_direction(input_dir):
 			velocity.x = input_dir * (SPEED + _dash_velocity)
@@ -180,6 +190,8 @@ func _check_fall() -> void:
 
 func _kill_player():
 	sfx_death.play()
+	_animation_player.play("Death")
+	await get_tree().create_timer(_animation_player.current_animation_length).timeout
 	global_position = spawn_position
 	velocity = Vector3.ZERO
 	SignalManager.game_started.emit()
