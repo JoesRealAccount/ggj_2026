@@ -6,9 +6,9 @@
 size = Vector3(1, 25.154633, 4)
 
 [node name="KillArea" type="Node3D" unique_id=1327564447]
-script = ExtResource("1_y414y")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1035778135]
+script = ExtResource("1_y414y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=320487373]
 shape = SubResource("BoxShape3D_y414y")
