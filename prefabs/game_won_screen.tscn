@@ -6,10 +6,10 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfmml"]
 bg_color = Color(0, 0, 0, 0.47058824)
 
-[node name="GameWonScreen" type="CanvasLayer"]
+[node name="GameWonScreen" type="CanvasLayer" unique_id=36316206]
 process_mode = 3
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=339300120]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tkm6j")
 
-[node name="PanelContainer" type="PanelContainer" parent="Control"]
+[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=1277118962]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,10 +28,10 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pfmml")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer" unique_id=1874239059]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer" unique_id=1142044768]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.9843137, 0.9607843, 0.90588236, 1)
@@ -41,7 +41,7 @@ text = "Presentation Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MinutesPassed" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer"]
+[node name="MinutesPassed" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer" unique_id=965767575]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -52,7 +52,7 @@ text = "Time passed: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ActsCompleted" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer"]
+[node name="ActsCompleted" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer" unique_id=693953670]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -63,7 +63,7 @@ text = "Acts completed: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="Control/PanelContainer/VBoxContainer" unique_id=53237866]
 unique_name_in_owner = true
 process_mode = 3
 layout_mode = 2
