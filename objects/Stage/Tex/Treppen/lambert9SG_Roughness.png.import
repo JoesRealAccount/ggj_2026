@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctbrv4a6wqhk0"
 path.s3tc="res://.godot/imported/lambert9SG_Roughness.png-fea18b8f988df6bdb465afb2767a1194.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert9SG_Roughness.png-fea18b8f988df6bdb465afb2767a1194.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Treppen/lambert9SG_Roughness.png"
-dest_files=["res://.godot/imported/lambert9SG_Roughness.png-fea18b8f988df6bdb465afb2767a1194.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert9SG_Roughness.png-fea18b8f988df6bdb465afb2767a1194.s3tc.ctex", "res://.godot/imported/lambert9SG_Roughness.png-fea18b8f988df6bdb465afb2767a1194.etc2.ctex"]
 
 [params]
 

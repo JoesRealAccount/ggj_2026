@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdiwu2ktme6pv"
 path.s3tc="res://.godot/imported/lambert2SG_Base_color.png-e9ed5df518069e662bcab9566477987e.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert2SG_Base_color.png-e9ed5df518069e662bcab9566477987e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Kasten drumrum/lambert2SG_Base_color.png"
-dest_files=["res://.godot/imported/lambert2SG_Base_color.png-e9ed5df518069e662bcab9566477987e.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert2SG_Base_color.png-e9ed5df518069e662bcab9566477987e.s3tc.ctex", "res://.godot/imported/lambert2SG_Base_color.png-e9ed5df518069e662bcab9566477987e.etc2.ctex"]
 
 [params]
 

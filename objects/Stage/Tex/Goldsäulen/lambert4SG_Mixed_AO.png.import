@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd5ajts2gaiey"
 path.s3tc="res://.godot/imported/lambert4SG_Mixed_AO.png-c415fc1ddfc0857c3c2ee903cf7f6d78.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert4SG_Mixed_AO.png-c415fc1ddfc0857c3c2ee903cf7f6d78.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Goldsäulen/lambert4SG_Mixed_AO.png"
-dest_files=["res://.godot/imported/lambert4SG_Mixed_AO.png-c415fc1ddfc0857c3c2ee903cf7f6d78.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert4SG_Mixed_AO.png-c415fc1ddfc0857c3c2ee903cf7f6d78.s3tc.ctex", "res://.godot/imported/lambert4SG_Mixed_AO.png-c415fc1ddfc0857c3c2ee903cf7f6d78.etc2.ctex"]
 
 [params]
 
