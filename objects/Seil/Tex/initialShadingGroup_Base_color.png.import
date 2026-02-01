@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://w52431i2quh0"
 path.s3tc="res://.godot/imported/initialShadingGroup_Base_color.png-6a039f731176fb2006e85c774f2766ba.s3tc.ctex"
+path.etc2="res://.godot/imported/initialShadingGroup_Base_color.png-6a039f731176fb2006e85c774f2766ba.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Seil/Tex/initialShadingGroup_Base_color.png"
-dest_files=["res://.godot/imported/initialShadingGroup_Base_color.png-6a039f731176fb2006e85c774f2766ba.s3tc.ctex"]
+dest_files=["res://.godot/imported/initialShadingGroup_Base_color.png-6a039f731176fb2006e85c774f2766ba.s3tc.ctex", "res://.godot/imported/initialShadingGroup_Base_color.png-6a039f731176fb2006e85c774f2766ba.etc2.ctex"]
 
 [params]
 

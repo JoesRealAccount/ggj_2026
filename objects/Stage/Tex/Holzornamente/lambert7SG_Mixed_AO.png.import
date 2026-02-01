@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvoumi0lbte8l"
 path.s3tc="res://.godot/imported/lambert7SG_Mixed_AO.png-a2288f507ef6963a89ed486cdac53ac6.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert7SG_Mixed_AO.png-a2288f507ef6963a89ed486cdac53ac6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Holzornamente/lambert7SG_Mixed_AO.png"
-dest_files=["res://.godot/imported/lambert7SG_Mixed_AO.png-a2288f507ef6963a89ed486cdac53ac6.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert7SG_Mixed_AO.png-a2288f507ef6963a89ed486cdac53ac6.s3tc.ctex", "res://.godot/imported/lambert7SG_Mixed_AO.png-a2288f507ef6963a89ed486cdac53ac6.etc2.ctex"]
 
 [params]
 

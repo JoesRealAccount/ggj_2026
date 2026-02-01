@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdldl4c68kwlp"
 path.s3tc="res://.godot/imported/lambert6SG_Normal_OpenGL.png-1b4fc68bdf509f097d9bf6af054a2492.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert6SG_Normal_OpenGL.png-1b4fc68bdf509f097d9bf6af054a2492.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Goldnubsis/lambert6SG_Normal_OpenGL.png"
-dest_files=["res://.godot/imported/lambert6SG_Normal_OpenGL.png-1b4fc68bdf509f097d9bf6af054a2492.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert6SG_Normal_OpenGL.png-1b4fc68bdf509f097d9bf6af054a2492.s3tc.ctex", "res://.godot/imported/lambert6SG_Normal_OpenGL.png-1b4fc68bdf509f097d9bf6af054a2492.etc2.ctex"]
 
 [params]
 

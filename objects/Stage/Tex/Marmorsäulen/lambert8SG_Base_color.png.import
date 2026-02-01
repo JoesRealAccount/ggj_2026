@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dr3rn66l4os47"
 path.s3tc="res://.godot/imported/lambert8SG_Base_color.png-9588a62c4306fadc872aab201647c971.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert8SG_Base_color.png-9588a62c4306fadc872aab201647c971.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Marmorsäulen/lambert8SG_Base_color.png"
-dest_files=["res://.godot/imported/lambert8SG_Base_color.png-9588a62c4306fadc872aab201647c971.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert8SG_Base_color.png-9588a62c4306fadc872aab201647c971.s3tc.ctex", "res://.godot/imported/lambert8SG_Base_color.png-9588a62c4306fadc872aab201647c971.etc2.ctex"]
 
 [params]
 

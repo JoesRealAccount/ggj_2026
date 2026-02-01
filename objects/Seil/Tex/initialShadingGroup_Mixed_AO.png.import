@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsago1k6o2qlm"
 path.s3tc="res://.godot/imported/initialShadingGroup_Mixed_AO.png-39ac7e57184505124d964137c845e7f2.s3tc.ctex"
+path.etc2="res://.godot/imported/initialShadingGroup_Mixed_AO.png-39ac7e57184505124d964137c845e7f2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Seil/Tex/initialShadingGroup_Mixed_AO.png"
-dest_files=["res://.godot/imported/initialShadingGroup_Mixed_AO.png-39ac7e57184505124d964137c845e7f2.s3tc.ctex"]
+dest_files=["res://.godot/imported/initialShadingGroup_Mixed_AO.png-39ac7e57184505124d964137c845e7f2.s3tc.ctex", "res://.godot/imported/initialShadingGroup_Mixed_AO.png-39ac7e57184505124d964137c845e7f2.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq7u15ilv64uk"
 path.s3tc="res://.godot/imported/lambert4SG_Roughness.png-f1a2937bc17a058f1c07aba1f783afb8.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert4SG_Roughness.png-f1a2937bc17a058f1c07aba1f783afb8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Goldsäulen/lambert4SG_Roughness.png"
-dest_files=["res://.godot/imported/lambert4SG_Roughness.png-f1a2937bc17a058f1c07aba1f783afb8.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert4SG_Roughness.png-f1a2937bc17a058f1c07aba1f783afb8.s3tc.ctex", "res://.godot/imported/lambert4SG_Roughness.png-f1a2937bc17a058f1c07aba1f783afb8.etc2.ctex"]
 
 [params]
 

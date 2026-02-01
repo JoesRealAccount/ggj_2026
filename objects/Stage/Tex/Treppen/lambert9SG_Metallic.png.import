@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfqai1y3poeaa"
 path.s3tc="res://.godot/imported/lambert9SG_Metallic.png-7275e5f784cb06f225fc3f4265f4758a.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert9SG_Metallic.png-7275e5f784cb06f225fc3f4265f4758a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Stage/Tex/Treppen/lambert9SG_Metallic.png"
-dest_files=["res://.godot/imported/lambert9SG_Metallic.png-7275e5f784cb06f225fc3f4265f4758a.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert9SG_Metallic.png-7275e5f784cb06f225fc3f4265f4758a.s3tc.ctex", "res://.godot/imported/lambert9SG_Metallic.png-7275e5f784cb06f225fc3f4265f4758a.etc2.ctex"]
 
 [params]
 

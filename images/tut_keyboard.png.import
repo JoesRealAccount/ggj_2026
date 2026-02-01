@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy55cxqlolk6w"
 path.s3tc="res://.godot/imported/tut_keyboard.png-571027fc9bac1d7519974ff54360a832.s3tc.ctex"
+path.etc2="res://.godot/imported/tut_keyboard.png-571027fc9bac1d7519974ff54360a832.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://images/tut_keyboard.png"
-dest_files=["res://.godot/imported/tut_keyboard.png-571027fc9bac1d7519974ff54360a832.s3tc.ctex"]
+dest_files=["res://.godot/imported/tut_keyboard.png-571027fc9bac1d7519974ff54360a832.s3tc.ctex", "res://.godot/imported/tut_keyboard.png-571027fc9bac1d7519974ff54360a832.etc2.ctex"]
 
 [params]
 

@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://cfi5kcj5mo2at"]
+
+[ext_resource type="PackedScene" uid="uid://bv6hbglkxxnkm" path="res://prefabs/Anim4.fbx" id="1_dua4r"]
+[ext_resource type="Texture2D" uid="uid://d2b8vghv3nx6e" path="res://objects/Miwa/Tex/lambert17SG_Base_color.png" id="2_2reqy"]
+[ext_resource type="Texture2D" uid="uid://jdsqau43plkk" path="res://objects/Miwa/Tex/lambert17SG_Mixed_AO.png" id="3_q2d14"]
+[ext_resource type="Texture2D" uid="uid://c0it1j4djky40" path="res://objects/Miwa/Tex/lambert17SG_Normal_OpenGL.png" id="4_kuc2p"]
+[ext_resource type="Texture2D" uid="uid://da61muum4xa5c" path="res://objects/Miwa/Tex/lambert17SG_Metallic.png" id="4_rqsgy"]
+[ext_resource type="Texture2D" uid="uid://c32j6ja2njwhp" path="res://objects/Miwa/Tex/lambert17SG_Roughness.png" id="5_rqsgy"]
+[ext_resource type="Texture2D" uid="uid://b0fu06ka48ktt" path="res://objects/Miwa/Tex/blinn1SG_Base_color.png" id="7_vki07"]
+[ext_resource type="Texture2D" uid="uid://bo6vst0sfm5gd" path="res://objects/Miwa/Tex/blinn1SG_Mixed_AO.png" id="8_rhqcf"]
+[ext_resource type="Texture2D" uid="uid://ccuttpuuak0fh" path="res://objects/Miwa/Tex/blinn1SG_Metallic.png" id="9_fmmry"]
+[ext_resource type="Texture2D" uid="uid://cjs74ykuj7v7d" path="res://objects/Miwa/Tex/blinn1SG_Normal_OpenGL.png" id="10_eifml"]
+[ext_resource type="Texture2D" uid="uid://c1hoonruln3bc" path="res://objects/Miwa/Tex/blinn1SG_Roughness.png" id="11_tox65"]
+[ext_resource type="Texture2D" uid="uid://bt0x1220wp40i" path="res://objects/Miwa/Tex/lambert16SG_Base_color.png" id="12_iukkc"]
+[ext_resource type="Texture2D" uid="uid://6bvahc45k0j5" path="res://objects/Miwa/Tex/lambert16SG_Mixed_AO.png" id="13_85hvf"]
+[ext_resource type="Texture2D" uid="uid://cwkyuw2oks54c" path="res://objects/Miwa/Tex/lambert16SG_Metallic.png" id="14_uddr0"]
+[ext_resource type="Texture2D" uid="uid://d2eycdx4ttfxn" path="res://objects/Miwa/Tex/lambert16SG_Normal_OpenGL.png" id="15_071v6"]
+[ext_resource type="Texture2D" uid="uid://c748sqgbyo5r5" path="res://objects/Miwa/Tex/lambert16SG_Roughness.png" id="16_2fmq7"]
+[ext_resource type="Texture2D" uid="uid://cymfsmxjmfjln" path="res://objects/Miwa/Tex/lambert14SG_Base_color.png" id="17_4v20x"]
+[ext_resource type="Texture2D" uid="uid://cq4p1xbs3dxmn" path="res://objects/Miwa/Tex/lambert14SG_Mixed_AO.png" id="18_xxyu3"]
+[ext_resource type="Texture2D" uid="uid://bivfc88e4jhms" path="res://objects/Miwa/Tex/lambert14SG_Metallic.png" id="19_dj5em"]
+[ext_resource type="Texture2D" uid="uid://bsccumgh6xcka" path="res://objects/Miwa/Tex/lambert14SG_Normal_OpenGL.png" id="20_tcy3e"]
+[ext_resource type="Texture2D" uid="uid://b5iswfepaa66t" path="res://objects/Miwa/Tex/lambert14SG_Roughness.png" id="21_nmyt1"]
+[ext_resource type="Texture2D" uid="uid://cx1om8tt2856v" path="res://objects/Miwa/Tex/lambert10SG_Base_color.png" id="22_1x7r0"]
+[ext_resource type="Texture2D" uid="uid://byy8qgc2pru2p" path="res://objects/Miwa/Tex/lambert10SG_Mixed_AO.png" id="23_nf012"]
+[ext_resource type="Texture2D" uid="uid://ic7c5q268vgv" path="res://objects/Miwa/Tex/lambert10SG_Metallic.png" id="24_b2hdp"]
+[ext_resource type="Texture2D" uid="uid://des2ryvtmwd5e" path="res://objects/Miwa/Tex/lambert10SG_Normal_OpenGL.png" id="25_5y22i"]
+[ext_resource type="Texture2D" uid="uid://b4ck3j4koxk7m" path="res://objects/Miwa/Tex/lambert10SG_Roughness.png" id="26_ktiyf"]
+[ext_resource type="Texture2D" uid="uid://beiretsmoyq7t" path="res://objects/Miwa/Tex/lambert13SG_Base_color.png" id="27_6cgff"]
+[ext_resource type="Texture2D" uid="uid://idew0qqnhgg2" path="res://objects/Miwa/Tex/lambert13SG_Mixed_AO.png" id="28_oyo66"]
+[ext_resource type="Texture2D" uid="uid://ttarqby8mkdl" path="res://objects/Miwa/Tex/lambert13SG_Metallic.png" id="29_721c7"]
+[ext_resource type="Texture2D" uid="uid://ceqqkjtbn8mr5" path="res://objects/Miwa/Tex/lambert13SG_Normal_OpenGL.png" id="30_jc7ia"]
+[ext_resource type="Texture2D" uid="uid://cp45qhsbrwhb6" path="res://objects/Miwa/Tex/lambert13SG_Roughness.png" id="31_n1jgi"]
+[ext_resource type="Texture2D" uid="uid://b7j3o1kuc4vtk" path="res://objects/Miwa/Tex/lambert15SG_Base_color.png" id="32_o2qn8"]
+[ext_resource type="Texture2D" uid="uid://dji6tekeu312b" path="res://objects/Miwa/Tex/lambert15SG_Mixed_AO.png" id="33_3bkgc"]
+[ext_resource type="Texture2D" uid="uid://1k75fjierrs7" path="res://objects/Miwa/Tex/lambert15SG_Metallic.png" id="34_j72kl"]
+[ext_resource type="Texture2D" uid="uid://dv6jeeqwhx10n" path="res://objects/Miwa/Tex/lambert15SG_Normal_OpenGL.png" id="35_iop6w"]
+[ext_resource type="Texture2D" uid="uid://cyuikcti4sku8" path="res://objects/Miwa/Tex/lambert15SG_Roughness.png" id="36_46h5l"]
+[ext_resource type="Texture2D" uid="uid://dg7gu77crto4h" path="res://objects/Miwa/Tex/lambert12SG_Base_color.png" id="37_pxeta"]
+[ext_resource type="Texture2D" uid="uid://cpef3lrtav0n1" path="res://objects/Miwa/Tex/lambert12SG_Mixed_AO.png" id="38_2bnqj"]
+[ext_resource type="Texture2D" uid="uid://c65jle2hnoysv" path="res://objects/Miwa/Tex/lambert12SG_Metallic.png" id="39_rardl"]
+[ext_resource type="Texture2D" uid="uid://ceav2xakv4anm" path="res://objects/Miwa/Tex/lambert12SG_Normal_OpenGL.png" id="40_11s3r"]
+[ext_resource type="Texture2D" uid="uid://d5unynarnqkw" path="res://objects/Miwa/Tex/lambert12SG_Roughness.png" id="41_opfyw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dua4r"]
+albedo_texture = ExtResource("2_2reqy")
+metallic = 1.0
+metallic_texture = ExtResource("4_rqsgy")
+roughness_texture = ExtResource("5_rqsgy")
+normal_enabled = true
+normal_texture = ExtResource("4_kuc2p")
+ao_enabled = true
+ao_texture = ExtResource("3_q2d14")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kuc2p"]
+albedo_texture = ExtResource("7_vki07")
+metallic = 1.0
+metallic_texture = ExtResource("9_fmmry")
+roughness_texture = ExtResource("11_tox65")
+normal_enabled = true
+normal_texture = ExtResource("10_eifml")
+ao_enabled = true
+ao_texture = ExtResource("8_rhqcf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4v20x"]
+albedo_texture = ExtResource("12_iukkc")
+metallic = 1.0
+metallic_texture = ExtResource("14_uddr0")
+roughness_texture = ExtResource("16_2fmq7")
+normal_enabled = true
+normal_texture = ExtResource("15_071v6")
+ao_enabled = true
+ao_texture = ExtResource("13_85hvf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1x7r0"]
+albedo_texture = ExtResource("17_4v20x")
+metallic = 1.0
+metallic_texture = ExtResource("19_dj5em")
+roughness_texture = ExtResource("21_nmyt1")
+normal_enabled = true
+normal_texture = ExtResource("20_tcy3e")
+ao_enabled = true
+ao_texture = ExtResource("18_xxyu3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6cgff"]
+albedo_texture = ExtResource("22_1x7r0")
+metallic = 1.0
+metallic_texture = ExtResource("24_b2hdp")
+roughness_texture = ExtResource("26_ktiyf")
+normal_enabled = true
+normal_texture = ExtResource("25_5y22i")
+ao_enabled = true
+ao_texture = ExtResource("23_nf012")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2qn8"]
+albedo_texture = ExtResource("27_6cgff")
+metallic = 1.0
+metallic_texture = ExtResource("29_721c7")
+roughness_texture = ExtResource("31_n1jgi")
+normal_enabled = true
+normal_texture = ExtResource("30_jc7ia")
+ao_enabled = true
+ao_texture = ExtResource("28_oyo66")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxeta"]
+albedo_texture = ExtResource("32_o2qn8")
+metallic = 1.0
+metallic_texture = ExtResource("34_j72kl")
+roughness_texture = ExtResource("36_46h5l")
+normal_enabled = true
+normal_texture = ExtResource("35_iop6w")
+ao_enabled = true
+ao_texture = ExtResource("33_3bkgc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05nn8"]
+albedo_texture = ExtResource("37_pxeta")
+metallic = 1.0
+metallic_texture = ExtResource("39_rardl")
+roughness_texture = ExtResource("41_opfyw")
+normal_enabled = true
+normal_texture = ExtResource("40_11s3r")
+ao_enabled = true
+ao_texture = ExtResource("38_2bnqj")
+
+[node name="Miwa" unique_id=2094639697 instance=ExtResource("1_dua4r")]
+
+[node name="Skeleton3D" parent="." index="0" unique_id=548507550]
+bones/1/position = Vector3(0.27, 1.6532732e-17, 0)
+bones/2/position = Vector3(0.86, 1.158156e-17, 0)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/3/position = Vector3(0.43, -4.7563394e-18, 3.5445523e-17)
+bones/3/rotation = Quaternion(0.48276734, 0.51665825, -0.5166582, 0.48276737)
+bones/3/scale = Vector3(0.99999994, 0.99999994, 1)
+bones/4/position = Vector3(0.22719382, 2.220446e-16, 5.531234e-17)
+bones/4/rotation = Quaternion(8.1139656e-10, -2.3927642e-08, 0.033890896, 0.99942553)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/position = Vector3(-0.021200333, 0.31223407, 0.37748873)
+bones/6/position = Vector3(-0.020698061, 0.30483672, -0.33058715)
+bones/6/rotation = Quaternion(0.023964483, -0.7067005, 0.02396448, 0.7067006)
+bones/6/scale = Vector3(0.99999994, 1, 0.99999994)
+bones/7/position = Vector3(-0.082552925, -1.0329417e-17, -0.28361583)
+bones/7/rotation = Quaternion(-0.4698679, -0.52841663, 0.5284167, -0.46986791)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/position = Vector3(-0.5210174, -2.2096099e-17, 0.29797795)
+bones/8/rotation = Quaternion(0.17368004, 0.6854453, 0.68544525, -0.17368007)
+bones/8/scale = Vector3(0.9999999, 0.99999994, 0.99999994)
+bones/9/position = Vector3(-0.5496837, -0.57625467, 0)
+bones/9/rotation = Quaternion(0, 0, 0.92451197, -0.38115302)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/position = Vector3(-0.5558883, 0.5467841, -4.7331653e-32)
+bones/10/rotation = Quaternion(0.37310714, 0.92778826, 5.6810645e-17, 2.2846217e-17)
+bones/10/scale = Vector3(1.0000001, 1, 1.0000002)
+bones/11/position = Vector3(-1.0367475, -0.7251659, 0)
+bones/11/rotation = Quaternion(0, 0, 0.8920703, -0.4518967)
+bones/11/scale = Vector3(1.0000001, 1.0000001, 1)
+bones/12/position = Vector3(-1.0367475, 0.7205139, -7.888609e-33)
+bones/12/rotation = Quaternion(0.4256246, 0.90489984, 5.5409137e-17, 2.6061994e-17)
+bones/13/position = Vector3(-1.0647886, -2.7077638e-17, 0.45683244)
+bones/13/rotation = Quaternion(0.15492943, 0.6899253, 0.6899252, -0.15492944)
+bones/13/scale = Vector3(0.9999999, 0.99999994, 0.99999994)
+
+[node name="Miwo1" parent="Skeleton3D" index="0" unique_id=1231807896]
+surface_material_override/0 = SubResource("StandardMaterial3D_dua4r")
+surface_material_override/1 = SubResource("StandardMaterial3D_kuc2p")
+surface_material_override/2 = SubResource("StandardMaterial3D_4v20x")
+surface_material_override/3 = SubResource("StandardMaterial3D_1x7r0")
+surface_material_override/4 = SubResource("StandardMaterial3D_6cgff")
+surface_material_override/5 = SubResource("StandardMaterial3D_o2qn8")
+surface_material_override/6 = SubResource("StandardMaterial3D_pxeta")
+surface_material_override/7 = SubResource("StandardMaterial3D_05nn8")

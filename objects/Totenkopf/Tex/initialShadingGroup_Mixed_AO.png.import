@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://djbe03b1yaghe"
 path.s3tc="res://.godot/imported/initialShadingGroup_Mixed_AO.png-fe7e9ff176c22649fd0c2bcb5cd502fb.s3tc.ctex"
+path.etc2="res://.godot/imported/initialShadingGroup_Mixed_AO.png-fe7e9ff176c22649fd0c2bcb5cd502fb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/Totenkopf/Tex/initialShadingGroup_Mixed_AO.png"
-dest_files=["res://.godot/imported/initialShadingGroup_Mixed_AO.png-fe7e9ff176c22649fd0c2bcb5cd502fb.s3tc.ctex"]
+dest_files=["res://.godot/imported/initialShadingGroup_Mixed_AO.png-fe7e9ff176c22649fd0c2bcb5cd502fb.s3tc.ctex", "res://.godot/imported/initialShadingGroup_Mixed_AO.png-fe7e9ff176c22649fd0c2bcb5cd502fb.etc2.ctex"]
 
 [params]
 
