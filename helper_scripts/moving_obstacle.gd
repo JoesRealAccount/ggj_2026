@@ -38,3 +38,6 @@ func _physics_process(delta: float) -> void:
 	var _current_sine_pos = (sin(_time*_frequency)-0.5)*_amplitude
 	position += Vector3(-_speed * delta, _current_sine_pos - _old_sine_pos, 0.0)
 	_old_sine_pos = _current_sine_pos
+
+	if position.x < -50.0:
+		queue_free()
