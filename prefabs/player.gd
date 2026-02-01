@@ -50,6 +50,7 @@ var target_rotation_y: float = -90.0 * (PI / 180.0) # Start facing right
 
 @onready var sfx_jump: AudioStreamPlayer3D = %sfx_jump
 @onready var sfx_death: AudioStreamPlayer3D = %sfx_death
+@onready var sfx_dash: AudioStreamPlayer3D = %sfx_dash
 
 @onready var _animation_player: AnimationPlayer = $Miwa/AnimationPlayer
 
@@ -79,9 +80,10 @@ func _input(event: InputEvent) -> void:
 
 
 func _handle_dash():
-	_animation_player.play("Dash")
 	if is_on_floor():
 		_current_air_dashes = _max_airdash_count
+		_animation_player.play("Dash")
+	sfx_dash.play()
 	if _current_air_dashes > 0:
 		_set_jump_dir_to_input_dir()
 		_dash_velocity = _dash_strengh
@@ -90,6 +92,8 @@ func _handle_dash():
 		_dash_tween = create_tween()
 		_dash_tween.tween_property(self, "_dash_velocity", 0, 0.3).set_ease(Tween.EASE_OUT)
 		_current_air_dashes -= 1
+		_animation_player.play("Dash")
+	sfx_dash.play()
 
 
 
