@@ -391,6 +391,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.158748, 7.54275, -6.8812704
 texture = SubResource("ViewportTexture_siio1")
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=1856012911]
+transparent_bg = true
 size = Vector2i(1422, 1027)
 
 [node name="Control" type="Control" parent="Sprite3D/SubViewport" unique_id=1241502556]
