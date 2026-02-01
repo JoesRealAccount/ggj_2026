@@ -13,7 +13,8 @@ enum JumpDirection {NONE, LEFT, RIGHT}
 @export var _dash_strengh: float = 20.0
 
 ## The amount of time it takes the player to stop once they stoped actively moving in a direction
-@export var _velocity_decay_speed: float = 0.5
+@export var _velocity_decay_speed: float = 1.0
+@export var _floor_velocity_decay_multiplier: float = 2.0
 
 var spawn_position: Vector3
 
@@ -27,8 +28,14 @@ var _dash_velocity: float = 0.0:
 		return new_value
 var _dash_tween: Tween
 
-var input_dir: float = 0.0
-var last_input_dir: float = 0.0
+var input_dir: float = 0.0:
+	set(new_value):
+		if new_value != 0:
+			_last_input_dir = new_value
+		input_dir = new_value
+		return new_value
+
+var _last_input_dir: float = 1.0
 
 var target_rotation_y: float = -90.0 * (PI / 180.0) # Start facing right
 
@@ -115,16 +122,25 @@ func _handle_movement(delta: float) -> void:
 		if input_dir:
 			velocity.x = input_dir * (SPEED + _dash_velocity)
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+			_apply_velocity_decay(delta, _velocity_decay_speed*_floor_velocity_decay_multiplier)
 	else:
 		if input_dir && _is_input_jump_direction(input_dir):
 			velocity.x = input_dir * (SPEED + _dash_velocity)
 		else:
-			velocity.x = move_toward(velocity.x, 0, _velocity_decay_speed * delta)
+			_apply_velocity_decay(delta, _velocity_decay_speed)
+			if _dash_velocity != 0:
+				velocity.x = _last_input_dir * _dash_velocity
 	
 	# Lock Z-axis movement
 	velocity.z = 0
 	move_and_slide()
+
+func _apply_velocity_decay(delta, velocity_decay):
+	if velocity_decay != 0:
+		velocity.x = move_toward(velocity.x, 0, SPEED * velocity_decay * delta)
+	else:
+		velocity.x = 0
+
 
 func _is_input_jump_direction(input: float) -> bool:
 	match jump_direction:
