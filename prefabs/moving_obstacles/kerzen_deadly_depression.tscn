@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c7jli8olxg2kv"]
+
+[ext_resource type="Script" uid="uid://c1ms8u1jsnwqu" path="res://helper_scripts/moving_obstacle.gd" id="1_gouo8"]
+[ext_resource type="ArrayMesh" uid="uid://dnddd3vg7vgcg" path="res://objects/Kerzen/Kerzen.obj" id="2_1mvpn"]
+[ext_resource type="Texture2D" uid="uid://bi07hshj51q3r" path="res://objects/Kerzen/Tex/initialShadingGroup_Base_color.png" id="3_wuohn"]
+[ext_resource type="Texture2D" uid="uid://b3k8uaqahhre0" path="res://objects/Kerzen/Tex/initialShadingGroup_Mixed_AO.png" id="4_q6d84"]
+[ext_resource type="Texture2D" uid="uid://mvqme6bfvsnw" path="res://objects/Kerzen/Tex/initialShadingGroup_Metallic.png" id="5_em4p7"]
+[ext_resource type="Texture2D" uid="uid://bvc7x0nxamoym" path="res://objects/Kerzen/Tex/initialShadingGroup_Normal_OpenGL.png" id="6_su3y7"]
+[ext_resource type="Texture2D" uid="uid://b02bamf1vkhui" path="res://objects/Kerzen/Tex/initialShadingGroup_Roughness.png" id="7_ryrfn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujwdy"]
+albedo_texture = ExtResource("3_wuohn")
+metallic = 1.0
+metallic_texture = ExtResource("5_em4p7")
+roughness_texture = ExtResource("7_ryrfn")
+normal_enabled = true
+normal_texture = ExtResource("6_su3y7")
+ao_enabled = true
+ao_texture = ExtResource("4_q6d84")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k2vo2"]
+radius = 0.579508
+height = 1.901053
+
+[node name="Area3D" type="AnimatableBody3D" unique_id=1066260717]
+collision_layer = 0
+script = ExtResource("1_gouo8")
+kills = true
+
+[node name="Kerzen" type="MeshInstance3D" parent="." unique_id=75723294 groups=["world_depression"]]
+mesh = ExtResource("2_1mvpn")
+surface_material_override/0 = SubResource("StandardMaterial3D_ujwdy")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=531653790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9647126, 0)
+light_color = Color(0.78, 0.62556, 0.26519996, 1)
+light_energy = 5.0
+light_size = 0.2
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=433939477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4697718, 1.8919363, 0)
+light_color = Color(0.78, 0.62556, 0.26519996, 1)
+light_energy = 5.0
+light_size = 0.2
+shadow_enabled = true
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=370151074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45198053, 1.8600361, 0)
+light_color = Color(0.78, 0.62556, 0.26519996, 1)
+light_energy = 5.0
+light_size = 0.2
+shadow_enabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=661277864 groups=["world_depression"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9505265, 0)
+shape = SubResource("CapsuleShape3D_k2vo2")

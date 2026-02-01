@@ -29,6 +29,7 @@ stream_3/stream = ExtResource("9_rgeog")
 stream_3/weight = 0.1
 
 [node name="Player" type="CharacterBody3D" unique_id=449052630]
+collision_mask = 2
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 script = ExtResource("1_qhqgy")

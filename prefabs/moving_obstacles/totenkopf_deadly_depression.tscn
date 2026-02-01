@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://ce4dkijugbmiv"]
+
+[ext_resource type="Script" uid="uid://beda4h6m46p4h" path="res://prefabs/totenkopf.gd" id="1_yckp2"]
+[ext_resource type="Script" uid="uid://c1ms8u1jsnwqu" path="res://helper_scripts/moving_obstacle.gd" id="2_satvg"]
+[ext_resource type="ArrayMesh" uid="uid://b6ptjlharmw6o" path="res://objects/Totenkopf/TOTENKOPF.obj" id="3_y5d0k"]
+[ext_resource type="Texture2D" uid="uid://b6rxopk122j83" path="res://objects/Totenkopf/Tex/initialShadingGroup_Base_color.png" id="4_3m2kb"]
+[ext_resource type="Texture2D" uid="uid://djbe03b1yaghe" path="res://objects/Totenkopf/Tex/initialShadingGroup_Mixed_AO.png" id="5_gtn13"]
+[ext_resource type="Texture2D" uid="uid://b674geu043s3r" path="res://objects/Totenkopf/Tex/initialShadingGroup_Metallic.png" id="6_ichdb"]
+[ext_resource type="Texture2D" uid="uid://bh3okd4ehmv1c" path="res://objects/Totenkopf/Tex/initialShadingGroup_Normal_OpenGL.png" id="7_rgaf6"]
+[ext_resource type="Texture2D" uid="uid://b0tld0orsrroe" path="res://objects/Totenkopf/Tex/initialShadingGroup_Roughness.png" id="8_mndb1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_brnmk"]
+radius = 0.136382
+height = 0.342911
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76tuq"]
+albedo_texture = ExtResource("4_3m2kb")
+metallic = 1.0
+metallic_texture = ExtResource("6_ichdb")
+roughness_texture = ExtResource("8_mndb1")
+normal_enabled = true
+normal_texture = ExtResource("7_rgaf6")
+ao_enabled = true
+ao_texture = ExtResource("5_gtn13")
+
+[node name="Skull" type="Node3D" unique_id=970364287]
+script = ExtResource("1_yckp2")
+
+[node name="Area3D" type="AnimatableBody3D" parent="." unique_id=1421351057 groups=["world_depression"]]
+collision_layer = 0
+script = ExtResource("2_satvg")
+kills = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1640907326 groups=["world_depression"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5005469e-05, 0.026939496, 0.009422496)
+shape = SubResource("CapsuleShape3D_brnmk")
+
+[node name="Mesh" type="MeshInstance3D" parent="Area3D" unique_id=353993623 groups=["world_depression"]]
+mesh = ExtResource("3_y5d0k")
+surface_material_override/0 = SubResource("StandardMaterial3D_76tuq")
+
+[node name="LightEyeLeft" type="OmniLight3D" parent="." unique_id=256095421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06297075, 0.033038303, 0.06920871)
+light_color = Color(0.77, 0.72148997, 0.35419998, 1)
+light_energy = 5.0
+light_size = 0.3
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="LightEyeRight" type="OmniLight3D" parent="." unique_id=529630282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06262186, 0.04147616, 0.09673509)
+light_color = Color(0.77, 0.72148997, 0.35419998, 1)
+light_energy = 5.0
+light_size = 0.2
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="light debug box" type="CSGBox3D" parent="." unique_id=345795037]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.74777365, -0.29426372, 0.15563402)
+visible = false
+size = Vector3(8.1105, 0.24499512, 3.9611359)

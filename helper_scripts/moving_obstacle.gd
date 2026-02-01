@@ -1,12 +1,18 @@
 extends AnimatableBody3D
 
+@export var kills: bool = false
+
 @export var min_speed: float = 3.0
 @export var max_speed: float = 5.0
 
 @export_group("sine parameters")
-@export var _amplitude: float = 0.1
-@export var _frequency: float = 2.0
+@export var _amplitude: float = 0.2
+@export var _frequency: float = 3.0
 @export var _random_offset_strengh: float = 0.5
+
+@export_group("rotation parameters")
+@export var rotation_speed: float = 1.0
+@export var random_rotation_speed: bool = true
 
 @onready var _speed: float = randf_range(3.0, 5.0)
 var _time: float
@@ -36,8 +42,15 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_time += delta
 	var _current_sine_pos = (sin(_time*_frequency)-0.5)*_amplitude
-	position += Vector3(-_speed * delta, _current_sine_pos - _old_sine_pos, 0.0)
+	var _velocity: Vector3 = Vector3(-_speed * delta, _current_sine_pos - _old_sine_pos, 0.0)
 	_old_sine_pos = _current_sine_pos
+	var collision: KinematicCollision3D = move_and_collide(_velocity)
+	if collision:
+		var collider: Node3D = collision.get_collider()
+		if collider.is_in_group("player") and kills:
+			SignalManager.player_death.emit()
+			queue_free()
+
 
 	if position.x < -50.0:
 		queue_free()

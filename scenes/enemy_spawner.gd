@@ -30,7 +30,7 @@ func _ready() -> void:
 	happiness_platform_timer.timeout.connect(_spawn_random_body_from_array.bind(_happiness_platforms, happiness_platform_timer, _default_happiness_platform_timer))
 
 func _spawn_random_body_from_array(_spawn_array: Array[PackedScene], restart_timer: Timer, default_time):
-	var new_body: StaticBody3D = _spawn_array[randi_range(0, _spawn_array.size()-1)].instantiate()
+	var new_body: Node3D = _spawn_array[randi_range(0, _spawn_array.size()-1)].instantiate()
 	_mob_spawn_location.progress_ratio = randf()
 	new_body.position = _mob_spawn_location.position
 	add_child(new_body)

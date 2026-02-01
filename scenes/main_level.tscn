@@ -36,6 +36,10 @@
 [ext_resource type="Script" uid="uid://cop7ws1tf001w" path="res://helper_scripts/act_display.gd" id="23_ndwfr"]
 [ext_resource type="Texture2D" uid="uid://pslxqsx5phyh" path="res://images/Akt_Sign.png" id="24_nc5r2"]
 [ext_resource type="FontFile" uid="uid://clwp7i0is6ff6" path="res://fonts/Limelight-Regular.ttf" id="25_sjhni"]
+[ext_resource type="PackedScene" uid="uid://c7jli8olxg2kv" path="res://prefabs/moving_obstacles/kerzen_deadly_depression.tscn" id="31_uxuvg"]
+[ext_resource type="PackedScene" uid="uid://ce4dkijugbmiv" path="res://prefabs/moving_obstacles/totenkopf_deadly_depression.tscn" id="32_eokwq"]
+[ext_resource type="PackedScene" uid="uid://cl4jytfvyky1o" path="res://prefabs/moving_obstacles/seil_deadly_happiness.tscn" id="33_nk5s2"]
+[ext_resource type="PackedScene" uid="uid://dcdbm450x47wv" path="res://prefabs/moving_obstacles/sessel_deadly_happiness.tscn" id="34_xgm4f"]
 [ext_resource type="PackedScene" uid="uid://66pyfchkgmo2" path="res://prefabs/game_won_screen.tscn" id="36_7ul7a"]
 
 [sub_resource type="Environment" id="Environment_u2c82"]
@@ -345,9 +349,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.638031, -4.129303)
 curve = SubResource("Curve3D_uk2yf")
 script = ExtResource("17_ondrs")
 _mob_spawn_location = NodePath("PathFollow3D")
-_depression_obstacles = Array[PackedScene]([ExtResource("5_0e4v7")])
+_depression_obstacles = Array[PackedScene]([ExtResource("31_uxuvg"), ExtResource("32_eokwq")])
 _depression_platforms = Array[PackedScene]([ExtResource("5_0e4v7")])
-_happiness_obstacles = Array[PackedScene]([ExtResource("19_6nivd")])
+_happiness_obstacles = Array[PackedScene]([ExtResource("33_nk5s2"), ExtResource("34_xgm4f")])
 _happiness_platforms = Array[PackedScene]([ExtResource("19_6nivd")])
 depression_obstacle_timer = NodePath("DepressionObstacle")
 depression_platform_timer = NodePath("DepressionPlatform")
@@ -364,7 +368,7 @@ wait_time = 10.0
 wait_time = 5.0
 
 [node name="HappinessObstacle" type="Timer" parent="ObstacleSpawner" unique_id=659390342]
-wait_time = 10.0
+wait_time = 5.0
 
 [node name="HappynessPlatform" type="Timer" parent="ObstacleSpawner" unique_id=1528940609]
 wait_time = 5.0

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dcdbm450x47wv"]
+
+[ext_resource type="Script" uid="uid://c1ms8u1jsnwqu" path="res://helper_scripts/moving_obstacle.gd" id="1_6ybng"]
+[ext_resource type="ArrayMesh" uid="uid://b8p3f1uvunkqd" path="res://objects/Sessel/Sessel.obj" id="2_goxwr"]
+[ext_resource type="Texture2D" uid="uid://wqq7latbfe7f" path="res://objects/Sessel/Tex/initialShadingGroup_Base_color.png" id="3_4yw7a"]
+[ext_resource type="Texture2D" uid="uid://xqneuqqvv4y7" path="res://objects/Sessel/Tex/initialShadingGroup_Mixed_AO.png" id="4_vigh5"]
+[ext_resource type="Texture2D" uid="uid://dkmhxh1c1ngty" path="res://objects/Sessel/Tex/initialShadingGroup_Height.png" id="5_btjg0"]
+[ext_resource type="Texture2D" uid="uid://csmu5xb30jh14" path="res://objects/Sessel/Tex/initialShadingGroup_Metallic.png" id="6_5lnnr"]
+[ext_resource type="Texture2D" uid="uid://bv0dml8sbdd0x" path="res://objects/Sessel/Tex/initialShadingGroup_Normal_OpenGL.png" id="7_rdw8e"]
+[ext_resource type="Texture2D" uid="uid://d0xivrl4ibaji" path="res://objects/Sessel/Tex/initialShadingGroup_Roughness.png" id="8_7c7br"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4hgu"]
+albedo_texture = ExtResource("3_4yw7a")
+metallic = 1.0
+metallic_texture = ExtResource("6_5lnnr")
+roughness_texture = ExtResource("8_7c7br")
+normal_enabled = true
+normal_texture = ExtResource("7_rdw8e")
+ao_enabled = true
+ao_texture = ExtResource("4_vigh5")
+heightmap_texture = ExtResource("5_btjg0")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ywdct"]
+points = PackedVector3Array(0.2989359, 1.6234946, -0.64248365, 0.34616596, 0.7338386, 0.68202156, -0.49849856, 0.00029855882, -0.38399404, -0.5754427, 1.7933064, -0.14345464, 0.5317724, -0.039562643, -0.30728847, -0.5147169, 0.00048415072, 0.6143855, 0.5649561, 1.8030165, -0.14515899, -0.61133885, 1.1261562, 0.56031966, 0.48112082, -0.00028560395, 0.62522703, -0.46698698, 1.7480768, -0.6189358, 0.58972335, 1.1543024, 0.5853756, 0.53566355, 1.7443664, -0.5571139, -0.05344816, 1.9018811, -0.65245974, 0.40807715, -0.039562643, -0.40010703, -0.57950103, 1.0669008, -0.43724906, -0.28543738, 1.0371909, -0.5812331, 0.62187785, 1.0670773, 0.35361284, 0.4698612, 1.1664551, 0.6200981, -0.5195737, -0.039368927, -0.30728847, 0.40807715, -0.039562643, 0.6509932, 0.59202164, 1.1257341, -0.34975585, -0.43752939, 0.3881381, 0.6524912, -0.55675817, 1.838823, -0.17594004, 0.44424912, 0.95005, -0.5531704, -0.58175963, 1.6847962, -0.43894243, -0.608958, 1.0085869, 0.08958415, 0.5384693, 1.8373411, -0.17564368, 0.5941141, 1.685142, -0.23336668, 0.6207145, 1.0668561, 0.5285243, -0.5186927, 1.1246899, -0.5520773, 0.5299033, 1.0372056, -0.5219579, -0.40491173, 0.6858912, 0.64767206)
+
+[node name="Chair" type="AnimatableBody3D" unique_id=599649174]
+collision_layer = 0
+script = ExtResource("1_6ybng")
+kills = true
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=955599492 groups=["world_happiness"]]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("2_goxwr")
+surface_material_override/0 = SubResource("StandardMaterial3D_g4hgu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=209411750 groups=["world_happiness"]]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ywdct")

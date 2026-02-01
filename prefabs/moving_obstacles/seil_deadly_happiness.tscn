@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cl4jytfvyky1o"]
+
+[ext_resource type="Script" uid="uid://c1ms8u1jsnwqu" path="res://helper_scripts/moving_obstacle.gd" id="1_xlyps"]
+[ext_resource type="ArrayMesh" uid="uid://bto8q5k686lc2" path="res://objects/Seil/Seil.obj" id="2_dt17h"]
+[ext_resource type="Texture2D" uid="uid://w52431i2quh0" path="res://objects/Seil/Tex/initialShadingGroup_Base_color.png" id="3_3jet4"]
+[ext_resource type="Texture2D" uid="uid://bsago1k6o2qlm" path="res://objects/Seil/Tex/initialShadingGroup_Mixed_AO.png" id="4_teqpe"]
+[ext_resource type="Texture2D" uid="uid://cx4pe2clq7e5p" path="res://objects/Seil/Tex/initialShadingGroup_Metallic.png" id="5_rrk4b"]
+[ext_resource type="Texture2D" uid="uid://ysyiqq81dbud" path="res://objects/Seil/Tex/initialShadingGroup_Normal_OpenGL.png" id="6_2wtkf"]
+[ext_resource type="Texture2D" uid="uid://g73e6honpddd" path="res://objects/Seil/Tex/initialShadingGroup_Roughness.png" id="7_li1mq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eke36"]
+albedo_texture = ExtResource("3_3jet4")
+metallic = 1.0
+metallic_texture = ExtResource("5_rrk4b")
+roughness_texture = ExtResource("7_li1mq")
+normal_enabled = true
+normal_texture = ExtResource("6_2wtkf")
+ao_enabled = true
+ao_texture = ExtResource("4_teqpe")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_elfe0"]
+height = 0.31435764
+radius = 0.184802
+
+[node name="Node3D" type="AnimatableBody3D" unique_id=1400028285]
+collision_layer = 0
+script = ExtResource("1_xlyps")
+kills = true
+
+[node name="Seil" type="MeshInstance3D" parent="." unique_id=727855068 groups=["world_happiness"]]
+mesh = ExtResource("2_dt17h")
+surface_material_override/0 = SubResource("StandardMaterial3D_eke36")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1034490463 groups=["world_happiness"]]
+transform = Transform3D(-0.99989307, 0.014625354, 0, -0.014625354, -0.99989307, 0, 0, 0, 1, 0.0087452205, 0.1621917, -0.002971977)
+shape = SubResource("CylinderShape3D_elfe0")
